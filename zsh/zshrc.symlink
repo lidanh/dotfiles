@@ -2,7 +2,14 @@
 export ZSH=$HOME/.dotfiles
 
 # your project folder that we can `c [tab]` to
-export PROJECTS=~/Code
+export PROJECTS=~/Projects
+alias projects='cd $PROJECTS'
+alias wixprojects='cd $PROJECTS/wix'
+alias tmux='tmux attach -t base || tmux new -s base'
+
+# Python 2.7 recognizes unicode
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
 
 # Stash your environment variables in ~/.localrc. This means they'll stay out
 # of your main dotfiles repository (which may be public, like this one), but
@@ -39,6 +46,20 @@ do
 done
 
 unset config_files
+
+plugins=(git brew mvn osx)
+
+# Powerline
+export POWERLINE_CONFIG_COMMAND=/usr/local/bin/powerline-config
+
+[ -n "$TMUX" ] && export TERM=screen-256color
+
+# Java, Maven
+export JAVA_HOME=$(/usr/libexec/java_home)
+export MAVEN_OPTS="-Xmx4096M -Xss128M -XX:+UseG1GC -XX:MaxGCPauseMillis=200 -XX:ParallelGCThreads=10"
+
+# go
+export GOPATH=$HOME/Projects/go
 
 # Better history
 # Credits to https://coderwall.com/p/jpj_6q/zsh-better-history-searching-with-arrow-keys
