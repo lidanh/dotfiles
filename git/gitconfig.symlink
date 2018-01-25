@@ -9,6 +9,11 @@
         wtf     = !$ZSH/bin/git-wtf
         rank-contributors = !$ZSH/bin/git-rank-contributors
         count   = !git shortlog -sn
+        pr      = "!f() { \
+                    BRANCH_NAME=$(git rev-parse --abbrev-ref HEAD); \
+                    git push -u origin $BRANCH_NAME; \
+                    hub pull-request; \
+                  };f "
 [color]
         diff = auto
         status = auto
