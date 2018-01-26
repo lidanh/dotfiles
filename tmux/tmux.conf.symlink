@@ -38,7 +38,7 @@ source /usr/local/lib/python2.7/site-packages/powerline/bindings/tmux/powerline.
 
 # set -g status off
 set -g status on
-set -g status-interval 2
+set -g status-interval 0
 set -g status-left-length 20
 set -g status-right '#(env "$POWERLINE_COMMAND" $POWERLINE_COMMAND_ARGS tmux right -R pane_id=\"`tmux display -p "#""D"`\")'
 set -g status-right-length 150
