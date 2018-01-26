@@ -42,3 +42,12 @@ cask 'macdown'
 cask 'iterm2'
 cask 'adobe-creative-cloud'
 cask 'touchswitcher'
+cask 'dashlane'
+
+# Quick look plugins - https://github.com/sindresorhus/quick-look-plugins
+cask 'qlcolorcode'
+cask 'qlmarkdown'
+cask 'quicklook-json'
+cask 'quicklook-csv'
+cask 'qlprettypatch'
+cask 'qlstephen'
