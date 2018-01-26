@@ -1,6 +1,7 @@
 cask_args appdir: '/Applications'
 
 tap 'homebrew/bundle'
+tap 'caskroom/versions'
 
 brew 'git'
 brew 'nvm'
@@ -23,6 +24,7 @@ brew 'yarn'
 brew 'youtube-dl'
 brew 'hub'
 
+cask 'java8'
 cask 'atom'
 cask 'google-chrome'
 cask 'slack'
