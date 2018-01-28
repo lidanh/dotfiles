@@ -8,5 +8,6 @@ atom.symlink/storage
 atom.symlink/themes
 atom.symlink/blob-store
 atom.symlink/recovery
-
+config.symlink/hub
+config.symlink/configstore/*
 git/gitconfig.local.symlink
