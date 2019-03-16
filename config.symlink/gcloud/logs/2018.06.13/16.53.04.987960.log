@@ -1,0 +1,8 @@
+2018-06-13 16:53:04,990 DEBUG    root            Loaded Command Group: [u'gcloud', u'config']
+2018-06-13 16:53:04,994 DEBUG    root            Loaded Command Group: [u'gcloud', u'config', u'get_value']
+2018-06-13 16:53:04,995 DEBUG    root            Running [gcloud.config.get-value] with arguments: [SECTION/PROPERTY: "project"]
+2018-06-13 16:53:04,996 INFO     ___FILE_ONLY___ Your active configuration is: [lidan-personal]
+
+2018-06-13 16:53:04,996 INFO     root            Display format: "value(.)"
+2018-06-13 16:53:04,997 INFO     ___FILE_ONLY___ kubernetes-ndc-workshop
+

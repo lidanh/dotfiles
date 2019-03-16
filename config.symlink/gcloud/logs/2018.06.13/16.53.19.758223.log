@@ -1,0 +1,11 @@
+2018-06-13 16:53:19,769 DEBUG    root            Loaded Command Group: [u'gcloud', u'projects']
+2018-06-13 16:53:19,778 DEBUG    root            Loaded Command Group: [u'gcloud', u'projects', u'delete']
+2018-06-13 16:53:19,781 DEBUG    root            Running [gcloud.projects.delete] with arguments: [PROJECT_ID: "kubernetes-ndc-workshop"]
+2018-06-13 16:53:25,361 INFO     ___FILE_ONLY___ Deleted [https://cloudresourcemanager.googleapis.com/v1/projects/kubernetes-ndc-workshop].
+
+2018-06-13 16:53:25,361 INFO     ___FILE_ONLY___ 
+You can undo this operation for a limited period by running:
+  $ gcloud projects undelete kubernetes-ndc-workshop
+
+2018-06-13 16:53:25,362 INFO     root            Display format: "none"
+2018-06-13 16:53:25,368 INFO     root            cache collection=cloudresourcemanager.projects api_version=v1 params=[u'projectId']

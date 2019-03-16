@@ -22,6 +22,7 @@ brew 'unrar'
 brew 'wget'
 brew 'yarn'
 brew 'youtube-dl'
+brew 'ffmpeg'
 brew 'hub'
 
 cask 'java8'
@@ -43,6 +44,7 @@ cask 'iterm2'
 cask 'adobe-creative-cloud'
 cask 'touchswitcher'
 cask 'dashlane'
+case 'Karabiner'
 
 # Quick look plugins - https://github.com/sindresorhus/quick-look-plugins
 cask 'qlcolorcode'

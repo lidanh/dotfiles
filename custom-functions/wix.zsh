@@ -21,3 +21,10 @@ function wixmvn() {
       echo "WIX maven settings: on"
   fi
 }
+
+function fixeventim() {
+  git checkout master
+  git pull
+  git nuke fix-eventim
+  git checkout -b fix-eventim
+}

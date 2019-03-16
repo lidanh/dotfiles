@@ -1,0 +1,11 @@
+2018-06-13 15:40:55,142 DEBUG    root            Loaded Command Group: [u'gcloud', u'container']
+2018-06-13 15:40:55,145 DEBUG    root            Loaded Command Group: [u'gcloud', u'container', u'clusters']
+2018-06-13 15:40:55,146 DEBUG    root            Loaded Command Group: [u'gcloud', u'container', u'clusters', u'get_credentials']
+2018-06-13 15:40:55,179 DEBUG    root            Running [gcloud.container.clusters.get-credentials] with arguments: [NAME: "cv-cluster"]
+2018-06-13 15:40:55,193 INFO     ___FILE_ONLY___ Fetching cluster endpoint and auth data.
+
+2018-06-13 15:40:55,479 DEBUG    root            unable to load default kubeconfig: unable to load kubeconfig for /Users/lidanh/.kube/config: [Errno 2] No such file or directory: u'/Users/lidanh/.kube/config'; recreating /Users/lidanh/.kube/config
+2018-06-13 15:40:55,491 DEBUG    root            Saved kubeconfig to /Users/lidanh/.kube/config
+2018-06-13 15:40:55,491 INFO     ___FILE_ONLY___ kubeconfig entry generated for cv-cluster.
+
+2018-06-13 15:40:55,492 INFO     root            Display format: "default"

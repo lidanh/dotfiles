@@ -1,0 +1,38 @@
+2018-06-13 15:26:09,553 DEBUG    root            Loaded Command Group: [u'gcloud', u'init']
+2018-06-13 15:26:09,555 DEBUG    root            Running [gcloud.init] with arguments: []
+2018-06-13 15:26:09,555 INFO     ___FILE_ONLY___ Welcome! This command will take you through the configuration of gcloud.
+
+
+2018-06-13 15:26:09,557 INFO     ___FILE_ONLY___ Settings from your current configuration [default] are:
+
+2018-06-13 15:26:09,559 INFO     ___FILE_ONLY___ core:
+  account: lidanh@wix.com
+  disable_usage_reporting: 'True'
+  project: kubernetes-workshop-ndc
+
+2018-06-13 15:26:09,559 INFO     ___FILE_ONLY___ 
+
+2018-06-13 15:26:27,946 INFO     ___FILE_ONLY___ Your current configuration has been set to: [kubernetes-ndc]
+
+
+2018-06-13 15:26:27,946 INFO     ___FILE_ONLY___ You can skip diagnostics next time by using the following flag:
+
+2018-06-13 15:26:27,946 INFO     ___FILE_ONLY___   gcloud init --skip-diagnostics
+
+
+2018-06-13 15:26:27,947 INFO     ___FILE_ONLY___ Network diagnostic detects and fixes local network connection issues.
+
+2018-06-13 15:26:27,952 INFO     ___FILE_ONLY___ Checking network connection...
+2018-06-13 15:26:30,965 INFO     ___FILE_ONLY___ Reachability Check passed.
+
+2018-06-13 15:26:30,966 INFO     ___FILE_ONLY___ Network diagnostic (1/1 checks) passed.
+
+
+2018-06-13 15:26:34,284 INFO     ___FILE_ONLY___ You are logged in as: [lidanh@wix.com].
+
+
+2018-06-13 15:26:44,998 INFO     ___FILE_ONLY___ 
+
+Command killed by keyboard interrupt
+
+

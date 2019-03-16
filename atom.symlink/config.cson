@@ -3,6 +3,8 @@
     closeDeletedFileTabs: true
     closeEmptyWindows: false
     telemetryConsent: "limited"
+  editor:
+    fontSize: 15
   "exception-reporting":
     userId: "438c866f-caef-42e9-aecf-ac37828ec2bf"
   welcome:

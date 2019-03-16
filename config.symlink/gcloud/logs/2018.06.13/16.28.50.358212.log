@@ -1,0 +1,28 @@
+2018-06-13 16:28:50,370 DEBUG    root            Loaded Command Group: [u'gcloud', u'config']
+2018-06-13 16:28:50,372 DEBUG    root            Loaded Command Group: [u'gcloud', u'config', u'config_helper']
+2018-06-13 16:28:50,374 DEBUG    root            Running [gcloud.config.config-helper] with arguments: [--format: "json"]
+2018-06-13 16:28:50,379 INFO     root            Display format: "default json"
+2018-06-13 16:28:50,380 INFO     ___FILE_ONLY___ {
+  "configuration": {
+    "active_configuration": "lidan-personal",
+    "properties": {
+      "compute": {
+        "zone": "europe-west2-b"
+      },
+      "core": {
+        "account": "euroil@gmail.com",
+        "disable_usage_reporting": "True",
+        "project": "kubernetes-ndc-workshop"
+      }
+    }
+  },
+  "credential": {
+    "access_token": "ya29.GlvZBZ6KP4V6UkmBjYwUvBS5DmVGBJ5L8FKDwGf6Psu5P-DCVJiqQQ1k_rzYsOwH0K3x4dOsT4j01pNw4-M8hxY_6WOplNyfmFea9v8_ddH3fCsRMk_uO6v_3jMq",
+    "token_expiry": "2018-06-13T15:28:49Z"
+  },
+  "sentinels": {
+    "config_sentinel": "/Users/lidanh/.config/gcloud/config_sentinel"
+  }
+}
+2018-06-13 16:28:50,380 INFO     ___FILE_ONLY___ 
+

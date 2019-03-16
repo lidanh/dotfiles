@@ -1,0 +1,78 @@
+{
+  "title": "Logitech Wireless Presenter",
+  "rules": [
+    {
+      "description": "Logitech R700 + Preview: Page-Up/Down to Left/Right-Arrow and F5 to Cmd-Shift-F",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": { "key_code": "page_up" },
+          "to": [ { "key_code": "left_arrow" } ],
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 1133,
+                  "product_id": 50477
+                }
+              ]
+            },
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [ "^com\\.apple\\.iWork\\.Keynote$" ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": { "key_code": "page_down" },
+          "to": [ { "key_code": "right_arrow" } ],
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 1133,
+                  "product_id": 50477
+                }
+              ]
+            },
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [ "^com\\.apple\\.iWork\\.Keynote$" ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": { "key_code": "f5" },
+          "to": [
+            {
+                "key_code": "f",
+                "modifiers": [
+                    "left_command",
+                    "left_shift"
+                ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 1133,
+                  "product_id": 50477
+                }
+              ]
+            },
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [ "^com\\.apple\\.iWork\\.Keynote$" ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

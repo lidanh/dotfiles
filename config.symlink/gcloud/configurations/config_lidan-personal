@@ -1,0 +1,7 @@
+[core]
+account = euroil@gmail.com
+project = kubernetes-ndc-workshop
+
+[compute]
+zone = europe-west2-b
+
