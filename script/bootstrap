@@ -137,8 +137,24 @@ install_dotfiles () {
   done
 }
 
+install_intellij () {
+  INTELLIJ_ROOT=~/Library/Preferences/IntelliJIdea2018.3
+
+  local overwrite_all=false backup_all=false skip_all=false
+
+  link_file "$DOTFILES_ROOT/IntelliJ/keymaps" "$INTELLIJ_ROOT/keymaps"
+  link_file "$DOTFILES_ROOT/IntelliJ/colors" "$INTELLIJ_ROOT/colors"
+  link_file "$DOTFILES_ROOT/IntelliJ/options/keymap.xml" "$INTELLIJ_ROOT/options/keymap.xml"
+  link_file "$DOTFILES_ROOT/IntelliJ/options/editor.xml" "$INTELLIJ_ROOT/options/editor.xml"
+  link_file "$DOTFILES_ROOT/IntelliJ/options/watcherDefaultTasks.xml" "$INTELLIJ_ROOT/options/watcherDefaultTasks.xml"
+  link_file "$DOTFILES_ROOT/IntelliJ/options/colors.scheme.xml" "$INTELLIJ_ROOT/options/colors.scheme.xml"
+  link_file "$DOTFILES_ROOT/IntelliJ/options/mavenVersion.xml" "$INTELLIJ_ROOT/options/mavenVersion.xml"
+  link_file "$DOTFILES_ROOT/IntelliJ/idea.vmoptions" "$INTELLIJ_ROOT/idea.vmoptions"
+}
+
 setup_gitconfig
 install_dotfiles
+
 
 # If we're on a Mac, let's install and setup homebrew.
 if [ "$(uname -s)" == "Darwin" ]
@@ -151,6 +167,8 @@ then
     fail "error installing dependencies"
   fi
 fi
+
+install_intellij
 
 echo ''
 echo '  All installed!'
