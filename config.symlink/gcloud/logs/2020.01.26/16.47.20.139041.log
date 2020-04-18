@@ -1,0 +1,48 @@
+2020-01-26 16:47:20,151 DEBUG    root            Loaded Command Group: [u'gcloud', u'info']
+2020-01-26 16:47:20,154 DEBUG    root            Running [gcloud.info] with arguments: []
+2020-01-26 16:47:20,240 INFO     root            Explicit Display.
+2020-01-26 16:47:20,241 INFO     ___FILE_ONLY___ Google Cloud SDK [204.0.0]
+
+Platform: [Mac OS X, x86_64] ('Darwin', 'Lidan-Macbook.local', '18.6.0', 'Darwin Kernel Version 18.6.0: Thu Apr 25 23:16:27 PDT 2019; root:xnu-4903.261.4~2/RELEASE_X86_64', 'x86_64', 'i386')
+Python Version: [2.7.17 (default, Oct 24 2019, 12:57:47)  [GCC 4.2.1 Compatible Apple LLVM 11.0.0 (clang-1100.0.33.8)]]
+Python Location: [/usr/local/Cellar/python@2/2.7.17/Frameworks/Python.framework/Versions/2.7/Resources/Python.app/Contents/MacOS/Python]
+Site Packages: [Disabled]
+
+Installation Root: [/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk]
+Installed Components:
+  kubectl: []
+  gsutil: [4.31]
+  bq: [2.0.34]
+  core: [2018.06.04]
+System PATH: [./bin:/usr/local/bin:/usr/local/sbin:/Users/lidanh/.dotfiles/bin:/usr/local/anaconda3/bin:/Users/lidanh/Projects/go/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin]
+Python PATH: [/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/lib/third_party:/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/lib:/usr/local/Cellar/python@2/2.7.17/Frameworks/Python.framework/Versions/2.7/lib/python27.zip:/usr/local/Cellar/python@2/2.7.17/Frameworks/Python.framework/Versions/2.7/lib/python2.7:/usr/local/Cellar/python@2/2.7.17/Frameworks/Python.framework/Versions/2.7/lib/python2.7/plat-darwin:/usr/local/Cellar/python@2/2.7.17/Frameworks/Python.framework/Versions/2.7/lib/python2.7/plat-mac:/usr/local/Cellar/python@2/2.7.17/Frameworks/Python.framework/Versions/2.7/lib/python2.7/plat-mac/lib-scriptpackages:/usr/local/Cellar/python@2/2.7.17/Frameworks/Python.framework/Versions/2.7/lib/python2.7/lib-tk:/usr/local/Cellar/python@2/2.7.17/Frameworks/Python.framework/Versions/2.7/lib/python2.7/lib-old:/usr/local/Cellar/python@2/2.7.17/Frameworks/Python.framework/Versions/2.7/lib/python2.7/lib-dynload]
+Cloud SDK on PATH: [False]
+Kubectl on PATH: [/usr/local/bin/kubectl]
+
+WARNING: There are old versions of the Google Cloud Platform tools on your system PATH.
+  /usr/local/Cellar/kubernetes-cli/1.16.2/bin/kubectl
+
+Installation Properties: [/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/properties]
+User Config Directory: [/Users/lidanh/.config/gcloud]
+Active Configuration Name: [lidan-personal]
+Active Configuration Path: [/Users/lidanh/.config/gcloud/configurations/config_lidan-personal]
+
+Account: [lidanh@wix.com]
+Project: [kubernetes-ndc-workshop]
+
+Current Properties:
+  [core]
+    project: [kubernetes-ndc-workshop]
+    account: [lidanh@wix.com]
+    disable_usage_reporting: [True]
+  [compute]
+    zone: [europe-west2-b]
+
+Logs Directory: [/Users/lidanh/.config/gcloud/logs]
+Last Log File: [/Users/lidanh/.config/gcloud/logs/2020.01.26/16.47.15.465293.log]
+
+git: [git version 2.23.0]
+ssh: [OpenSSH_7.9p1, LibreSSL 2.7.3]
+
+
+

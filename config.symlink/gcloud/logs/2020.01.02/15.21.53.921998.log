@@ -1,0 +1,22 @@
+2020-01-02 15:21:53,923 DEBUG    root            Loaded Command Group: [u'gcloud', u'auth']
+2020-01-02 15:21:53,925 DEBUG    root            Loaded Command Group: [u'gcloud', u'auth', u'application_default']
+2020-01-02 15:21:53,928 DEBUG    root            Loaded Command Group: [u'gcloud', u'auth', u'application-default', u'login']
+2020-01-02 15:21:53,931 DEBUG    root            Running [gcloud.auth.application-default.login] with arguments: []
+2020-01-02 15:21:54,216 INFO     ___FILE_ONLY___ Your browser has been opened to visit:
+
+    https://accounts.google.com/o/oauth2/auth?redirect_uri=http%3A%2F%2Flocalhost%3A8085%2F&prompt=select_account&response_type=code&client_id=764086051850-6qr4p6gpi6hn506pt8ejuq83di341hur.apps.googleusercontent.com&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcloud-platform&access_type=offline
+
+
+
+2020-01-02 15:22:01,152 INFO     oauth2client.client Successfully retrieved access token
+2020-01-02 15:22:01,158 INFO     ___FILE_ONLY___ 
+Credentials saved to file: [/Users/lidanh/.config/gcloud/application_default_credentials.json]
+
+2020-01-02 15:22:01,158 INFO     ___FILE_ONLY___ 
+These credentials will be used by any library that requests
+Application Default Credentials.
+
+To generate an access token for other uses, run:
+  gcloud auth application-default print-access-token
+
+2020-01-02 15:22:01,159 INFO     root            Display format: "none"

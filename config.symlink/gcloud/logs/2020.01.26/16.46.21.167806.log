@@ -1,0 +1,12 @@
+2020-01-26 16:46:21,170 DEBUG    root            Loaded Command Group: [u'gcloud', u'config']
+2020-01-26 16:46:21,174 DEBUG    root            Loaded Command Group: [u'gcloud', u'config', u'get_value']
+2020-01-26 16:46:21,177 DEBUG    root            Running [gcloud.config.get-value] with arguments: [--format: "json", SECTION/PROPERTY: "account"]
+2020-01-26 16:46:21,177 INFO     ___FILE_ONLY___ Your active configuration is: [lidan-personal]
+
+2020-01-26 16:46:21,178 INFO     root            Display format: "value(.) json"
+2020-01-26 16:46:21,179 INFO     ___FILE_ONLY___ "lidanh@wix.com"
+2020-01-26 16:46:21,179 INFO     ___FILE_ONLY___ 
+
+2020-01-26 16:46:21,188 DEBUG    root            Checking for updates...
+2020-01-26 16:46:21,679 DEBUG    root            Updating notification cache...
+2020-01-26 16:46:21,679 DEBUG    root            Activating notification: [default]

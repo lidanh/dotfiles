@@ -47,7 +47,7 @@ done
 
 unset config_files
 
-plugins=(git brew mvn osx)
+plugins=(git brew aws osx)
 
 # Powerline
 export POWERLINE_CONFIG_COMMAND=/usr/local/bin/powerline-config
@@ -62,10 +62,6 @@ export MAVEN_OPTS="-Xmx4096M -Xss128M -XX:+UseG1GC -XX:MaxGCPauseMillis=200 -XX:
 export ANDROID_SDK_ROOT="/usr/local/share/android-sdk"
 export ANDROID_HOME="/Users/lidanh/Library/Android/sdk"
 
-# nvm
-export NVM_DIR="$HOME/.nvm"
-. "/usr/local/opt/nvm/nvm.sh"
-
 # go
 export GOPATH=$HOME/Projects/go
 
@@ -77,3 +73,4 @@ zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
 bindkey "^[[A" up-line-or-beginning-search # Up
 bindkey "^[[B" down-line-or-beginning-search # Down
+source /Users/lidanh/.bazelenv

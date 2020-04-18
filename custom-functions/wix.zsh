@@ -2,15 +2,8 @@ function wixssh() {
   ssh $1.wixprod.net -p 41278
 }
 
-function wixnpm() {
-  if [[ $(npm config get registry) == "https://registry.npmjs.org/"  ]]; then
-      npm config set registry http://repo.dev.wix/artifactory/api/npm/npm-repos
-      echo "set npm registry to wix: http://repo.dev.wix/artifactory/api/npm/npm-repos"
-  else
-      npm config set registry https://registry.npmjs.org/
-      echo "set npm registry to default: https://registry.npmjs.org/"
-  fi
-}
+alias npmpublic="npm config set registry https://registry.npmjs.org/ && npm config get registry"
+alias npmprivate="npm config set registry http://npm.dev.wixpress.com && npm config get registry"
 
 function wixmvn() {
   if [[ -f ~/.m2/settings.xml  ]]; then
@@ -22,9 +15,21 @@ function wixmvn() {
   fi
 }
 
-function fixeventim() {
+function revertbabel() {
   git checkout master
   git pull
-  git nuke fix-eventim
-  git checkout -b fix-eventim
+  git nuke revertbabel
+  git checkout -b revertbabel
+  git revert $1 --no-edit
+  git commit --allow-empty -m "#automerge"
+  git push origin revertbabel
+  open https://github.com/wix-private/wixos/pull/new/revertbabel
+}
+
+function bazelfulltest {
+  bazel test --config=ut-only $1 && bazel test --config=it $1
+}
+
+function bazeladd3rd {
+  bazel run @bazel_tooling//define_maven_deps $1
 }

@@ -1,0 +1,24 @@
+2020-01-02 15:21:44,321 DEBUG    root            Loaded Command Group: [u'gcloud', u'auth']
+2020-01-02 15:21:44,325 DEBUG    root            Loaded Command Group: [u'gcloud', u'auth', u'login']
+2020-01-02 15:21:44,328 DEBUG    root            Running [gcloud.auth.login] with arguments: [ACCOUNT: "lidanh@wix.com"]
+2020-01-02 15:21:44,337 INFO     oauth2client.client Refreshing access_token
+2020-01-02 15:21:45,116 INFO     oauth2client.client Failed to retrieve access token: {
+  "error": "invalid_grant",
+  "error_description": "Bad Request"
+}
+2020-01-02 15:21:47,075 INFO     ___FILE_ONLY___ Your browser has been opened to visit:
+
+    https://accounts.google.com/o/oauth2/auth?redirect_uri=http%3A%2F%2Flocalhost%3A8085%2F&prompt=select_account&response_type=code&client_id=32555940559.apps.googleusercontent.com&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcloud-platform+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fappengine.admin+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcompute+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Faccounts.reauth&access_type=offline
+
+
+
+2020-01-02 15:21:53,264 INFO     oauth2client.client Successfully retrieved access token
+2020-01-02 15:21:53,277 WARNING  root            `gcloud auth login` no longer writes application default credentials.
+If you need to use ADC, see:
+  gcloud auth application-default --help
+2020-01-02 15:21:53,278 INFO     ___FILE_ONLY___ 
+You are now logged in as [lidanh@wix.com].
+Your current project is [kubernetes-ndc-workshop].  You can change this setting by running:
+  $ gcloud config set project PROJECT_ID
+
+2020-01-02 15:21:53,279 INFO     root            Display format: "none"

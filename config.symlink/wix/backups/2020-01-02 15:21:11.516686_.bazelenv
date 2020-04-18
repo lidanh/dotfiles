@@ -1,0 +1,4 @@
+export mongo_repository_cache=/Users/lidanh/.bazelcache/mongo
+export mysql_repository_cache=/Users/lidanh/.bazelcache/mysql
+export DOCKER_REPO_CACHE=/Users/lidanh/.bazelcache/docker
+export NPM_CONFIG_REGISTRY=http://npm.dev.wixpress.com
