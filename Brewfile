@@ -1,7 +1,7 @@
 cask_args appdir: '/Applications'
 
 tap 'homebrew/bundle'
-tap 'caskroom/versions'
+tap 'homebrew/cask-versions'
 
 cask 'java8'
 
