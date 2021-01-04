@@ -1,0 +1,83 @@
+[2020-07-05 13:31:51,989] [pid=4487] [[32mINFO[0m]: Lock auto-refresh thread has started...
+[2020-07-05 13:31:51,989] [pid=4487] [[32mINFO[0m]: Reporter starting...
+[2020-07-05 13:31:51,990] [pid=4487] [[33mDEBUG[0m]: Refresh interval is 20.0s
+[2020-07-05 13:31:51,990] [pid=4487] [[32mINFO[0m]: Going to process profile: /Users/lidanh/.config/wix/bazelwrapper/profiles/908924e6-6733-4590-a7c4-4dfb4d3b2ab4.prof.gz
+[2020-07-05 13:31:51,990] [pid=4487] [[33mDEBUG[0m]: Gzip compression for Frog? False
+[2020-07-05 13:31:51,991] [pid=4487] [[33mDEBUG[0m]: Frog batch API disabled? False
+[2020-07-05 13:31:52,002] [pid=4487] [[32mINFO[0m]: Processing profile for build_id='0e353cb7-9be8-4ab1-93b5-930b96778a45'
+[2020-07-05 13:31:53,002] [pid=4487] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-05 13:31:53,181] [pid=4487] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-05 13:31:53,358] [pid=4487] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-05 13:31:53,536] [pid=4487] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-05 13:31:53,536] [pid=4487] [[33mDEBUG[0m]: 200 events processed...
+[2020-07-05 13:31:53,714] [pid=4487] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-05 13:31:53,895] [pid=4487] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-05 13:31:54,075] [pid=4487] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-05 13:31:54,253] [pid=4487] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-05 13:31:54,253] [pid=4487] [[33mDEBUG[0m]: 400 events processed...
+[2020-07-05 13:31:54,761] [pid=4487] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-05 13:31:55,271] [pid=4487] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-05 13:31:55,787] [pid=4487] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-05 13:31:56,312] [pid=4487] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-05 13:31:56,313] [pid=4487] [[33mDEBUG[0m]: 600 events processed...
+[2020-07-05 13:31:56,494] [pid=4487] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-05 13:31:57,003] [pid=4487] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-05 13:31:57,183] [pid=4487] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-05 13:31:57,692] [pid=4487] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-05 13:31:57,692] [pid=4487] [[33mDEBUG[0m]: 800 events processed...
+[2020-07-05 13:31:57,873] [pid=4487] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-05 13:31:58,384] [pid=4487] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-05 13:31:58,894] [pid=4487] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-05 13:31:59,404] [pid=4487] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-05 13:31:59,404] [pid=4487] [[33mDEBUG[0m]: 1000 events processed...
+[2020-07-05 13:31:59,919] [pid=4487] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-05 13:32:00,099] [pid=4487] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-05 13:32:00,279] [pid=4487] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-05 13:32:00,459] [pid=4487] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-05 13:32:00,460] [pid=4487] [[33mDEBUG[0m]: 1200 events processed...
+[2020-07-05 13:32:00,639] [pid=4487] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-05 13:32:00,820] [pid=4487] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-05 13:32:00,821] [pid=4487] [[33mDEBUG[0m]: Analysis phase duration recorded.
+[2020-07-05 13:32:01,004] [pid=4487] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-05 13:32:01,184] [pid=4487] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-05 13:32:01,184] [pid=4487] [[33mDEBUG[0m]: 1400 events processed...
+[2020-07-05 13:32:01,695] [pid=4487] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-05 13:32:02,532] [pid=4487] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-05 13:32:03,119] [pid=4487] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-05 13:32:03,617] [pid=4487] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-05 13:32:03,618] [pid=4487] [[33mDEBUG[0m]: 1600 events processed...
+[2020-07-05 13:32:04,499] [pid=4487] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-05 13:32:04,838] [pid=4487] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-05 13:32:05,181] [pid=4487] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-05 13:32:05,182] [pid=4487] [[33mDEBUG[0m]: Finish event found. Total build time recorded.
+[2020-07-05 13:32:05,182] [pid=4487] [[32mINFO[0m]: Sending build stats event...
+[2020-07-05 13:32:05,357] [pid=4487] [[32mINFO[0m]: Stats event send successfully.
+[2020-07-05 13:32:05,530] [pid=4487] [[33mDEBUG[0m]: Batch sent successfully (size=10)
+[2020-07-05 13:32:05,530] [pid=4487] [[33mDEBUG[0m]: Successfully sent 1760 events out of 1760 events sent.
+[2020-07-05 13:32:05,530] [pid=4487] [[32mINFO[0m]: Finished processing profile '/Users/lidanh/.config/wix/bazelwrapper/profiles/908924e6-6733-4590-a7c4-4dfb4d3b2ab4.prof.gz'.
+[2020-07-05 13:32:05,531] [pid=4487] [[33mDEBUG[0m]: Deleting profile: /Users/lidanh/.config/wix/bazelwrapper/profiles/908924e6-6733-4590-a7c4-4dfb4d3b2ab4.prof.gz
+[2020-07-05 13:32:05,531] [pid=4487] [[33mDEBUG[0m]: Deleting profile info file: /Users/lidanh/.config/wix/bazelwrapper/profiles/908924e6-6733-4590-a7c4-4dfb4d3b2ab4.prof.gz.info
+[2020-07-05 13:32:05,532] [pid=4487] [[32mINFO[0m]: Reporter finished.
+[2020-07-05 14:02:41,835] [pid=5347] [[32mINFO[0m]: Lock auto-refresh thread has started...
+[2020-07-05 14:02:41,836] [pid=5347] [[33mDEBUG[0m]: Refresh interval is 20.0s
+[2020-07-05 14:02:41,836] [pid=5347] [[32mINFO[0m]: Reporter starting...
+[2020-07-05 14:02:41,836] [pid=5347] [[32mINFO[0m]: Going to process profile: /Users/lidanh/.config/wix/bazelwrapper/profiles/e41a0ac4-a8f0-4059-a9c0-a3fb5891caf8.prof.gz
+[2020-07-05 14:02:41,836] [pid=5347] [[33mDEBUG[0m]: Gzip compression for Frog? False
+[2020-07-05 14:02:41,836] [pid=5347] [[33mDEBUG[0m]: Frog batch API disabled? False
+[2020-07-05 14:02:41,838] [pid=5347] [[32mINFO[0m]: Processing profile for build_id='7e9d11a6-651b-46c8-88b7-76d91674f2b3'
+[2020-07-05 14:02:42,946] [pid=5347] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-05 14:02:43,125] [pid=5347] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-05 14:02:43,296] [pid=5347] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-05 14:02:43,472] [pid=5347] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-05 14:02:43,473] [pid=5347] [[33mDEBUG[0m]: 200 events processed...
+[2020-07-05 14:02:43,473] [pid=5347] [[33mDEBUG[0m]: Analysis phase duration recorded.
+[2020-07-05 14:02:43,643] [pid=5347] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-05 14:02:43,643] [pid=5347] [[33mDEBUG[0m]: Finish event found. Total build time recorded.
+[2020-07-05 14:02:43,644] [pid=5347] [[32mINFO[0m]: Sending build stats event...
+[2020-07-05 14:02:43,806] [pid=5347] [[32mINFO[0m]: Stats event send successfully.
+[2020-07-05 14:02:43,972] [pid=5347] [[33mDEBUG[0m]: Batch sent successfully (size=35)
+[2020-07-05 14:02:43,972] [pid=5347] [[33mDEBUG[0m]: Successfully sent 285 events out of 285 events sent.
+[2020-07-05 14:02:43,972] [pid=5347] [[32mINFO[0m]: Finished processing profile '/Users/lidanh/.config/wix/bazelwrapper/profiles/e41a0ac4-a8f0-4059-a9c0-a3fb5891caf8.prof.gz'.
+[2020-07-05 14:02:43,972] [pid=5347] [[33mDEBUG[0m]: Deleting profile: /Users/lidanh/.config/wix/bazelwrapper/profiles/e41a0ac4-a8f0-4059-a9c0-a3fb5891caf8.prof.gz
+[2020-07-05 14:02:43,973] [pid=5347] [[33mDEBUG[0m]: Deleting profile info file: /Users/lidanh/.config/wix/bazelwrapper/profiles/e41a0ac4-a8f0-4059-a9c0-a3fb5891caf8.prof.gz.info
+[2020-07-05 14:02:43,973] [pid=5347] [[32mINFO[0m]: Reporter finished.

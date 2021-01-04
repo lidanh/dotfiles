@@ -1,8 +1,8 @@
 {
-  "version": "1.0.314",
+  "version": "1.0.402",
   "target_platform": "MACOS",
-  "timestamp_utc": 1580042870.158663,
-  "timestamp_utc_iso": "2020-01-26T14:47:50.159722",
+  "timestamp_utc": 1590865384.802486,
+  "timestamp_utc_iso": "2020-05-30T22:03:04.802734",
   "arguments": {
     "flags": {
       "no_update": true,
@@ -42,9 +42,9 @@
       "expected_component_versions": {
         "python2": "2.7.0",
         "python3": "3.6.8",
-        "buildozer": "0.29.0",
-        "buildifier": "0.29.0",
-        "bazel": "1.2.1"
+        "buildozer": "2.0.0",
+        "buildifier": "2.0.0",
+        "bazel": "2.1.0"
       },
       "expected_sha256": {
         "bazelisk": {
@@ -77,8 +77,11 @@
     }
   },
   "execution_summary": {
-    "problem_count": 3,
-    "total_count": 22,
+    "failed_component_ids": [
+      "protoc-check",
+      "python2"
+    ],
+    "total_count": 2,
     "aborted": false
   }
 }

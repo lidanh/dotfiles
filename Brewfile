@@ -28,6 +28,7 @@ brew 'ffmpeg'
 brew 'hub'
 brew 'kubernetes-cli'
 brew 'awscli'
+brew 'fd'
 
 cask 'atom'
 cask 'google-chrome'

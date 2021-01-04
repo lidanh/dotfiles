@@ -1,8 +1,0 @@
-2020-01-26 16:47:15,466 DEBUG    root            Loaded Command Group: [u'gcloud', u'auth']
-2020-01-26 16:47:15,469 DEBUG    root            Loaded Command Group: [u'gcloud', u'auth', u'application_default']
-2020-01-26 16:47:15,472 DEBUG    root            Loaded Command Group: [u'gcloud', u'auth', u'application-default', u'print_access_token']
-2020-01-26 16:47:15,474 DEBUG    root            Running [gcloud.auth.application-default.print-access-token] with arguments: []
-2020-01-26 16:47:15,482 INFO     oauth2client.client Refreshing access_token
-2020-01-26 16:47:15,772 INFO     root            Display format: "value(access_token)"
-2020-01-26 16:47:15,772 INFO     ___FILE_ONLY___ ya29.ImC7B0aYcV4_9r5G2lg9-mq3tmZmdSNsAV3kjzca-Sm9UvfrRqu3CA6VMqxeUWUISVfqCakJ9wbAYMAzjhzQ8lnzQbekXMPFmJhxJhCy-CiIZSDqtBvIJjZddMLhgZLa2Fs
-

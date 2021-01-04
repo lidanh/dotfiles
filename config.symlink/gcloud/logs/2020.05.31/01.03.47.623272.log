@@ -1,0 +1,48 @@
+2020-05-31 01:03:47,632 DEBUG    root            Loaded Command Group: [u'gcloud', u'info']
+2020-05-31 01:03:47,635 DEBUG    root            Running [gcloud.info] with arguments: []
+2020-05-31 01:03:47,892 INFO     root            Explicit Display.
+2020-05-31 01:03:47,893 INFO     ___FILE_ONLY___ Google Cloud SDK [204.0.0]
+
+Platform: [Mac OS X, x86_64] ('Darwin', 'Lidan-Macbook.local', '18.6.0', 'Darwin Kernel Version 18.6.0: Thu Apr 25 23:16:27 PDT 2019; root:xnu-4903.261.4~2/RELEASE_X86_64', 'x86_64', 'i386')
+Python Version: [2.7.10 (default, Feb 22 2019, 21:55:15)  [GCC 4.2.1 Compatible Apple LLVM 10.0.1 (clang-1001.0.37.14)]]
+Python Location: [/System/Library/Frameworks/Python.framework/Versions/2.7/Resources/Python.app/Contents/MacOS/Python]
+Site Packages: [Disabled]
+
+Installation Root: [/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk]
+Installed Components:
+  kubectl: []
+  gsutil: [4.31]
+  bq: [2.0.34]
+  core: [2018.06.04]
+System PATH: [./bin:/usr/local/bin:/usr/local/sbin:/Users/lidanh/.dotfiles/bin:/usr/local/anaconda3/bin:/Users/lidanh/Projects/go/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:./bin:/usr/local/sbin:/Users/lidanh/.dotfiles/bin:/usr/local/anaconda3/bin:/Users/lidanh/Projects/go/bin:/usr/local/opt/fzf/bin]
+Python PATH: [/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/lib/third_party:/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/lib:/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python27.zip:/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/:/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/plat-darwin:/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/plat-mac:/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/plat-mac/lib-scriptpackages:/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/lib-tk:/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/lib-old:/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/lib-dynload]
+Cloud SDK on PATH: [False]
+Kubectl on PATH: [/usr/local/bin/kubectl]
+
+WARNING: There are old versions of the Google Cloud Platform tools on your system PATH.
+  /usr/local/Cellar/kubernetes-cli/1.18.2/bin/kubectl
+
+Installation Properties: [/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/properties]
+User Config Directory: [/Users/lidanh/.config/gcloud]
+Active Configuration Name: [lidan-personal]
+Active Configuration Path: [/Users/lidanh/.config/gcloud/configurations/config_lidan-personal]
+
+Account: [lidanh@wix.com]
+Project: [kubernetes-ndc-workshop]
+
+Current Properties:
+  [core]
+    project: [kubernetes-ndc-workshop]
+    account: [lidanh@wix.com]
+    disable_usage_reporting: [True]
+  [compute]
+    zone: [europe-west2-b]
+
+Logs Directory: [/Users/lidanh/.config/gcloud/logs]
+Last Log File: [/Users/lidanh/.config/gcloud/logs/2020.05.31/01.03.41.738900.log]
+
+git: [git version 2.26.1]
+ssh: [OpenSSH_7.9p1, LibreSSL 2.7.3]
+
+
+

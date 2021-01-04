@@ -1,0 +1,747 @@
+[2020-09-25 23:12:24,495] [pid=55383] [[32m[32mINFO[0m:[0m]: Lock auto-refresh thread has started...
+[2020-09-25 23:12:24,495] [pid=55383] [[32m[32mINFO[0m:[0m]: Reporter starting...
+[2020-09-25 23:12:24,498] [pid=55383] [[33m[33mDEBUG[0m:[0m]: Refresh interval is 20.0s
+[2020-09-25 23:12:24,498] [pid=55383] [[33m[33mDEBUG[0m:[0m]: Env-var 'WIX_DEVEX_BI_PROFILES_PATH' does not exist.
+[2020-09-25 23:12:24,498] [pid=55383] [[33m[33mDEBUG[0m:[0m]: Using default value '/Users/lidanh/.config/wix/bazelwrapper/profiles'
+[2020-09-25 23:12:24,498] [pid=55383] [[32m[32mINFO[0m:[0m]: Going to process profile: /Users/lidanh/.config/wix/bazelwrapper/profiles/b65f4688-64f4-48a5-a96c-d06c68e7c393.prof.gz
+[2020-09-25 23:12:24,498] [pid=55383] [[33m[33mDEBUG[0m:[0m]: Gzip compression for Frog? False
+[2020-09-25 23:12:24,498] [pid=55383] [[33m[33mDEBUG[0m:[0m]: Frog batch API disabled? False
+[2020-09-25 23:12:24,498] [pid=55383] [[33m[33mDEBUG[0m:[0m]: Env-var 'WIX_DEVEX_FROG_BATCH_SIZE' does not exist.
+[2020-09-25 23:12:24,498] [pid=55383] [[33m[33mDEBUG[0m:[0m]: Using default value '50'
+[2020-09-25 23:12:24,498] [pid=55383] [[33m[33mDEBUG[0m:[0m]: Frog batch size is set to? 50
+[2020-09-25 23:12:24,499] [pid=55383] [[32m[32mINFO[0m:[0m]: Processing profile for build_id='12595e41-70cb-4078-854e-f2f7fd1b18a5'
+[2020-09-25 23:12:25,504] [pid=55383] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:12:25,506] [pid=55383] [[33m[33mDEBUG[0m:[0m]: Finish event found. Total build time recorded.
+[2020-09-25 23:12:25,506] [pid=55383] [[32m[32mINFO[0m:[0m]: Sending build stats event...
+[2020-09-25 23:12:25,662] [pid=55383] [[32m[32mINFO[0m:[0m]: Stats event send successfully.
+[2020-09-25 23:12:26,004] [pid=55383] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=48)
+[2020-09-25 23:12:26,019] [pid=55383] [[33m[33mDEBUG[0m:[0m]: Successfully sent 98 events out of 98 events sent.
+[2020-09-25 23:12:26,020] [pid=55383] [[32m[32mINFO[0m:[0m]: Finished processing profile '/Users/lidanh/.config/wix/bazelwrapper/profiles/b65f4688-64f4-48a5-a96c-d06c68e7c393.prof.gz'.
+[2020-09-25 23:12:26,020] [pid=55383] [[33m[33mDEBUG[0m:[0m]: Deleting profile: /Users/lidanh/.config/wix/bazelwrapper/profiles/b65f4688-64f4-48a5-a96c-d06c68e7c393.prof.gz
+[2020-09-25 23:12:26,020] [pid=55383] [[33m[33mDEBUG[0m:[0m]: Deleting profile info file: /Users/lidanh/.config/wix/bazelwrapper/profiles/b65f4688-64f4-48a5-a96c-d06c68e7c393.prof.gz.info
+[2020-09-25 23:12:26,021] [pid=55383] [[33m[33mDEBUG[0m:[0m]: Env-var 'WIX_DEVEX_BI_PROFILES_PATH' does not exist.
+[2020-09-25 23:12:26,021] [pid=55383] [[33m[33mDEBUG[0m:[0m]: Using default value '/Users/lidanh/.config/wix/bazelwrapper/profiles'
+[2020-09-25 23:12:26,021] [pid=55383] [[32m[32mINFO[0m:[0m]: Reporter finished.
+[2020-09-25 23:19:32,959] [pid=55763] [[32m[32mINFO[0m:[0m]: Lock auto-refresh thread has started...
+[2020-09-25 23:19:32,959] [pid=55763] [[33m[33mDEBUG[0m:[0m]: Refresh interval is 20.0s
+[2020-09-25 23:19:32,960] [pid=55763] [[32m[32mINFO[0m:[0m]: Reporter starting...
+[2020-09-25 23:19:32,960] [pid=55763] [[33m[33mDEBUG[0m:[0m]: Env-var 'WIX_DEVEX_BI_PROFILES_PATH' does not exist.
+[2020-09-25 23:19:32,960] [pid=55763] [[33m[33mDEBUG[0m:[0m]: Using default value '/Users/lidanh/.config/wix/bazelwrapper/profiles'
+[2020-09-25 23:19:32,960] [pid=55763] [[32m[32mINFO[0m:[0m]: Going to process profile: /Users/lidanh/.config/wix/bazelwrapper/profiles/33c6b15f-e212-4857-9e7e-0349ebaab4f3.prof.gz
+[2020-09-25 23:19:32,960] [pid=55763] [[33m[33mDEBUG[0m:[0m]: Gzip compression for Frog? False
+[2020-09-25 23:19:32,960] [pid=55763] [[33m[33mDEBUG[0m:[0m]: Frog batch API disabled? False
+[2020-09-25 23:19:32,960] [pid=55763] [[33m[33mDEBUG[0m:[0m]: Env-var 'WIX_DEVEX_FROG_BATCH_SIZE' does not exist.
+[2020-09-25 23:19:32,960] [pid=55763] [[33m[33mDEBUG[0m:[0m]: Using default value '50'
+[2020-09-25 23:19:32,960] [pid=55763] [[33m[33mDEBUG[0m:[0m]: Frog batch size is set to? 50
+[2020-09-25 23:19:32,976] [pid=55763] [[32m[32mINFO[0m:[0m]: Processing profile for build_id='a8401a83-26e6-492f-a6b1-61a93e5d53b3'
+[2020-09-25 23:19:33,945] [pid=55763] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:19:34,110] [pid=55763] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:19:34,273] [pid=55763] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:19:34,437] [pid=55763] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:19:34,437] [pid=55763] [[33m[33mDEBUG[0m:[0m]: 200 events processed...
+[2020-09-25 23:19:34,603] [pid=55763] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:19:34,830] [pid=55763] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:19:34,997] [pid=55763] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:19:35,162] [pid=55763] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:19:35,163] [pid=55763] [[33m[33mDEBUG[0m:[0m]: 400 events processed...
+[2020-09-25 23:19:35,330] [pid=55763] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:19:35,497] [pid=55763] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:19:35,670] [pid=55763] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:19:35,843] [pid=55763] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:19:35,843] [pid=55763] [[33m[33mDEBUG[0m:[0m]: 600 events processed...
+[2020-09-25 23:19:36,015] [pid=55763] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:19:36,183] [pid=55763] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:19:36,349] [pid=55763] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:19:36,515] [pid=55763] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:19:36,515] [pid=55763] [[33m[33mDEBUG[0m:[0m]: 800 events processed...
+[2020-09-25 23:19:36,683] [pid=55763] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:19:36,863] [pid=55763] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:19:37,032] [pid=55763] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:19:37,200] [pid=55763] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:19:37,200] [pid=55763] [[33m[33mDEBUG[0m:[0m]: 1000 events processed...
+[2020-09-25 23:19:37,375] [pid=55763] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:19:37,844] [pid=55763] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:19:38,012] [pid=55763] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:19:38,225] [pid=55763] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:19:38,226] [pid=55763] [[33m[33mDEBUG[0m:[0m]: 1200 events processed...
+[2020-09-25 23:19:38,396] [pid=55763] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:19:38,563] [pid=55763] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:19:38,735] [pid=55763] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:19:38,908] [pid=55763] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:19:38,908] [pid=55763] [[33m[33mDEBUG[0m:[0m]: 1400 events processed...
+[2020-09-25 23:19:39,076] [pid=55763] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:19:39,245] [pid=55763] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:19:39,411] [pid=55763] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:19:39,578] [pid=55763] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:19:39,578] [pid=55763] [[33m[33mDEBUG[0m:[0m]: 1600 events processed...
+[2020-09-25 23:19:39,750] [pid=55763] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:19:39,916] [pid=55763] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:19:40,084] [pid=55763] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:19:40,544] [pid=55763] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:19:40,544] [pid=55763] [[33m[33mDEBUG[0m:[0m]: 1800 events processed...
+[2020-09-25 23:19:40,713] [pid=55763] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:19:40,881] [pid=55763] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:19:41,053] [pid=55763] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:19:41,220] [pid=55763] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:19:41,220] [pid=55763] [[33m[33mDEBUG[0m:[0m]: 2000 events processed...
+[2020-09-25 23:19:41,391] [pid=55763] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:19:41,557] [pid=55763] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:19:41,729] [pid=55763] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:19:41,902] [pid=55763] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:19:41,902] [pid=55763] [[33m[33mDEBUG[0m:[0m]: 2200 events processed...
+[2020-09-25 23:19:42,068] [pid=55763] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:19:42,235] [pid=55763] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:19:42,407] [pid=55763] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:19:42,574] [pid=55763] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:19:42,575] [pid=55763] [[33m[33mDEBUG[0m:[0m]: 2400 events processed...
+[2020-09-25 23:19:42,742] [pid=55763] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:19:42,743] [pid=55763] [[33m[33mDEBUG[0m:[0m]: Analysis phase duration recorded.
+[2020-09-25 23:19:42,911] [pid=55763] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:19:43,242] [pid=55763] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:19:43,708] [pid=55763] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:19:43,709] [pid=55763] [[33m[33mDEBUG[0m:[0m]: 2600 events processed...
+[2020-09-25 23:19:43,710] [pid=55763] [[33m[33mDEBUG[0m:[0m]: Finish event found. Total build time recorded.
+[2020-09-25 23:19:43,710] [pid=55763] [[32m[32mINFO[0m:[0m]: Sending build stats event...
+[2020-09-25 23:19:43,865] [pid=55763] [[32m[32mINFO[0m:[0m]: Stats event send successfully.
+[2020-09-25 23:19:44,030] [pid=55763] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=20)
+[2020-09-25 23:19:44,031] [pid=55763] [[33m[33mDEBUG[0m:[0m]: Successfully sent 2620 events out of 2620 events sent.
+[2020-09-25 23:19:44,031] [pid=55763] [[32m[32mINFO[0m:[0m]: Finished processing profile '/Users/lidanh/.config/wix/bazelwrapper/profiles/33c6b15f-e212-4857-9e7e-0349ebaab4f3.prof.gz'.
+[2020-09-25 23:19:44,031] [pid=55763] [[33m[33mDEBUG[0m:[0m]: Deleting profile: /Users/lidanh/.config/wix/bazelwrapper/profiles/33c6b15f-e212-4857-9e7e-0349ebaab4f3.prof.gz
+[2020-09-25 23:19:44,037] [pid=55763] [[33m[33mDEBUG[0m:[0m]: Deleting profile info file: /Users/lidanh/.config/wix/bazelwrapper/profiles/33c6b15f-e212-4857-9e7e-0349ebaab4f3.prof.gz.info
+[2020-09-25 23:19:44,039] [pid=55763] [[33m[33mDEBUG[0m:[0m]: Env-var 'WIX_DEVEX_BI_PROFILES_PATH' does not exist.
+[2020-09-25 23:19:44,039] [pid=55763] [[33m[33mDEBUG[0m:[0m]: Using default value '/Users/lidanh/.config/wix/bazelwrapper/profiles'
+[2020-09-25 23:19:44,039] [pid=55763] [[32m[32mINFO[0m:[0m]: Reporter finished.
+[2020-09-25 23:26:13,938] [pid=60292] [[32m[32mINFO[0m:[0m]: Lock auto-refresh thread has started...
+[2020-09-25 23:26:13,939] [pid=60292] [[32m[32mINFO[0m:[0m]: Reporter starting...
+[2020-09-25 23:26:13,939] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Refresh interval is 20.0s
+[2020-09-25 23:26:13,939] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Env-var 'WIX_DEVEX_BI_PROFILES_PATH' does not exist.
+[2020-09-25 23:26:13,939] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Using default value '/Users/lidanh/.config/wix/bazelwrapper/profiles'
+[2020-09-25 23:26:13,940] [pid=60292] [[32m[32mINFO[0m:[0m]: Going to process profile: /Users/lidanh/.config/wix/bazelwrapper/profiles/08a34be8-41cd-41fe-a07b-4c645abf733e.prof.gz
+[2020-09-25 23:26:13,940] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Gzip compression for Frog? False
+[2020-09-25 23:26:13,940] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Frog batch API disabled? False
+[2020-09-25 23:26:13,940] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Env-var 'WIX_DEVEX_FROG_BATCH_SIZE' does not exist.
+[2020-09-25 23:26:13,940] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Using default value '50'
+[2020-09-25 23:26:13,940] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Frog batch size is set to? 50
+[2020-09-25 23:26:14,055] [pid=60292] [[32m[32mINFO[0m:[0m]: Processing profile for build_id='99e98192-e65e-4c8e-b301-8ca9976dd784'
+[2020-09-25 23:26:15,099] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:15,266] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:15,449] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:15,621] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:15,622] [pid=60292] [[33m[33mDEBUG[0m:[0m]: 200 events processed...
+[2020-09-25 23:26:15,797] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:15,973] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:16,145] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:16,321] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:16,321] [pid=60292] [[33m[33mDEBUG[0m:[0m]: 400 events processed...
+[2020-09-25 23:26:16,492] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:16,666] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:16,844] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:17,018] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:17,018] [pid=60292] [[33m[33mDEBUG[0m:[0m]: 600 events processed...
+[2020-09-25 23:26:17,195] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:17,371] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:17,550] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:17,729] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:17,730] [pid=60292] [[33m[33mDEBUG[0m:[0m]: 800 events processed...
+[2020-09-25 23:26:17,916] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:18,088] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:18,259] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:18,259] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Analysis phase duration recorded.
+[2020-09-25 23:26:18,430] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:18,430] [pid=60292] [[33m[33mDEBUG[0m:[0m]: 1000 events processed...
+[2020-09-25 23:26:18,601] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:18,769] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:18,940] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:19,110] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:19,111] [pid=60292] [[33m[33mDEBUG[0m:[0m]: 1200 events processed...
+[2020-09-25 23:26:20,246] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:20,569] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:20,742] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:20,909] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:20,909] [pid=60292] [[33m[33mDEBUG[0m:[0m]: 1400 events processed...
+[2020-09-25 23:26:21,081] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:21,249] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:21,421] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:21,592] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:21,592] [pid=60292] [[33m[33mDEBUG[0m:[0m]: 1600 events processed...
+[2020-09-25 23:26:21,760] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:21,933] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:22,107] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:22,279] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:22,280] [pid=60292] [[33m[33mDEBUG[0m:[0m]: 1800 events processed...
+[2020-09-25 23:26:22,462] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:22,642] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:22,814] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:22,983] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:22,983] [pid=60292] [[33m[33mDEBUG[0m:[0m]: 2000 events processed...
+[2020-09-25 23:26:23,158] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:23,325] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:23,497] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:23,668] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:23,668] [pid=60292] [[33m[33mDEBUG[0m:[0m]: 2200 events processed...
+[2020-09-25 23:26:23,838] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:24,005] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:24,178] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:24,347] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:24,347] [pid=60292] [[33m[33mDEBUG[0m:[0m]: 2400 events processed...
+[2020-09-25 23:26:24,517] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:24,688] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:24,859] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:25,027] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:25,027] [pid=60292] [[33m[33mDEBUG[0m:[0m]: 2600 events processed...
+[2020-09-25 23:26:25,200] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:25,370] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:25,908] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:26,405] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:26,405] [pid=60292] [[33m[33mDEBUG[0m:[0m]: 2800 events processed...
+[2020-09-25 23:26:26,575] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:26,748] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:26,918] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:27,088] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:27,089] [pid=60292] [[33m[33mDEBUG[0m:[0m]: 3000 events processed...
+[2020-09-25 23:26:27,829] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:28,314] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:28,484] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:28,652] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:28,652] [pid=60292] [[33m[33mDEBUG[0m:[0m]: 3200 events processed...
+[2020-09-25 23:26:28,822] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:28,992] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:29,164] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:29,348] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:29,348] [pid=60292] [[33m[33mDEBUG[0m:[0m]: 3400 events processed...
+[2020-09-25 23:26:29,516] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:29,689] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:29,857] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:30,026] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:30,026] [pid=60292] [[33m[33mDEBUG[0m:[0m]: 3600 events processed...
+[2020-09-25 23:26:30,200] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:30,374] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:30,539] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:30,707] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:30,708] [pid=60292] [[33m[33mDEBUG[0m:[0m]: 3800 events processed...
+[2020-09-25 23:26:30,875] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:31,044] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:31,214] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:31,383] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:31,384] [pid=60292] [[33m[33mDEBUG[0m:[0m]: 4000 events processed...
+[2020-09-25 23:26:31,557] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:31,733] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:31,914] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:32,809] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:32,809] [pid=60292] [[33m[33mDEBUG[0m:[0m]: 4200 events processed...
+[2020-09-25 23:26:33,169] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:33,343] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:33,527] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:33,698] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:33,699] [pid=60292] [[33m[33mDEBUG[0m:[0m]: 4400 events processed...
+[2020-09-25 23:26:33,868] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:33,941] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Going to refresh lock...
+[2020-09-25 23:26:33,941] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Lock refreshed successfully. will refresh again in 20.0s...
+[2020-09-25 23:26:34,041] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:34,208] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:34,379] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:34,379] [pid=60292] [[33m[33mDEBUG[0m:[0m]: 4600 events processed...
+[2020-09-25 23:26:34,550] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:34,717] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:34,892] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:35,062] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:35,062] [pid=60292] [[33m[33mDEBUG[0m:[0m]: 4800 events processed...
+[2020-09-25 23:26:35,230] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:35,397] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:36,154] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:36,640] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:36,640] [pid=60292] [[33m[33mDEBUG[0m:[0m]: 5000 events processed...
+[2020-09-25 23:26:36,815] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:36,986] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:37,154] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:37,325] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:37,325] [pid=60292] [[33m[33mDEBUG[0m:[0m]: 5200 events processed...
+[2020-09-25 23:26:37,495] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:37,685] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:37,867] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:38,056] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:38,072] [pid=60292] [[33m[33mDEBUG[0m:[0m]: 5400 events processed...
+[2020-09-25 23:26:38,246] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:38,413] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:38,584] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:38,761] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:38,769] [pid=60292] [[33m[33mDEBUG[0m:[0m]: 5600 events processed...
+[2020-09-25 23:26:38,944] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:39,119] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:39,302] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:39,472] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:39,472] [pid=60292] [[33m[33mDEBUG[0m:[0m]: 5800 events processed...
+[2020-09-25 23:26:39,645] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:39,813] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:39,985] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:40,156] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:40,156] [pid=60292] [[33m[33mDEBUG[0m:[0m]: 6000 events processed...
+[2020-09-25 23:26:40,326] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:40,496] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:40,666] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:40,836] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:40,836] [pid=60292] [[33m[33mDEBUG[0m:[0m]: 6200 events processed...
+[2020-09-25 23:26:41,016] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:41,186] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:41,354] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:41,528] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:41,529] [pid=60292] [[33m[33mDEBUG[0m:[0m]: 6400 events processed...
+[2020-09-25 23:26:41,709] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:41,894] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:42,063] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:42,238] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:42,239] [pid=60292] [[33m[33mDEBUG[0m:[0m]: 6600 events processed...
+[2020-09-25 23:26:42,412] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:42,583] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:42,758] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:42,934] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:42,935] [pid=60292] [[33m[33mDEBUG[0m:[0m]: 6800 events processed...
+[2020-09-25 23:26:43,111] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:43,281] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:43,455] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:43,622] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:43,622] [pid=60292] [[33m[33mDEBUG[0m:[0m]: 7000 events processed...
+[2020-09-25 23:26:43,791] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:43,964] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:44,139] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:44,309] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:44,310] [pid=60292] [[33m[33mDEBUG[0m:[0m]: 7200 events processed...
+[2020-09-25 23:26:44,487] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:44,663] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:44,831] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:45,003] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:45,003] [pid=60292] [[33m[33mDEBUG[0m:[0m]: 7400 events processed...
+[2020-09-25 23:26:45,170] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:45,344] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:45,519] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:45,686] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:45,686] [pid=60292] [[33m[33mDEBUG[0m:[0m]: 7600 events processed...
+[2020-09-25 23:26:45,855] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:46,023] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:46,193] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:46,360] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:46,361] [pid=60292] [[33m[33mDEBUG[0m:[0m]: 7800 events processed...
+[2020-09-25 23:26:46,533] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:46,707] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:46,877] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:47,048] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:47,048] [pid=60292] [[33m[33mDEBUG[0m:[0m]: 8000 events processed...
+[2020-09-25 23:26:47,215] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:47,388] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:47,554] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:47,724] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:47,725] [pid=60292] [[33m[33mDEBUG[0m:[0m]: 8200 events processed...
+[2020-09-25 23:26:47,897] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:48,067] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:48,240] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:48,410] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:48,410] [pid=60292] [[33m[33mDEBUG[0m:[0m]: 8400 events processed...
+[2020-09-25 23:26:48,590] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:48,766] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:48,937] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:49,115] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:49,116] [pid=60292] [[33m[33mDEBUG[0m:[0m]: 8600 events processed...
+[2020-09-25 23:26:49,283] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:49,453] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:49,623] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:49,793] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:49,793] [pid=60292] [[33m[33mDEBUG[0m:[0m]: 8800 events processed...
+[2020-09-25 23:26:49,966] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:50,139] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:50,311] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:50,483] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:50,484] [pid=60292] [[33m[33mDEBUG[0m:[0m]: 9000 events processed...
+[2020-09-25 23:26:50,653] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:50,821] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:50,989] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:51,162] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:51,162] [pid=60292] [[33m[33mDEBUG[0m:[0m]: 9200 events processed...
+[2020-09-25 23:26:51,329] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:51,500] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:51,672] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:51,842] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:51,842] [pid=60292] [[33m[33mDEBUG[0m:[0m]: 9400 events processed...
+[2020-09-25 23:26:52,013] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:52,181] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:52,361] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:52,532] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:52,532] [pid=60292] [[33m[33mDEBUG[0m:[0m]: 9600 events processed...
+[2020-09-25 23:26:52,701] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:52,876] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:53,045] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:53,212] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:53,213] [pid=60292] [[33m[33mDEBUG[0m:[0m]: 9800 events processed...
+[2020-09-25 23:26:53,385] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:53,562] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:53,737] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:53,910] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:53,910] [pid=60292] [[33m[33mDEBUG[0m:[0m]: 10000 events processed...
+[2020-09-25 23:26:53,944] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Going to refresh lock...
+[2020-09-25 23:26:53,944] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Lock refreshed successfully. will refresh again in 20.0s...
+[2020-09-25 23:26:54,084] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:54,258] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:54,430] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:54,604] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:54,604] [pid=60292] [[33m[33mDEBUG[0m:[0m]: 10200 events processed...
+[2020-09-25 23:26:54,779] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:54,950] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:55,122] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:55,292] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:55,292] [pid=60292] [[33m[33mDEBUG[0m:[0m]: 10400 events processed...
+[2020-09-25 23:26:55,464] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:55,635] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:55,807] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:55,975] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:55,975] [pid=60292] [[33m[33mDEBUG[0m:[0m]: 10600 events processed...
+[2020-09-25 23:26:56,157] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:56,328] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:56,497] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:56,668] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:56,668] [pid=60292] [[33m[33mDEBUG[0m:[0m]: 10800 events processed...
+[2020-09-25 23:26:56,838] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:57,006] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:57,175] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:57,346] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:57,346] [pid=60292] [[33m[33mDEBUG[0m:[0m]: 11000 events processed...
+[2020-09-25 23:26:57,526] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:57,696] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:57,868] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:58,038] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:58,038] [pid=60292] [[33m[33mDEBUG[0m:[0m]: 11200 events processed...
+[2020-09-25 23:26:58,209] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:58,381] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:58,553] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:58,727] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:58,727] [pid=60292] [[33m[33mDEBUG[0m:[0m]: 11400 events processed...
+[2020-09-25 23:26:58,903] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:59,077] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:59,249] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:59,428] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:59,429] [pid=60292] [[33m[33mDEBUG[0m:[0m]: 11600 events processed...
+[2020-09-25 23:26:59,598] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:59,771] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:26:59,943] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:00,111] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:00,111] [pid=60292] [[33m[33mDEBUG[0m:[0m]: 11800 events processed...
+[2020-09-25 23:27:00,283] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:00,456] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:00,626] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:00,798] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:00,798] [pid=60292] [[33m[33mDEBUG[0m:[0m]: 12000 events processed...
+[2020-09-25 23:27:00,969] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:01,141] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:01,319] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:01,491] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:01,492] [pid=60292] [[33m[33mDEBUG[0m:[0m]: 12200 events processed...
+[2020-09-25 23:27:01,664] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:01,837] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:02,007] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:02,182] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:02,182] [pid=60292] [[33m[33mDEBUG[0m:[0m]: 12400 events processed...
+[2020-09-25 23:27:02,353] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:02,522] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:02,698] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:02,869] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:02,870] [pid=60292] [[33m[33mDEBUG[0m:[0m]: 12600 events processed...
+[2020-09-25 23:27:03,039] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:03,209] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:03,380] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:03,554] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:03,554] [pid=60292] [[33m[33mDEBUG[0m:[0m]: 12800 events processed...
+[2020-09-25 23:27:03,725] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:03,896] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:04,072] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:04,248] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:04,248] [pid=60292] [[33m[33mDEBUG[0m:[0m]: 13000 events processed...
+[2020-09-25 23:27:04,417] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:04,590] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:04,761] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:05,497] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:05,497] [pid=60292] [[33m[33mDEBUG[0m:[0m]: 13200 events processed...
+[2020-09-25 23:27:06,015] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:06,200] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:06,373] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:06,547] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:06,547] [pid=60292] [[33m[33mDEBUG[0m:[0m]: 13400 events processed...
+[2020-09-25 23:27:06,717] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:06,885] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:07,055] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:07,228] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:07,228] [pid=60292] [[33m[33mDEBUG[0m:[0m]: 13600 events processed...
+[2020-09-25 23:27:07,402] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:07,574] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:07,748] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:07,918] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:07,918] [pid=60292] [[33m[33mDEBUG[0m:[0m]: 13800 events processed...
+[2020-09-25 23:27:08,090] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:08,264] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:08,436] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:08,606] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:08,606] [pid=60292] [[33m[33mDEBUG[0m:[0m]: 14000 events processed...
+[2020-09-25 23:27:08,777] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:08,948] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:09,119] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:09,290] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:09,290] [pid=60292] [[33m[33mDEBUG[0m:[0m]: 14200 events processed...
+[2020-09-25 23:27:09,460] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:09,632] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:09,802] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:09,975] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:09,975] [pid=60292] [[33m[33mDEBUG[0m:[0m]: 14400 events processed...
+[2020-09-25 23:27:10,147] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:10,319] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:10,491] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:10,663] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:10,663] [pid=60292] [[33m[33mDEBUG[0m:[0m]: 14600 events processed...
+[2020-09-25 23:27:10,831] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:11,002] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:11,174] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:11,347] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:11,348] [pid=60292] [[33m[33mDEBUG[0m:[0m]: 14800 events processed...
+[2020-09-25 23:27:11,523] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:11,692] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:11,863] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:12,034] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:12,035] [pid=60292] [[33m[33mDEBUG[0m:[0m]: 15000 events processed...
+[2020-09-25 23:27:12,216] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:12,387] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:12,561] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:12,732] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:12,733] [pid=60292] [[33m[33mDEBUG[0m:[0m]: 15200 events processed...
+[2020-09-25 23:27:12,908] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:13,079] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:13,251] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:13,421] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:13,421] [pid=60292] [[33m[33mDEBUG[0m:[0m]: 15400 events processed...
+[2020-09-25 23:27:13,591] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:13,758] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:13,931] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:13,945] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Going to refresh lock...
+[2020-09-25 23:27:13,946] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Lock refreshed successfully. will refresh again in 20.0s...
+[2020-09-25 23:27:14,101] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:14,101] [pid=60292] [[33m[33mDEBUG[0m:[0m]: 15600 events processed...
+[2020-09-25 23:27:14,276] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:14,444] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:14,621] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:14,790] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:14,791] [pid=60292] [[33m[33mDEBUG[0m:[0m]: 15800 events processed...
+[2020-09-25 23:27:14,961] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:15,131] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:15,301] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:15,473] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:15,473] [pid=60292] [[33m[33mDEBUG[0m:[0m]: 16000 events processed...
+[2020-09-25 23:27:15,643] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:15,813] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:15,986] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:16,162] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:16,163] [pid=60292] [[33m[33mDEBUG[0m:[0m]: 16200 events processed...
+[2020-09-25 23:27:16,334] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:16,503] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:16,677] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:16,848] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:16,848] [pid=60292] [[33m[33mDEBUG[0m:[0m]: 16400 events processed...
+[2020-09-25 23:27:17,590] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:18,139] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:18,308] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:19,264] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:19,264] [pid=60292] [[33m[33mDEBUG[0m:[0m]: 16600 events processed...
+[2020-09-25 23:27:19,589] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:19,763] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:19,957] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:20,129] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:20,129] [pid=60292] [[33m[33mDEBUG[0m:[0m]: 16800 events processed...
+[2020-09-25 23:27:20,301] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:20,474] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:20,643] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:20,813] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:20,813] [pid=60292] [[33m[33mDEBUG[0m:[0m]: 17000 events processed...
+[2020-09-25 23:27:20,984] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:21,158] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:21,332] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:21,504] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:21,504] [pid=60292] [[33m[33mDEBUG[0m:[0m]: 17200 events processed...
+[2020-09-25 23:27:21,674] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:21,845] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:22,017] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:22,192] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:22,192] [pid=60292] [[33m[33mDEBUG[0m:[0m]: 17400 events processed...
+[2020-09-25 23:27:23,156] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:23,480] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:23,650] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:23,823] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:23,823] [pid=60292] [[33m[33mDEBUG[0m:[0m]: 17600 events processed...
+[2020-09-25 23:27:25,040] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:25,360] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:25,530] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:25,698] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:25,698] [pid=60292] [[33m[33mDEBUG[0m:[0m]: 17800 events processed...
+[2020-09-25 23:27:25,868] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:26,040] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:26,210] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:26,382] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:26,383] [pid=60292] [[33m[33mDEBUG[0m:[0m]: 18000 events processed...
+[2020-09-25 23:27:26,553] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:26,720] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:26,890] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:27,065] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:27,065] [pid=60292] [[33m[33mDEBUG[0m:[0m]: 18200 events processed...
+[2020-09-25 23:27:27,232] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:27,403] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:27,575] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:27,744] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:27,745] [pid=60292] [[33m[33mDEBUG[0m:[0m]: 18400 events processed...
+[2020-09-25 23:27:27,915] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:28,084] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:28,252] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:28,425] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:28,425] [pid=60292] [[33m[33mDEBUG[0m:[0m]: 18600 events processed...
+[2020-09-25 23:27:28,596] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:28,770] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:28,946] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:29,124] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:29,124] [pid=60292] [[33m[33mDEBUG[0m:[0m]: 18800 events processed...
+[2020-09-25 23:27:29,295] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:29,465] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:29,635] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:29,805] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:29,806] [pid=60292] [[33m[33mDEBUG[0m:[0m]: 19000 events processed...
+[2020-09-25 23:27:29,975] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:30,143] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:30,312] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:30,483] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:30,483] [pid=60292] [[33m[33mDEBUG[0m:[0m]: 19200 events processed...
+[2020-09-25 23:27:31,172] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:31,497] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:31,668] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:31,835] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:31,835] [pid=60292] [[33m[33mDEBUG[0m:[0m]: 19400 events processed...
+[2020-09-25 23:27:32,009] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:32,183] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:32,355] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:32,527] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:32,528] [pid=60292] [[33m[33mDEBUG[0m:[0m]: 19600 events processed...
+[2020-09-25 23:27:32,695] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:32,864] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:33,030] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:33,204] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:33,204] [pid=60292] [[33m[33mDEBUG[0m:[0m]: 19800 events processed...
+[2020-09-25 23:27:33,375] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:33,548] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:33,717] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:33,886] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:33,886] [pid=60292] [[33m[33mDEBUG[0m:[0m]: 20000 events processed...
+[2020-09-25 23:27:33,950] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Going to refresh lock...
+[2020-09-25 23:27:33,951] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Lock refreshed successfully. will refresh again in 20.0s...
+[2020-09-25 23:27:34,057] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:34,228] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:34,398] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:34,567] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:34,568] [pid=60292] [[33m[33mDEBUG[0m:[0m]: 20200 events processed...
+[2020-09-25 23:27:34,740] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:34,912] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:35,082] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:35,253] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:35,253] [pid=60292] [[33m[33mDEBUG[0m:[0m]: 20400 events processed...
+[2020-09-25 23:27:35,424] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:35,595] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:35,762] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:35,935] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:35,935] [pid=60292] [[33m[33mDEBUG[0m:[0m]: 20600 events processed...
+[2020-09-25 23:27:36,105] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:36,275] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:36,445] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:36,612] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:36,612] [pid=60292] [[33m[33mDEBUG[0m:[0m]: 20800 events processed...
+[2020-09-25 23:27:36,782] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:36,954] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:37,125] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:37,292] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:37,292] [pid=60292] [[33m[33mDEBUG[0m:[0m]: 21000 events processed...
+[2020-09-25 23:27:37,465] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:37,634] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:37,806] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:37,980] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:37,983] [pid=60292] [[33m[33mDEBUG[0m:[0m]: 21200 events processed...
+[2020-09-25 23:27:38,153] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:38,326] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:38,497] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:38,667] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:38,668] [pid=60292] [[33m[33mDEBUG[0m:[0m]: 21400 events processed...
+[2020-09-25 23:27:38,836] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:39,008] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:39,179] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:39,358] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:39,358] [pid=60292] [[33m[33mDEBUG[0m:[0m]: 21600 events processed...
+[2020-09-25 23:27:39,531] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:39,700] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:39,883] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:40,058] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:40,058] [pid=60292] [[33m[33mDEBUG[0m:[0m]: 21800 events processed...
+[2020-09-25 23:27:40,225] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:40,394] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:40,569] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:40,739] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:40,739] [pid=60292] [[33m[33mDEBUG[0m:[0m]: 22000 events processed...
+[2020-09-25 23:27:40,912] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:41,084] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:41,255] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:41,427] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:41,427] [pid=60292] [[33m[33mDEBUG[0m:[0m]: 22200 events processed...
+[2020-09-25 23:27:41,603] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:41,783] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:41,955] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:42,127] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:42,128] [pid=60292] [[33m[33mDEBUG[0m:[0m]: 22400 events processed...
+[2020-09-25 23:27:42,296] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:42,467] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:42,646] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:42,652] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Finish event found. Total build time recorded.
+[2020-09-25 23:27:42,653] [pid=60292] [[32m[32mINFO[0m:[0m]: Sending build stats event...
+[2020-09-25 23:27:42,813] [pid=60292] [[32m[32mINFO[0m:[0m]: Stats event send successfully.
+[2020-09-25 23:27:42,985] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:27:42,985] [pid=60292] [[33m[33mDEBUG[0m:[0m]: 22600 events processed...
+[2020-09-25 23:27:43,147] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=12)
+[2020-09-25 23:27:43,147] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Successfully sent 22612 events out of 22612 events sent.
+[2020-09-25 23:27:43,147] [pid=60292] [[32m[32mINFO[0m:[0m]: Finished processing profile '/Users/lidanh/.config/wix/bazelwrapper/profiles/08a34be8-41cd-41fe-a07b-4c645abf733e.prof.gz'.
+[2020-09-25 23:27:43,148] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Deleting profile: /Users/lidanh/.config/wix/bazelwrapper/profiles/08a34be8-41cd-41fe-a07b-4c645abf733e.prof.gz
+[2020-09-25 23:27:43,148] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Deleting profile info file: /Users/lidanh/.config/wix/bazelwrapper/profiles/08a34be8-41cd-41fe-a07b-4c645abf733e.prof.gz.info
+[2020-09-25 23:27:43,159] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Env-var 'WIX_DEVEX_BI_PROFILES_PATH' does not exist.
+[2020-09-25 23:27:43,160] [pid=60292] [[33m[33mDEBUG[0m:[0m]: Using default value '/Users/lidanh/.config/wix/bazelwrapper/profiles'
+[2020-09-25 23:27:43,160] [pid=60292] [[32m[32mINFO[0m:[0m]: Reporter finished.
+[2020-09-25 23:28:02,302] [pid=60827] [[32m[32mINFO[0m:[0m]: Lock auto-refresh thread has started...
+[2020-09-25 23:28:02,302] [pid=60827] [[33m[33mDEBUG[0m:[0m]: Refresh interval is 20.0s
+[2020-09-25 23:28:02,303] [pid=60827] [[32m[32mINFO[0m:[0m]: Reporter starting...
+[2020-09-25 23:28:02,303] [pid=60827] [[33m[33mDEBUG[0m:[0m]: Env-var 'WIX_DEVEX_BI_PROFILES_PATH' does not exist.
+[2020-09-25 23:28:02,303] [pid=60827] [[33m[33mDEBUG[0m:[0m]: Using default value '/Users/lidanh/.config/wix/bazelwrapper/profiles'
+[2020-09-25 23:28:02,303] [pid=60827] [[32m[32mINFO[0m:[0m]: Going to process profile: /Users/lidanh/.config/wix/bazelwrapper/profiles/811ce017-5dca-4767-91e2-b12f1e411f04.prof.gz
+[2020-09-25 23:28:02,303] [pid=60827] [[33m[33mDEBUG[0m:[0m]: Gzip compression for Frog? False
+[2020-09-25 23:28:02,303] [pid=60827] [[33m[33mDEBUG[0m:[0m]: Frog batch API disabled? False
+[2020-09-25 23:28:02,303] [pid=60827] [[33m[33mDEBUG[0m:[0m]: Env-var 'WIX_DEVEX_FROG_BATCH_SIZE' does not exist.
+[2020-09-25 23:28:02,304] [pid=60827] [[33m[33mDEBUG[0m:[0m]: Using default value '50'
+[2020-09-25 23:28:02,304] [pid=60827] [[33m[33mDEBUG[0m:[0m]: Frog batch size is set to? 50
+[2020-09-25 23:28:02,308] [pid=60827] [[32m[32mINFO[0m:[0m]: Processing profile for build_id='ab9d9c51-846c-429a-9471-695afcc3c2fb'
+[2020-09-25 23:28:03,185] [pid=60827] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:28:03,361] [pid=60827] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:28:03,549] [pid=60827] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:28:03,550] [pid=60827] [[33m[33mDEBUG[0m:[0m]: Analysis phase duration recorded.
+[2020-09-25 23:28:03,716] [pid=60827] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:28:03,716] [pid=60827] [[33m[33mDEBUG[0m:[0m]: 200 events processed...
+[2020-09-25 23:28:03,886] [pid=60827] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:28:04,059] [pid=60827] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:28:04,228] [pid=60827] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:28:04,406] [pid=60827] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:28:04,406] [pid=60827] [[33m[33mDEBUG[0m:[0m]: 400 events processed...
+[2020-09-25 23:28:04,588] [pid=60827] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:28:04,761] [pid=60827] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:28:04,937] [pid=60827] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=50)
+[2020-09-25 23:28:04,937] [pid=60827] [[33m[33mDEBUG[0m:[0m]: Finish event found. Total build time recorded.
+[2020-09-25 23:28:04,938] [pid=60827] [[32m[32mINFO[0m:[0m]: Sending build stats event...
+[2020-09-25 23:28:05,096] [pid=60827] [[32m[32mINFO[0m:[0m]: Stats event send successfully.
+[2020-09-25 23:28:05,260] [pid=60827] [[33m[33mDEBUG[0m:[0m]: Batch sent successfully (size=17)
+[2020-09-25 23:28:05,260] [pid=60827] [[33m[33mDEBUG[0m:[0m]: Successfully sent 567 events out of 567 events sent.
+[2020-09-25 23:28:05,260] [pid=60827] [[32m[32mINFO[0m:[0m]: Finished processing profile '/Users/lidanh/.config/wix/bazelwrapper/profiles/811ce017-5dca-4767-91e2-b12f1e411f04.prof.gz'.
+[2020-09-25 23:28:05,260] [pid=60827] [[33m[33mDEBUG[0m:[0m]: Deleting profile: /Users/lidanh/.config/wix/bazelwrapper/profiles/811ce017-5dca-4767-91e2-b12f1e411f04.prof.gz
+[2020-09-25 23:28:05,261] [pid=60827] [[33m[33mDEBUG[0m:[0m]: Deleting profile info file: /Users/lidanh/.config/wix/bazelwrapper/profiles/811ce017-5dca-4767-91e2-b12f1e411f04.prof.gz.info
+[2020-09-25 23:28:05,261] [pid=60827] [[33m[33mDEBUG[0m:[0m]: Env-var 'WIX_DEVEX_BI_PROFILES_PATH' does not exist.
+[2020-09-25 23:28:05,261] [pid=60827] [[33m[33mDEBUG[0m:[0m]: Using default value '/Users/lidanh/.config/wix/bazelwrapper/profiles'
+[2020-09-25 23:28:05,261] [pid=60827] [[32m[32mINFO[0m:[0m]: Reporter finished.

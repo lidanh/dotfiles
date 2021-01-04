@@ -1,0 +1,177 @@
+[2020-07-19 22:52:29,390] [pid=80633] [[32mINFO[0m]: Lock auto-refresh thread has started...
+[2020-07-19 22:52:29,395] [pid=80633] [[33mDEBUG[0m]: Refresh interval is 20.0s
+[2020-07-19 22:52:29,391] [pid=80633] [[32mINFO[0m]: Reporter starting...
+[2020-07-19 22:52:29,397] [pid=80633] [[32mINFO[0m]: Going to process profile: /Users/lidanh/.config/wix/bazelwrapper/profiles/b8510210-a1f2-413b-ab09-713823af3290.prof.gz
+[2020-07-19 22:52:29,397] [pid=80633] [[33mDEBUG[0m]: Gzip compression for Frog? False
+[2020-07-19 22:52:29,397] [pid=80633] [[33mDEBUG[0m]: Frog batch API disabled? False
+[2020-07-19 22:52:29,408] [pid=80633] [[32mINFO[0m]: Processing profile for build_id='0fcc83de-77ec-47ba-a145-e72bfcd5413b'
+[2020-07-19 22:52:30,474] [pid=80633] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-19 22:52:30,720] [pid=80633] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-19 22:52:30,902] [pid=80633] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-19 22:52:31,084] [pid=80633] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-19 22:52:31,084] [pid=80633] [[33mDEBUG[0m]: 200 events processed...
+[2020-07-19 22:52:31,272] [pid=80633] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-19 22:52:31,457] [pid=80633] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-19 22:52:31,643] [pid=80633] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-19 22:52:31,832] [pid=80633] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-19 22:52:31,832] [pid=80633] [[33mDEBUG[0m]: 400 events processed...
+[2020-07-19 22:52:32,021] [pid=80633] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-19 22:52:32,212] [pid=80633] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-19 22:52:32,399] [pid=80633] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-19 22:52:32,586] [pid=80633] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-19 22:52:32,596] [pid=80633] [[33mDEBUG[0m]: 600 events processed...
+[2020-07-19 22:52:32,788] [pid=80633] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-19 22:52:32,976] [pid=80633] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-19 22:52:33,168] [pid=80633] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-19 22:52:33,362] [pid=80633] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-19 22:52:33,363] [pid=80633] [[33mDEBUG[0m]: 800 events processed...
+[2020-07-19 22:52:33,549] [pid=80633] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-19 22:52:33,736] [pid=80633] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-19 22:52:33,923] [pid=80633] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-19 22:52:34,115] [pid=80633] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-19 22:52:34,115] [pid=80633] [[33mDEBUG[0m]: 1000 events processed...
+[2020-07-19 22:52:34,304] [pid=80633] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-19 22:52:34,492] [pid=80633] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-19 22:52:34,681] [pid=80633] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-19 22:52:34,875] [pid=80633] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-19 22:52:34,875] [pid=80633] [[33mDEBUG[0m]: 1200 events processed...
+[2020-07-19 22:52:35,068] [pid=80633] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-19 22:52:35,255] [pid=80633] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-19 22:52:35,443] [pid=80633] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-19 22:52:35,629] [pid=80633] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-19 22:52:35,629] [pid=80633] [[33mDEBUG[0m]: 1400 events processed...
+[2020-07-19 22:52:35,817] [pid=80633] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-19 22:52:36,003] [pid=80633] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-19 22:52:36,197] [pid=80633] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-19 22:52:36,385] [pid=80633] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-19 22:52:36,385] [pid=80633] [[33mDEBUG[0m]: 1600 events processed...
+[2020-07-19 22:52:36,573] [pid=80633] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-19 22:52:36,760] [pid=80633] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-19 22:52:36,953] [pid=80633] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-19 22:52:37,139] [pid=80633] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-19 22:52:37,139] [pid=80633] [[33mDEBUG[0m]: 1800 events processed...
+[2020-07-19 22:52:37,325] [pid=80633] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-19 22:52:37,326] [pid=80633] [[33mDEBUG[0m]: Analysis phase duration recorded.
+[2020-07-19 22:52:37,512] [pid=80633] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-19 22:52:37,695] [pid=80633] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-19 22:52:37,696] [pid=80633] [[33mDEBUG[0m]: Finish event found. Total build time recorded.
+[2020-07-19 22:52:37,696] [pid=80633] [[32mINFO[0m]: Sending build stats event...
+[2020-07-19 22:52:37,869] [pid=80633] [[32mINFO[0m]: Stats event send successfully.
+[2020-07-19 22:52:38,047] [pid=80633] [[33mDEBUG[0m]: Batch sent successfully (size=30)
+[2020-07-19 22:52:38,047] [pid=80633] [[33mDEBUG[0m]: Successfully sent 1980 events out of 1980 events sent.
+[2020-07-19 22:52:38,048] [pid=80633] [[32mINFO[0m]: Finished processing profile '/Users/lidanh/.config/wix/bazelwrapper/profiles/b8510210-a1f2-413b-ab09-713823af3290.prof.gz'.
+[2020-07-19 22:52:38,048] [pid=80633] [[33mDEBUG[0m]: Deleting profile: /Users/lidanh/.config/wix/bazelwrapper/profiles/b8510210-a1f2-413b-ab09-713823af3290.prof.gz
+[2020-07-19 22:52:38,048] [pid=80633] [[33mDEBUG[0m]: Deleting profile info file: /Users/lidanh/.config/wix/bazelwrapper/profiles/b8510210-a1f2-413b-ab09-713823af3290.prof.gz.info
+[2020-07-19 22:52:38,049] [pid=80633] [[32mINFO[0m]: Reporter finished.
+[2020-07-19 23:05:41,769] [pid=81112] [[32mINFO[0m]: Lock auto-refresh thread has started...
+[2020-07-19 23:05:41,769] [pid=81112] [[32mINFO[0m]: Reporter starting...
+[2020-07-19 23:05:41,769] [pid=81112] [[33mDEBUG[0m]: Refresh interval is 20.0s
+[2020-07-19 23:05:41,770] [pid=81112] [[32mINFO[0m]: Going to process profile: /Users/lidanh/.config/wix/bazelwrapper/profiles/38f56d61-2cf6-41fd-8785-00733508ecb1.prof.gz
+[2020-07-19 23:05:41,770] [pid=81112] [[33mDEBUG[0m]: Gzip compression for Frog? False
+[2020-07-19 23:05:41,770] [pid=81112] [[33mDEBUG[0m]: Frog batch API disabled? False
+[2020-07-19 23:05:41,797] [pid=81112] [[32mINFO[0m]: Processing profile for build_id='e8bab712-8f5c-418b-bada-72d24a66d5da'
+[2020-07-19 23:05:42,832] [pid=81112] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-19 23:05:43,104] [pid=81112] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-19 23:05:43,282] [pid=81112] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-19 23:05:43,467] [pid=81112] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-19 23:05:43,467] [pid=81112] [[33mDEBUG[0m]: 200 events processed...
+[2020-07-19 23:05:43,651] [pid=81112] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-19 23:05:44,161] [pid=81112] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-19 23:05:44,345] [pid=81112] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-19 23:05:44,528] [pid=81112] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-19 23:05:44,529] [pid=81112] [[33mDEBUG[0m]: 400 events processed...
+[2020-07-19 23:05:44,713] [pid=81112] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-19 23:05:45,086] [pid=81112] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-19 23:05:45,271] [pid=81112] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-19 23:05:45,459] [pid=81112] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-19 23:05:45,459] [pid=81112] [[33mDEBUG[0m]: 600 events processed...
+[2020-07-19 23:05:45,642] [pid=81112] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-19 23:05:45,827] [pid=81112] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-19 23:05:46,013] [pid=81112] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-19 23:05:46,199] [pid=81112] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-19 23:05:46,199] [pid=81112] [[33mDEBUG[0m]: 800 events processed...
+[2020-07-19 23:05:46,382] [pid=81112] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-19 23:05:46,563] [pid=81112] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-19 23:05:46,748] [pid=81112] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-19 23:05:46,935] [pid=81112] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-19 23:05:46,935] [pid=81112] [[33mDEBUG[0m]: 1000 events processed...
+[2020-07-19 23:05:47,122] [pid=81112] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-19 23:05:47,308] [pid=81112] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-19 23:05:47,497] [pid=81112] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-19 23:05:47,683] [pid=81112] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-19 23:05:47,683] [pid=81112] [[33mDEBUG[0m]: 1200 events processed...
+[2020-07-19 23:05:47,867] [pid=81112] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-19 23:05:48,052] [pid=81112] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-19 23:05:48,238] [pid=81112] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-19 23:05:48,419] [pid=81112] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-19 23:05:48,420] [pid=81112] [[33mDEBUG[0m]: 1400 events processed...
+[2020-07-19 23:05:48,602] [pid=81112] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-19 23:05:48,786] [pid=81112] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-19 23:05:48,975] [pid=81112] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-19 23:05:49,164] [pid=81112] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-19 23:05:49,165] [pid=81112] [[33mDEBUG[0m]: 1600 events processed...
+[2020-07-19 23:05:49,347] [pid=81112] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-19 23:05:49,530] [pid=81112] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-19 23:05:49,756] [pid=81112] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-19 23:05:49,939] [pid=81112] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-19 23:05:49,940] [pid=81112] [[33mDEBUG[0m]: 1800 events processed...
+[2020-07-19 23:05:50,128] [pid=81112] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-19 23:05:50,314] [pid=81112] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-19 23:05:50,498] [pid=81112] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-19 23:05:50,687] [pid=81112] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-19 23:05:50,688] [pid=81112] [[33mDEBUG[0m]: 2000 events processed...
+[2020-07-19 23:05:50,870] [pid=81112] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-19 23:05:51,057] [pid=81112] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-19 23:05:51,250] [pid=81112] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-19 23:05:51,438] [pid=81112] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-19 23:05:51,438] [pid=81112] [[33mDEBUG[0m]: 2200 events processed...
+[2020-07-19 23:05:51,623] [pid=81112] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-19 23:05:51,940] [pid=81112] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-19 23:05:52,132] [pid=81112] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-19 23:05:52,314] [pid=81112] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-19 23:05:52,315] [pid=81112] [[33mDEBUG[0m]: 2400 events processed...
+[2020-07-19 23:05:52,508] [pid=81112] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-19 23:05:52,693] [pid=81112] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-19 23:05:52,875] [pid=81112] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-19 23:05:53,059] [pid=81112] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-19 23:05:53,059] [pid=81112] [[33mDEBUG[0m]: 2600 events processed...
+[2020-07-19 23:05:53,060] [pid=81112] [[33mDEBUG[0m]: Analysis phase duration recorded.
+[2020-07-19 23:05:53,238] [pid=81112] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-19 23:05:53,420] [pid=81112] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-19 23:05:53,601] [pid=81112] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-19 23:05:53,793] [pid=81112] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-19 23:05:53,793] [pid=81112] [[33mDEBUG[0m]: 2800 events processed...
+[2020-07-19 23:05:53,982] [pid=81112] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-19 23:05:54,170] [pid=81112] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-19 23:05:54,356] [pid=81112] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-19 23:05:54,552] [pid=81112] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-19 23:05:54,553] [pid=81112] [[33mDEBUG[0m]: 3000 events processed...
+[2020-07-19 23:05:54,738] [pid=81112] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-19 23:05:54,921] [pid=81112] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-19 23:05:55,104] [pid=81112] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-19 23:05:55,291] [pid=81112] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-19 23:05:55,291] [pid=81112] [[33mDEBUG[0m]: 3200 events processed...
+[2020-07-19 23:05:55,477] [pid=81112] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-19 23:05:55,665] [pid=81112] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-19 23:05:55,855] [pid=81112] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-19 23:05:56,044] [pid=81112] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-19 23:05:56,044] [pid=81112] [[33mDEBUG[0m]: 3400 events processed...
+[2020-07-19 23:05:56,229] [pid=81112] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-19 23:05:56,417] [pid=81112] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-19 23:05:56,602] [pid=81112] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-19 23:05:56,788] [pid=81112] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-19 23:05:56,788] [pid=81112] [[33mDEBUG[0m]: 3600 events processed...
+[2020-07-19 23:05:56,967] [pid=81112] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-19 23:05:57,148] [pid=81112] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-19 23:05:57,334] [pid=81112] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-19 23:05:57,526] [pid=81112] [[33mDEBUG[0m]: Batch sent successfully (size=50)
+[2020-07-19 23:05:57,526] [pid=81112] [[33mDEBUG[0m]: 3800 events processed...
+[2020-07-19 23:05:57,528] [pid=81112] [[33mDEBUG[0m]: Finish event found. Total build time recorded.
+[2020-07-19 23:05:57,528] [pid=81112] [[32mINFO[0m]: Sending build stats event...
+[2020-07-19 23:05:57,698] [pid=81112] [[32mINFO[0m]: Stats event send successfully.
+[2020-07-19 23:05:57,886] [pid=81112] [[33mDEBUG[0m]: Batch sent successfully (size=49)
+[2020-07-19 23:05:57,886] [pid=81112] [[33mDEBUG[0m]: Successfully sent 3849 events out of 3849 events sent.
+[2020-07-19 23:05:57,886] [pid=81112] [[32mINFO[0m]: Finished processing profile '/Users/lidanh/.config/wix/bazelwrapper/profiles/38f56d61-2cf6-41fd-8785-00733508ecb1.prof.gz'.
+[2020-07-19 23:05:57,886] [pid=81112] [[33mDEBUG[0m]: Deleting profile: /Users/lidanh/.config/wix/bazelwrapper/profiles/38f56d61-2cf6-41fd-8785-00733508ecb1.prof.gz
+[2020-07-19 23:05:57,887] [pid=81112] [[33mDEBUG[0m]: Deleting profile info file: /Users/lidanh/.config/wix/bazelwrapper/profiles/38f56d61-2cf6-41fd-8785-00733508ecb1.prof.gz.info
+[2020-07-19 23:05:57,889] [pid=81112] [[32mINFO[0m]: Reporter finished.
