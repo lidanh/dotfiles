@@ -3,7 +3,7 @@ cask_args appdir: '/Applications'
 tap 'homebrew/bundle'
 tap 'homebrew/cask-versions'
 
-cask 'java8'
+cask 'java11'
 
 brew 'git'
 brew 'node'

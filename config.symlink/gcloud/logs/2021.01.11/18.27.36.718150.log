@@ -1,0 +1,26 @@
+2021-01-11 18:27:36,719 DEBUG    root            Loaded Command Group: [u'gcloud', u'auth']
+2021-01-11 18:27:36,723 DEBUG    root            Loaded Command Group: [u'gcloud', u'auth', u'list']
+2021-01-11 18:27:36,727 DEBUG    root            Running [gcloud.auth.list] with arguments: [--format: "json"]
+2021-01-11 18:27:36,732 INFO     root            Display format: "    table[title='Credentialed Accounts'](
+        status.yesno(yes='*', no=''):label=ACTIVE,
+        account
+    ) json"
+2021-01-11 18:27:36,732 INFO     ___FILE_ONLY___ [
+  {
+2021-01-11 18:27:36,733 INFO     ___FILE_ONLY___ 
+    "account": "euroil@gmail.com",
+2021-01-11 18:27:36,733 INFO     ___FILE_ONLY___ 
+    "status": ""
+2021-01-11 18:27:36,733 INFO     ___FILE_ONLY___ 
+  }
+2021-01-11 18:27:36,733 INFO     ___FILE_ONLY___ ,
+  {
+2021-01-11 18:27:36,733 INFO     ___FILE_ONLY___ 
+    "account": "lidanh@wix.com",
+2021-01-11 18:27:36,734 INFO     ___FILE_ONLY___ 
+    "status": "ACTIVE"
+2021-01-11 18:27:36,734 INFO     ___FILE_ONLY___ 
+  }
+2021-01-11 18:27:36,734 INFO     ___FILE_ONLY___ 
+]
+

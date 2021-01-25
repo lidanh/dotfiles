@@ -1,0 +1,9 @@
+2021-01-11 18:27:33,907 DEBUG    root            Loaded Command Group: [u'gcloud', u'config']
+2021-01-11 18:27:33,912 DEBUG    root            Loaded Command Group: [u'gcloud', u'config', u'get_value']
+2021-01-11 18:27:33,915 DEBUG    root            Running [gcloud.config.get-value] with arguments: [--format: "json", SECTION/PROPERTY: "account"]
+2021-01-11 18:27:33,916 INFO     ___FILE_ONLY___ Your active configuration is: [lidan-personal]
+
+2021-01-11 18:27:33,917 INFO     root            Display format: "value(.) json"
+2021-01-11 18:27:33,918 INFO     ___FILE_ONLY___ "lidanh@wix.com"
+2021-01-11 18:27:33,918 INFO     ___FILE_ONLY___ 
+

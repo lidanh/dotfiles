@@ -1,0 +1,19 @@
+2021-01-11 18:26:05,099 DEBUG    root            Loaded Command Group: [u'gcloud', u'auth']
+2021-01-11 18:26:05,105 DEBUG    root            Loaded Command Group: [u'gcloud', u'auth', u'login']
+2021-01-11 18:26:05,107 DEBUG    root            Running [gcloud.auth.login] with arguments: [--update-adc: "True"]
+2021-01-11 18:26:05,686 INFO     ___FILE_ONLY___ Your browser has been opened to visit:
+
+    https://accounts.google.com/o/oauth2/auth?code_challenge=jH-ToGK27Yb_oC3hW5kEz7zJwdVRlqUxV_NW0co2CE8&prompt=select_account&code_challenge_method=S256&access_type=offline&redirect_uri=http%3A%2F%2Flocalhost%3A8085%2F&response_type=code&client_id=32555940559.apps.googleusercontent.com&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcloud-platform+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fappengine.admin+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcompute+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Faccounts.reauth
+
+
+
+2021-01-11 18:26:39,035 INFO     oauth2client.client Successfully retrieved access token
+2021-01-11 18:26:39,047 INFO     ___FILE_ONLY___ 
+Application default credentials (ADC) were updated.
+
+2021-01-11 18:26:39,049 INFO     ___FILE_ONLY___ 
+You are now logged in as [lidanh@wix.com].
+Your current project is [kubernetes-ndc-workshop].  You can change this setting by running:
+  $ gcloud config set project PROJECT_ID
+
+2021-01-11 18:26:39,050 INFO     root            Display format: "none"
