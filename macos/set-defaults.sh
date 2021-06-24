@@ -7,6 +7,11 @@
 #
 # Run ./set-defaults.sh and you'll be good to go.
 
+# Ask for the administrator password upfront
+sudo -v
+
+# Keep-alive: update existing `sudo` time stamp until `.macos` has finished
+while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 # Set computer name (as done via System Preferences → Sharing)
 sudo scutil --set ComputerName "Lidan-Macbook"
@@ -23,7 +28,10 @@ sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.serve
 chflags nohidden "${HOME}/Library"
 
 # Don't show the ~/bin directory
-chflags hidden "${HOME}/bin"
+# chflags hidden "${HOME}/bin"
+
+# Save to disk (not to iCloud) by default
+defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
 
 
 # ==============================================
@@ -125,35 +133,34 @@ defaults write NSGlobalDomain PMPrintingExpandedStateForPrint2 -bool true
 defaults write com.apple.menuextra.battery ShowPercent -string "YES"
 
 # Enable dark mode (Mojave)
-defaults write -g AppleInterfaceStyle -string "Dark"
+# defaults write -g AppleInterfaceStyle -string "Dark"
 # Exclude notification center from dark mode
-defaults write com.apple.notificationcenterui NSRequiresAquaSystemAppearance -bool Yes
+# defaults write com.apple.notificationcenterui NSRequiresAquaSystemAppearance -bool Yes
 # Exclude spotlight from dark mode
-defaults write com.apple.Spotlight NSRequiresAquaSystemAppearance -bool Yes
+# defaults write com.apple.Spotlight NSRequiresAquaSystemAppearance -bool Yes
 # Exclude finder from dark mode
-defaults write com.apple.finder NSRequiresAquaSystemAppearance -bool Yes
+# defaults write com.apple.finder NSRequiresAquaSystemAppearance -bool Yes
 # Exclude messages from dark mode
-defaults write com.apple.iChat NSRequiresAquaSystemAppearance -bool Yes
+# defaults write com.apple.iChat NSRequiresAquaSystemAppearance -bool Yes
 # Exclude calendar from dark mode
-defaults write com.apple.iCal NSRequiresAquaSystemAppearance -bool Yes
+# defaults write com.apple.iCal NSRequiresAquaSystemAppearance -bool Yes
 # Exclude activity monitor from dark mode
-defaults write com.apple.ActivityMonitor NSRequiresAquaSystemAppearance -bool Yes
+# defaults write com.apple.ActivityMonitor NSRequiresAquaSystemAppearance -bool Yes
 # Exclude app store from dark mode
-defaults write com.apple.AppStore NSRequiresAquaSystemAppearance -bool Yes
+# defaults write com.apple.AppStore NSRequiresAquaSystemAppearance -bool Yes
 # Exclude Xcode from dark mode
-defaults write com.apple.dt.Xcode NSRequiresAquaSystemAppearance -bool Yes
+# defaults write com.apple.dt.Xcode NSRequiresAquaSystemAppearance -bool Yes
 # Exclude chrome from dark mode
-defaults write com.google.Chrome NSRequiresAquaSystemAppearance -bool Yes
+# defaults write com.google.Chrome NSRequiresAquaSystemAppearance -bool Yes
 # Fix issue with Adobe apps
-defaults delete -g NSRequiresAquaSystemAppearance
+# defaults delete -g NSRequiresAquaSystemAppearance
 
 # ==============================================
 # Mouse and trackpad
 # ==============================================
 
-# Tap to click
+# Trackpad: enable tap to click for this user and for the login screen
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
-defaults write com.apple.AppleMultitouchTrackpad Clicking -bool true
 defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 
@@ -206,12 +213,21 @@ defaults write com.apple.dt.Xcode AlwaysShowTabBar -bool true
 # ==============================================
 # Finder
 # ==============================================
+# Save screenshots to the desktop
+defaults write com.apple.screencapture location -string "${HOME}/Desktop"
+
+# Save screenshots in PNG format (other options: BMP, GIF, JPG, PDF, TIFF)
+defaults write com.apple.screencapture type -string "png"
 
 # When performing a search, search the current folder by default
 defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
 
-# Avoid creating .DS_Store files on network volumes
+# Avoid creating .DS_Store files on network or USB volumes
 defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
+
+# Keep folders on top when sorting by name
+defaults write com.apple.finder _FXSortFoldersFirst -bool true
 
 # Set the Finder prefs for showing a few different volumes on the Desktop.
 defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true
@@ -252,6 +268,27 @@ defaults write com.apple.Safari InstallExtensionUpdatesAutomatically -bool true
 defaults write com.apple.NetworkBrowser BrowseAllInterfaces 1i
 
 ###############################################################################
+# Energy saving                                                               #
+###############################################################################
+
+# Sleep the display after 15 minutes on charger and 5 minutes on battery
+sudo pmset -b displaysleep 5
+sudo pmset -c displaysleep 15
+
+# Set machine sleep to 5 minutes on battery
+sudo pmset -b sleep 5
+
+# Never sleep on charger
+sudo pmset -c sleep 0
+
+# slightly turn down display brightness when switching to battery
+sudo pmset -b lessbright 1
+
+# Powernap- enable for power, disable for battery
+sudo pmset -b powernap 0
+sudo pmset -c powernap 1
+
+###############################################################################
 # Dock, Dashboard, and hot corners                                            #
 ###############################################################################
 
@@ -284,6 +321,9 @@ defaults write NSGlobalDomain AppleActionOnDoubleClick -string "Maximize"
 # Show indicator lights for open applications
 defaults write com.apple.dock show-process-indicators -bool true
 
+# Don’t show recent applications in Dock
+defaults write com.apple.dock show-recents -bool false
+
 ###############################################################################
 # Photos                                                                      #
 ###############################################################################
@@ -308,5 +348,50 @@ defaults write com.apple.assistant.backedup "Session Language" -string "he-IL"
 # Download newly available updates in the background
 sudo defaults write /Library/Preferences/com.apple.SoftwareUpdate AutomaticDownload -bool true
 
-# Install app updates
-sudo defaults write /Library/Preferences/com.apple.commerce AutoUpdate -bool true
+# Turn on app auto-update
+defaults write com.apple.commerce AutoUpdate -bool true
+
+# Enable the automatic update check
+defaults write com.apple.SoftwareUpdate AutomaticCheckEnabled -bool true
+
+# Check for software updates daily, not just once per week
+defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 1
+
+# Download newly available updates in background
+defaults write com.apple.SoftwareUpdate AutomaticDownload -int 1
+
+# Install System data files & security updates
+defaults write com.apple.SoftwareUpdate CriticalUpdateInstall -int 1
+
+###############################################################################
+# Terminal & iTerm 2                                                          #
+###############################################################################
+
+# Only use UTF-8 in Terminal.app
+defaults write com.apple.terminal StringEncodings -array 4
+
+# Don’t display the annoying prompt when quitting iTerm
+defaults write com.googlecode.iterm2 PromptOnQuit -bool false
+
+###############################################################################
+# Time Machine                                                                #
+###############################################################################
+
+# Prevent Time Machine from prompting to use new hard drives as backup volume
+defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
+
+
+###############################################################################
+# Kill affected applications                                                  #
+###############################################################################
+
+for app in "Activity Monitor" \
+	"cfprefsd" \
+	"Dock" \
+	"Finder" \
+	"Mail" \
+	"Messages" \
+	"Photos" \
+	"SystemUIServer"; do
+	killall "${app}" &> /dev/null
+done

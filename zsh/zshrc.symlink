@@ -8,8 +8,8 @@ alias projects='cd $PROJECTS'
 alias wixprojects='cd $PROJECTS/wix'
 alias tmux='tmux attach -t base || tmux new -s base'
 
-plugins=(git aws docker osx fzf zsh-completions)
-source $ZSH/oh-my-zsh.sh
+# plugins=(git aws docker osx fzf zsh-completions)
+# source $ZSH/oh-my-zsh.sh
 
 export ZSH_CUSTOM=$DOTFILES/zsh
 
@@ -54,24 +54,15 @@ export POWERLINE_CONFIG_COMMAND=/usr/local/bin/powerline-config
 
 [ -n "$TMUX" ] && export TERM=screen-256color
 
-# Java, Maven
-export JAVA_HOME=$(/usr/libexec/java_home)
-export MAVEN_OPTS="-Xmx4096M -Xss128M -XX:+UseG1GC -XX:MaxGCPauseMillis=200 -XX:ParallelGCThreads=10"
-
-# Android
-export ANDROID_SDK_ROOT="/usr/local/share/android-sdk"
-export ANDROID_HOME="/Users/lidanh/Library/Android/sdk"
-
 # go
 export GOPATH=$HOME/Projects/go
 
 # fuzzy search (fzf)
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-source $ZSH_CUSTOM/plugins/fzf-tab-completion/zsh/fzf-zsh-completion.sh
-export FZF_BASE=/usr/local/bin/fzf
-export FZF_DEFAULT_OPS="--extended"
-export FZF_DEFAULT_COMMAND="fd --type f"
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# export FZF_BASE=/usr/local/bin/fzf
+# export FZF_DEFAULT_OPS="--extended"
+# export FZF_DEFAULT_COMMAND="fd --type f"
+# export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 # Better history
 # Credits to https://coderwall.com/p/jpj_6q/zsh-better-history-searching-with-arrow-keys
@@ -81,8 +72,11 @@ zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
 bindkey "^[[A" up-line-or-beginning-search # Up
 bindkey "^[[B" down-line-or-beginning-search # Down
-source "$HOME/.bazelenv"
 
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/terraform terraform
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

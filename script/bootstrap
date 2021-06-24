@@ -137,9 +137,13 @@ install_dotfiles () {
   done
 }
 
+install_xcode_command_line_tools() {
+  xcode-select --install
+}
+
 setup_gitconfig
 install_dotfiles
-
+install_xcode_command_line_tools
 
 # If we're on a Mac, let's install and setup homebrew.
 if [ "$(uname -s)" == "Darwin" ]
