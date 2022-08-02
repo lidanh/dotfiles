@@ -20,7 +20,7 @@
         branch = auto
         ui = true
 [core]
-        excludesfile = ~/.gitignore
+	excludesfile = /Users/lidan/.gitignore
         editor = vim
 [apply]
         whitespace = nowarn
@@ -38,3 +38,20 @@
         default = simple
 [branch]
         autosetuprebase = always
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /private/var/folders/82/zbc78p1j1m94_ny77t40c9v00000gn/T/AppTranslocation/B2C532DB-A365-4334-B8CE-D277B6279079/d/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[user]
+	name = Lidan Hifi
+	email = lidan.hifi@tipalti.com
+[commit]
+	template = /Users/lidan/.stCommitMsg
+[pull]
+	rebase = true
+[rebase]
+	autostash = true
+[init]
+	defaultBranch = master

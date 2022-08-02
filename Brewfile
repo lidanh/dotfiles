@@ -3,8 +3,8 @@ cask_args appdir: '/Applications'
 tap 'homebrew/bundle'
 tap 'homebrew/cask-versions'
 
-brew 'java'
-
+# brew 'java'
+brew 'openjdk'
 brew 'git'
 brew 'nvm'
 brew 'python'
@@ -28,6 +28,7 @@ brew 'fzf'
 brew 'terraform'
 brew 'terragrunt'
 
+cask 'java'
 cask 'google-chrome'
 cask 'zoom'
 cask 'tunnelbear'
@@ -44,6 +45,10 @@ cask 'macdown'
 cask 'iterm2'
 cask 'adobe-creative-cloud'
 cask 'anaconda'
+cask 'adobe-acrobat-reader'
+cask 'home-assistant'
+cask 'telegram-desktop'
+cask 'tweeten'
 
 # App store apps
 mas 'paste', id: 967805235
@@ -53,12 +58,10 @@ mas 'trello', id: 1278508951
 # Quick look plugins - https://github.com/sindresorhus/quick-look-plugins
 cask 'qlcolorcode'
 cask 'qlmarkdown'
-cask 'quicklook-json'
+# cask 'quicklook-json'
 cask 'quicklook-csv'
 cask 'qlprettypatch'
 cask 'qlstephen'
 
 # Approve.com stuff
-cask 'openvpn-connect'
-cask 'malwarebytes'
 cask 'slack'
