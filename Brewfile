@@ -52,6 +52,8 @@ cask 'home-assistant'
 cask 'notion'
 cask 'slack'
 cask 'the-unarchiver'
+cask 'trader-workstation'
+cask 'raycast'
 
 # App store apps
 mas 'paste', id: 967805235
@@ -61,7 +63,7 @@ mas 'trello', id: 1278508951
 # Quick look plugins - https://github.com/sindresorhus/quick-look-plugins
 cask 'qlcolorcode'
 cask 'qlmarkdown'
-# cask 'quicklook-json'
+cask 'quicklook-json'
 cask 'quicklook-csv'
 cask 'qlprettypatch'
 cask 'qlstephen'
