@@ -3,8 +3,6 @@ cask_args appdir: '/Applications'
 tap 'homebrew/bundle'
 tap 'homebrew/cask-versions'
 
-# brew 'java'
-# brew 'openjdk'
 brew 'git'
 brew 'nvm'
 brew 'python'
@@ -36,10 +34,8 @@ cask 'tunnelbear'
 cask 'spotify'
 cask 'visual-studio-code'
 cask 'whatsapp'
-# cask 'alfred'
 cask 'docker'
 cask 'dropbox'
-# cask 'fantastical'
 cask 'yemuzip'
 cask 'macdown'
 cask 'iterm2'
@@ -54,11 +50,13 @@ cask 'slack'
 cask 'the-unarchiver'
 cask 'trader-workstation'
 cask 'raycast'
+cask 'todoist'
+cask 'fig'
 
 # App store apps
 mas 'paste', id: 967805235
 mas 'trello', id: 1278508951
-
+mas 'airmail', id: 918858936
 
 # Quick look plugins - https://github.com/sindresorhus/quick-look-plugins
 cask 'qlcolorcode'
@@ -66,7 +64,7 @@ cask 'qlmarkdown'
 cask 'quicklook-json'
 cask 'quicklook-csv'
 cask 'qlprettypatch'
-cask 'qlstephen'
+# cask 'qlstephen'
 
 # Approve.com stuff
 cask 'mongodb-compass'
