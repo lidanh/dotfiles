@@ -10,4 +10,6 @@ atom.symlink/blob-store
 atom.symlink/recovery
 config.symlink/hub
 config.symlink/configstore/*
+config.symlink/raycast
+config.symlink/fish
 git/gitconfig.local.symlink
