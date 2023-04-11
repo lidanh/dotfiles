@@ -40,11 +40,9 @@ cask 'yemuzip'
 cask 'macdown'
 cask 'iterm2'
 cask 'adobe-creative-cloud'
-# cask 'anaconda'
+cask 'anaconda'
 # cask 'adobe-acrobat-reader'
 cask 'home-assistant'
-# cask 'telegram-desktop'
-# cask 'tweeten'
 cask 'notion'
 cask 'slack'
 cask 'the-unarchiver'
@@ -56,15 +54,15 @@ cask 'fig'
 # App store apps
 mas 'paste', id: 967805235
 mas 'trello', id: 1278508951
-mas 'airmail', id: 918858936
+# mas 'airmail', id: 918858936
 
 # Quick look plugins - https://github.com/sindresorhus/quick-look-plugins
-cask 'qlcolorcode'
-cask 'qlmarkdown'
-cask 'quicklook-json'
-cask 'quicklook-csv'
-cask 'qlprettypatch'
+# cask 'qlcolorcode'
+# cask 'qlmarkdown'
+# cask 'quicklook-json'
+# cask 'quicklook-csv'
+# cask 'qlprettypatch'
 # cask 'qlstephen'
 
 # Approve.com stuff
-cask 'mongodb-compass'
+# cask 'mongodb-compass'
