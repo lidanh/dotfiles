@@ -1,3 +1,3 @@
-export PATH="/usr/local/anaconda3/bin:$PATH"
+export PATH="/opt/homebrew/anaconda3/bin:$PATH"
 
-alias jup='/usr/local/anaconda3/bin/jupyter notebook' # --notebook-dir=$(echo pwd)
+alias jup='/opt/homebrew/anaconda3/bin/jupyter_mac.command'

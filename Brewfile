@@ -26,11 +26,12 @@ brew 'fzf'
 brew 'terraform'
 brew 'terragrunt'
 
+brew 'minikube'
+
 cask 'java'
 cask 'google-chrome'
 cask 'zoom'
 cask 'tunnelbear'
-# cask 'intellij-idea'
 cask 'spotify'
 cask 'visual-studio-code'
 cask 'whatsapp'
@@ -41,20 +42,25 @@ cask 'macdown'
 cask 'iterm2'
 cask 'adobe-creative-cloud'
 cask 'anaconda'
-# cask 'adobe-acrobat-reader'
 cask 'home-assistant'
 cask 'notion'
-cask 'slack'
 cask 'the-unarchiver'
 cask 'trader-workstation'
 cask 'raycast'
 cask 'todoist'
 cask 'fig'
+cask 'cron'
+cask 'arc'
+cask 'figma'
+cask 'postman'
+cask 'blackhole-2ch'
+cask 'pgadmin4'
 
 # App store apps
 mas 'paste', id: 967805235
 mas 'trello', id: 1278508951
-# mas 'airmail', id: 918858936
+mas 'endel-focus-sleep-relax', id: 1346247457
+mas 'garageband', id: 682658836
 
 # Quick look plugins - https://github.com/sindresorhus/quick-look-plugins
 # cask 'qlcolorcode'
