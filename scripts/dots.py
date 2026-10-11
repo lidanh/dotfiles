@@ -87,6 +87,8 @@ def check_machine(profile):
     for command in status_commands():
         result = run(mise(profile, *command, '--missing'), check=False)
         failed |= result.returncode != 0
+    if not Path('/Applications/Warp.app/Contents/Info.plist').is_file():
+        print('MISSING: Warp (run dots setup)'); failed=True
     failed |= system(profile, check_only=True)
     last = Path.home()/'.local/state/lidan-dotfiles/update.json'
     if last.exists():
@@ -100,6 +102,32 @@ def check_machine(profile):
     else:
         print('Last update: not run yet')
     return int(failed)
+
+def refresh_packages(dry=False):
+    run(['/bin/bash',str(ROOT/'scripts/refresh-packages.sh')],dry=dry)
+
+def install_packages(profile, dry=False):
+    configured = list(packages(ROOT, profile)) + ['warp-homebrew']
+    failures = []
+    print('Installing packages individually. Completed packages are kept on reruns.',flush=True)
+    print('Some packages need sudo, an installer prompt, or Ruby to evaluate Homebrew definitions.',flush=True)
+    for index, package in enumerate(configured, 1):
+        print(f'\n[{index}/{len(configured)}] {package}',flush=True)
+        command = ([sys.executable,str(ROOT/'scripts/warp.py')] if package=='warp-homebrew' else
+                   mise(profile,'bootstrap','packages','apply','--yes','--raw',package))
+        if dry: command.append('--dry-run')
+        result = run(command,check=False)
+        if result.returncode in (130, -2):
+            raise KeyboardInterrupt
+        if result.returncode:
+            failures.append(package)
+            print(f'FAILED: {package}; continuing with the remaining packages.',flush=True)
+        else:
+            print(f'{"PREVIEW" if dry else "READY"}: {package}',flush=True)
+    if failures:
+        raise ValueError('Packages needing attention: '+', '.join(failures)+
+                         '. Completed installs were kept. Configuration was not applied. '
+                         'Rerun ./bootstrap.sh '+profile+' to retry missing packages.')
 
 def catalog():
     items=[]
@@ -120,6 +148,9 @@ def add_package(profile, query, scope=None, dry=False):
         scope=choose(['shared',profile], 'Install for which machines?')
     if scope not in ('shared',profile):
         raise ValueError('Scope must be shared or the current machine profile')
+    if package in ('brew-cask:warp','brew-cask:homebrew/cask/warp'):
+        run([sys.executable,str(ROOT/'scripts/warp.py'),*(['--dry-run'] if dry else [])])
+        return
     shared=tomllib.loads((ROOT/'mise.toml').read_text())['bootstrap']['packages']
     if package in shared: scope='shared'
     file=ROOT/('mise.toml' if scope=='shared' else f'mise.{profile}.toml')
@@ -145,7 +176,7 @@ def update_packages(profile, background=False, dry=False):
     state=Path.home()/'.local/state/lidan-dotfiles'
     if dry:
         print('Would upgrade declared brew/brew-cask packages for',profile,
-              '(Homebrew-owned casks through brew; other packages through mise). No App Store/runtime upgrades.')
+              '(Warp and Homebrew-owned casks through brew; other packages through mise). Refreshes metadata first. No App Store/runtime upgrades.')
         return 0
     state.mkdir(parents=True,exist_ok=True,mode=0o700)
     # flock releases automatically after a crash; interactive and scheduled updates share the lock.
@@ -167,17 +198,19 @@ def update_packages(profile, background=False, dry=False):
                                           stdout=log,stderr=log,timeout=3600)
                     if result.returncode: errors.append(' '.join(command))
                 except (OSError,subprocess.TimeoutExpired) as error: errors.append(str(error))
-            brew=shutil.which('brew')
-            native,legacy=upgrade_groups(packages(ROOT,profile),homebrew_owned_casks())
-            if legacy and not brew:
-                errors.append('Homebrew is required to upgrade its existing casks: '+', '.join(legacy))
-                legacy=[]
-            # Each package has its own exit status: a privileged cask failure cannot hide the rest.
-            for package in native:
-                execute(mise(profile,'bootstrap','packages','upgrade','--yes',package))
-            if legacy:
-                execute([brew,'update'])
-                for package in legacy: execute([brew,'upgrade','--cask',package])
+            execute(['/bin/bash',str(ROOT/'scripts/refresh-packages.sh')])
+            if not errors:
+                brew=shutil.which('brew')
+                native,legacy=upgrade_groups(packages(ROOT,profile),homebrew_owned_casks())
+                if legacy and not brew:
+                    errors.append('Homebrew is required to upgrade its existing casks: '+', '.join(legacy))
+                    legacy=[]
+                # Each package has its own exit status: a privileged cask failure cannot hide the rest.
+                for package in native:
+                    execute(mise(profile,'bootstrap','packages','upgrade','--yes',package))
+                execute([sys.executable,str(ROOT/'scripts/warp.py'),'--update'])
+                if legacy:
+                    for package in legacy: execute([brew,'upgrade','--cask',package])
         report={'time':stamp,'profile':profile,'ok':not errors,'failures':errors,'log':str(log_path)}
         tmp=state/'update.json.tmp';tmp.write_text(json.dumps(report,indent=2)+'\n');tmp.replace(state/'update.json')
         if errors:
@@ -250,8 +283,8 @@ def apply(profile, setup=False, dry=False):
             (backup/(domain+'.plist')).write_bytes(plistlib.dumps(read_defaults(domain)))
         (backup/'power.txt').write_text(subprocess.check_output(['pmset','-g','custom'],text=True))
     if setup:
-        run(mise(profile,'bootstrap','packages','apply','brew:uv','brew:mas'),dry=dry)
-        parts='packages,dotfiles,macos-defaults,user,macos-launchd-agents'
+        install_packages(profile,dry=dry)
+        parts='dotfiles,macos-defaults,user,macos-launchd-agents'
     else:parts='dotfiles,macos-defaults,macos-launchd-agents'
     command=mise(profile,'bootstrap','--only',parts)
     if dry:command.append('--dry-run')
@@ -281,6 +314,8 @@ def main():
     parser.add_argument('--background',action='store_true')
     args=parser.parse_args()
     profile=load_profile()
+    if args.command in ('setup','add'):
+        refresh_packages(dry=args.dry_run)
     if args.command=='add':
         if not args.package:parser.error('add requires a package name')
         add_package(profile,args.package,args.scope,args.dry_run)

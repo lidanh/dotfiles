@@ -34,7 +34,7 @@ adopt = true
 "brew:terragrunt" = "latest"
 "brew:ffmpeg" = "latest"
 "brew:yt-dlp" = "latest"
-"brew-cask:warp" = "latest"
+# Warp is installed by Homebrew through Casks/warp.rb (see scripts/warp.py).
 "brew-cask:comet" = "latest"
 "brew-cask:google-chrome" = "latest"
 "brew-cask:cursor" = "latest"

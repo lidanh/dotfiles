@@ -32,10 +32,11 @@ class InstallationTests(unittest.TestCase):
         self.env = dict(os.environ, HOME=str(self.home), PATH=f'{self.bin}:/usr/bin:/bin:/usr/sbin:/sbin',
                         TEST_LOG=str(self.log), PYTHONDONTWRITEBYTECODE='1')
         # These replace only process boundaries, leaving bootstrap.sh and bin/dots real.
-        for name in ('mise', 'uv'):
+        for name in ('mise', 'uv', 'brew'):
             command = self.bin / name
             command.write_text(f'#!{sys.executable}\n' + '''import json,os,sys
 with open(os.environ['TEST_LOG'], 'a') as f: f.write(json.dumps([os.path.basename(sys.argv[0]),*sys.argv[1:]])+'\\n')
+if sys.argv[1:] == ['cache','path']: print(os.path.join(os.environ['HOME'],'cache'))
 if 'packages' in sys.argv and os.environ.get('FAIL_PACKAGES'): sys.exit(17)
 ''')
             command.chmod(0o755)
@@ -59,6 +60,7 @@ if 'packages' in sys.argv and os.environ.get('FAIL_PACKAGES'): sys.exit(17)
                 packages = next(i for i,c in enumerate(commands) if 'packages' in c)
                 python = next(i for i,c in enumerate(commands) if c[:3] == ['uv','python','install'])
                 setup = next(i for i,c in enumerate(commands) if 'machine:setup' in c)
+                self.assertLess(next(i for i,c in enumerate(commands) if c==['brew','update']),packages)
                 self.assertLess(packages, python)
                 self.assertLess(python, setup)
                 self.assertIn(str(self.repo.resolve()), commands[setup])

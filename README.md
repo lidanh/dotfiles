@@ -32,7 +32,7 @@ Setup for a clean Apple Silicon Mac: apps, macOS settings, Fish and Starship.
 
    For a work Mac, run `./bootstrap.sh Wonderful` instead.
 
-   Follow password/installer prompts. The script installs the tools and apps, applies settings and saves your profile. If interrupted, rerun the same command.
+   Follow password/installer prompts. The script installs the tools and apps, applies settings and saves your profile. Packages install one at a time with a progress counter. Failures are listed after the remaining packages are attempted. If interrupted, rerun the same command; completed installs are kept. Some Homebrew packages need Ruby or a source build even though Ruby is not a development runtime in this setup.
 
 5. **Log out and back in, then open Warp.** Use Fish as the shell.
 
@@ -74,6 +74,8 @@ dots update --dry-run   # Explain which packages the updater handles
 dots github             # Connect this Mac to GitHub
 dots --help             # Show available commands
 ```
+
+Before installs and updates, `brew update` runs and mise’s cached Homebrew cask metadata is refreshed. Warp uses the Homebrew cask in `Casks/warp.rb`: the latest official download, with Apple developer signature verification and a checksum exception scoped to Warp. Other packages stay on mise.
 
 Your profile is remembered. Host packages also update daily at **11:00 local time**; project dependencies and language runtimes are excluded. App Store updates are handled separately by macOS.
 
