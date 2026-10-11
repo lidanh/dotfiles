@@ -1,0 +1,11 @@
+{
+    "window.commandCenter": true,
+    "aws.cloudformation.telemetry.enabled": true,
+    "editor.fontSize": 16,
+    "terminal.integrated.fontSize": 16,
+    "debug.console.fontSize": 14,
+    "window.autoDetectColorScheme": false,
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    }
+}

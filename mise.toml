@@ -72,6 +72,19 @@ login_shell = "/opt/homebrew/bin/fish"
 "~/.config/mise/config.toml" = { source = "config/mise/config.toml", mode = "symlink" }
 "~/.local/bin/dots" = { source = "bin/dots", mode = "symlink" }
 
+# Link individual app preferences; never link their databases or entire data folders.
+[dotfiles."~/.warp/settings.toml"]
+source = "config/warp/settings.toml"
+mode = "symlink"
+
+[dotfiles."~/Library/Application Support/Cursor/User/settings.json"]
+source = "config/cursor/settings.json"
+mode = "symlink"
+
+[dotfiles."~/Library/Application Support/Cursor/User/keybindings.json"]
+source = "config/cursor/keybindings.json"
+mode = "symlink"
+
 [bootstrap.macos.dock]
 orientation = "bottom"
 tilesize = 54

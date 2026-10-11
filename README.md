@@ -82,5 +82,8 @@ Your profile is remembered. Host packages also update daily at **11:00 local tim
 - **Shared apps and Mac settings:** `mise.toml`
 - **Profile additions:** `mise.Personal.toml` / `mise.Wonderful.toml`
 - **Shell, Git and prompt:** `config/` (symlinked to your home directory)
+- **Cursor and Warp preferences:** `config/cursor/` and `config/warp/`; linked by `dots setup` / `dots apply`. Warp cloud sync remains enabled, as on the original Mac.
 
 Commit and push changes. On the other Mac, pull the repo and run `dots setup`.
+
+App settings are a snapshot of the original Mac. Review UI changes with `git diff` before committing; cloud sync may also change Warp settings. Cursor extensions and app sign-ins are not included. Live GUI writes through symlinks have not been verified.
