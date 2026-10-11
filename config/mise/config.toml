@@ -1,0 +1,4 @@
+# Global fallback versions; each project can select its own versions.
+[tools]
+node = "24"
+go = "1.26"

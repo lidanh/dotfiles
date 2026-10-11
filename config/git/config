@@ -1,0 +1,32 @@
+[user]
+    name = Lidan Hifi
+    email = 1463793+lidanh@users.noreply.github.com
+    useConfigOnly = true
+[pull]
+    rebase = true
+[rebase]
+    autoStash = true
+[branch]
+    autoSetupRebase = always
+[push]
+    default = simple
+[fetch]
+    prune = true
+[help]
+    autocorrect = show
+[core]
+    excludesFile = ~/.config/git/ignore
+    editor = vim
+[credential]
+    helper = osxkeychain
+[color]
+    ui = auto
+[alias]
+    co = checkout
+    count = shortlog -sn
+    copy-branch-name = !git branch --show-current | pbcopy
+[include]
+    path = ~/.config/git/profile
+# Machine-local identity, credentials and work-specific integrations override above.
+[include]
+    path = ~/.gitconfig.local

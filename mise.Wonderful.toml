@@ -1,0 +1,20 @@
+# Additions for Wonderful. Shared packages come from mise.toml.
+[vars]
+computer_name = "Lidan-Work-Macbook"
+
+[bootstrap.packages]
+"brew:git-lfs" = "latest"
+"brew:helm" = "latest"
+"brew:kubernetes-cli" = "latest"
+"brew-cask:azure-cli" = "latest"
+"brew:azure/kubelogin/kubelogin" = "latest"
+"brew:k9s" = "latest"
+"brew-cask:linear" = "latest"
+"brew-cask:cloudflare-warp" = "latest"
+"brew-cask:slack" = "latest"
+"brew-cask:microsoft-teams" = "latest"
+"brew-cask:fellow" = "latest"
+"brew-cask:okta-verify" = "latest"
+
+[dotfiles]
+"~/.config/git/profile" = { source = "config/git/Wonderful", mode = "symlink" }

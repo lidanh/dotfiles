@@ -1,0 +1,31 @@
+#!/bin/bash
+set -euo pipefail
+source_path=${BASH_SOURCE[0]}
+while [ -L "$source_path" ]; do
+  source_dir=$(cd -P "$(dirname "$source_path")" && pwd)
+  source_path=$(readlink "$source_path")
+  case "$source_path" in /*) ;; *) source_path="$source_dir/$source_path" ;; esac
+done
+root=$(cd -P "$(dirname "$source_path")/.." && pwd)
+export PATH="$HOME/.local/bin:/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
+case "${1:-help}" in
+  help|--help|-h)
+    echo 'dots add <package> | check | update | apply | setup | github'
+    echo 'Use --dry-run with add/update/apply/setup. Profile is selected once by bootstrap.sh.'
+    exit 0 ;;
+  add) task=pkg:add ;;
+  check) task=machine:check ;;
+  update) task=machine:update ;;
+  apply) task=machine:apply ;;
+  setup) task=machine:setup ;;
+  github) task=github:setup ;;
+  *) echo "Unknown dots command: $1" >&2; exit 2 ;;
+esac
+shift
+[ -f "$root/.dots-profile" ] || { echo 'Run ./bootstrap.sh Personal or Wonderful once.' >&2; exit 1; }
+profile=$(cat "$root/.dots-profile")
+case "$profile" in Personal|Wonderful) ;; *) echo 'Invalid machine profile.' >&2; exit 1 ;; esac
+command -v mise >/dev/null || { echo 'mise is missing. Run bootstrap.sh.' >&2; exit 1; }
+export MISE_AUTO_INSTALL=false
+export MISE_TASK_RUN_AUTO_INSTALL=false
+exec mise -C "$root" -E "$profile" run "$task" -- "$@"

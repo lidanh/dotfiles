@@ -1,0 +1,8 @@
+# Additions for Personal. Shared packages come from mise.toml.
+[vars]
+computer_name = "Lidan-Personal-Macbook"
+
+[bootstrap.packages]
+
+[dotfiles]
+"~/.config/git/profile" = { source = "config/git/Personal", mode = "symlink" }
