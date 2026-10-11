@@ -6,3 +6,24 @@ computer_name = "Lidan-Personal-Macbook"
 
 [dotfiles]
 "~/.config/git/profile" = { source = "config/git/Personal", mode = "symlink" }
+
+# Pinned apps in the original Mac Dock order (2026-10-12).
+[bootstrap.macos.dock]
+apps = [
+  "/System/Applications/Apps.app",
+  "/Applications/Safari.app",
+  "/Applications/Comet.app",
+  "/System/Applications/Messages.app",
+  "/System/Applications/Maps.app",
+  "/System/Applications/Photos.app",
+  "/System/Applications/FaceTime.app",
+  "/System/Applications/App Store.app",
+  "/System/Applications/Notes.app",
+  "/System/Applications/Freeform.app",
+  "/System/Applications/System Settings.app",
+  "/System/Applications/iPhone Mirroring.app",
+  "/Applications/Notion.app",
+  "/Applications/Warp.app",
+  "/Applications/WhatsApp.app",
+  "/Applications/Spotify.app",
+]

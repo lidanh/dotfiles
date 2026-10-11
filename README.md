@@ -80,7 +80,7 @@ Your profile is remembered. Host packages also update daily at **11:00 local tim
 ## Where to edit
 
 - **Shared apps and Mac settings:** `mise.toml`
-- **Profile additions:** `mise.Personal.toml` / `mise.Wonderful.toml`
+- **Profile additions and Dock order:** `mise.Personal.toml` / `mise.Wonderful.toml`. Dock apps must exist before applying; the list includes current macOS apps such as Apps and iPhone Mirroring.
 - **Shell, Git and prompt:** `config/` (symlinked to your home directory)
 - **Cursor and Warp preferences:** `config/cursor/` and `config/warp/`; linked by `dots setup` / `dots apply`. Warp cloud sync remains enabled, as on the original Mac.
 
