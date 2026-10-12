@@ -45,7 +45,6 @@ adopt = true
 "brew-cask:google-gemini" = "latest"
 "brew-cask:raycast" = "latest"
 "brew-cask:bitwarden" = "latest"
-"brew-cask:zoom" = "latest"
 "brew-cask:notion" = "latest"
 "brew-cask:todoist-app" = "latest"
 "brew-cask:dropbox" = "latest"
