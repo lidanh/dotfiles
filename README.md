@@ -32,7 +32,7 @@ Setup for a clean Apple Silicon Mac: apps, macOS settings, Fish and Starship.
 
    For a work Mac, run `./bootstrap.sh Wonderful` instead.
 
-   Follow password/installer prompts. The script installs the tools and apps, applies settings and saves your profile. Packages install one at a time with a progress counter. Failures are listed after the remaining packages are attempted. If interrupted, rerun the same command; completed installs are kept. Some Homebrew packages need Ruby or a source build even though Ruby is not a development runtime in this setup.
+   Follow password/installer prompts. If `~/Library/LaunchAgents` belongs to root, setup repairs ownership of that directory only. The script installs the tools and apps, applies settings and saves your profile. Packages install one at a time with a progress counter. Failures are listed after the remaining packages are attempted. If interrupted, rerun the same command; completed installs are kept. Some Homebrew packages need Ruby or a source build even though Ruby is not a development runtime in this setup.
 
 5. **Log out and back in, then open Warp.** Use Fish as the shell.
 

@@ -9,6 +9,7 @@ from pathlib import Path
 import plistlib
 import shutil
 import subprocess
+import stat
 import sys
 import tomllib
 import urllib.request
@@ -270,8 +271,29 @@ def system(profile, dry=False, check_only=False):
                ['defaults','write','com.apple.HIToolbox','AppleEnabledInputSources','-array-add',xml])
     return failed
 
+def prepare_launch_agents(dry=False):
+    """Repair only the observed root-owned user LaunchAgents directory."""
+    home=Path.home()
+    directory=home/'Library/LaunchAgents'
+    if directory.is_symlink() or symlink_parent(directory,home):
+        raise ValueError(f'{directory}: refusing to change ownership through a symlink')
+    try:metadata=directory.stat()
+    except FileNotFoundError:return  # mise creates an absent directory as the current user.
+    if not stat.S_ISDIR(metadata.st_mode):
+        raise ValueError(f'{directory} is not a directory')
+    uid=os.getuid()
+    if uid==0:raise ValueError('Run dots as your login user, not with sudo')
+    if metadata.st_uid==0:
+        print(f'Repairing root-owned {directory}; files inside are left unchanged.',flush=True)
+        run(['sudo','chown',str(uid),str(directory)],dry=dry)
+    elif metadata.st_uid!=uid:
+        raise ValueError(f'{directory} has unexpected owner UID {metadata.st_uid}; refusing to take it over')
+    if not dry and not os.access(directory,os.W_OK|os.X_OK):
+        raise ValueError(f'{directory} is still not writable; inspect its permissions and ACL with ls -ldeO@')
+
 def apply(profile, setup=False, dry=False):
     preflight_links()
+    prepare_launch_agents(dry=dry)
     # Store pre-change preferences locally, never in the repository.
     if not dry:
         stamp=datetime.datetime.now().strftime('%Y%m%d-%H%M%S')
