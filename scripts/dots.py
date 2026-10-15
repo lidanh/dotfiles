@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Small adapters around mise bootstrap; no third-party Python dependencies."""
 import argparse
+from contextlib import contextmanager
 import datetime
 import fcntl
 import json
@@ -15,6 +16,8 @@ import tomllib
 import urllib.request
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0,str(ROOT/'scripts'))
+from package_manager import Manager, canonical
 PROFILES = ('Personal', 'Wonderful')
 
 def load_profile(root=ROOT):
@@ -76,7 +79,7 @@ def preflight_links():
                          '. Migrate these directories first; refusing to write into the old repository.')
 
 def status_commands():
-    return [ ['bootstrap','packages','status'], ['dotfiles','status'],
+    return [ ['dotfiles','status'],
              ['bootstrap','macos','defaults','status'],
              ['bootstrap','macos','launchd-agents','status'], ['bootstrap','user','status'] ]
 
@@ -88,8 +91,12 @@ def check_machine(profile):
     for command in status_commands():
         result = run(mise(profile, *command, '--missing'), check=False)
         failed |= result.returncode != 0
-    if not Path('/Applications/Warp.app/Contents/Info.plist').is_file():
-        print('MISSING: Warp (run dots setup)'); failed=True
+    manager=Manager(ROOT,profile)
+    for package in sorted(manager.desired()):
+        if not manager.present(package):
+            print('MISSING OR NEEDS HOMEBREW ADOPTION:',package);failed=True
+    pending=manager.load()-manager.desired()
+    if pending:print('PENDING REMOVAL (dots sync):',', '.join(sorted(pending)));failed=True
     failed |= system(profile, check_only=True)
     last = Path.home()/'.local/state/lidan-dotfiles/update.json'
     if last.exists():
@@ -108,27 +115,7 @@ def refresh_packages(dry=False):
     run(['/bin/bash',str(ROOT/'scripts/refresh-packages.sh')],dry=dry)
 
 def install_packages(profile, dry=False):
-    configured = list(packages(ROOT, profile)) + ['warp-homebrew']
-    failures = []
-    print('Installing packages individually. Completed packages are kept on reruns.',flush=True)
-    print('Some packages need sudo, an installer prompt, or Ruby to evaluate Homebrew definitions.',flush=True)
-    for index, package in enumerate(configured, 1):
-        print(f'\n[{index}/{len(configured)}] {package}',flush=True)
-        command = ([sys.executable,str(ROOT/'scripts/warp.py')] if package=='warp-homebrew' else
-                   mise(profile,'bootstrap','packages','apply','--yes','--raw',package))
-        if dry: command.append('--dry-run')
-        result = run(command,check=False)
-        if result.returncode in (130, -2):
-            raise KeyboardInterrupt
-        if result.returncode:
-            failures.append(package)
-            print(f'FAILED: {package}; continuing with the remaining packages.',flush=True)
-        else:
-            print(f'{"PREVIEW" if dry else "READY"}: {package}',flush=True)
-    if failures:
-        raise ValueError('Packages needing attention: '+', '.join(failures)+
-                         '. Completed installs were kept. Configuration was not applied. '
-                         'Rerun ./bootstrap.sh '+profile+' to retry missing packages.')
+    Manager(ROOT,profile).reconcile(dry=dry,remove=False)
 
 def catalog():
     items=[]
@@ -149,35 +136,16 @@ def add_package(profile, query, scope=None, dry=False):
         scope=choose(['shared',profile], 'Install for which machines?')
     if scope not in ('shared',profile):
         raise ValueError('Scope must be shared or the current machine profile')
-    if package in ('brew-cask:warp','brew-cask:homebrew/cask/warp'):
-        run([sys.executable,str(ROOT/'scripts/warp.py'),*(['--dry-run'] if dry else [])])
-        return
     shared=tomllib.loads((ROOT/'mise.toml').read_text())['bootstrap']['packages']
-    if package in shared: scope='shared'
-    file=ROOT/('mise.toml' if scope=='shared' else f'mise.{profile}.toml')
-    command=mise(profile,'bootstrap','packages','use','--path',str(file),package)
-    if dry: command.append('--dry-run')
-    run(command)
-    print('Declaration stays in Git even if a later install needs retrying. Commit and push when ready.')
+    if canonical(package) in {canonical(p) for p in shared}:scope='shared'
+    Manager(ROOT,profile).add(package,scope,dry=dry)
 
-def homebrew_owned_casks(caskroom=Path('/opt/homebrew/Caskroom')):
-    # Both managers share Caskroom. Only Homebrew keeps installed cask definitions here.
-    result=set()
-    for definition in caskroom.glob('*/.metadata/*/*/Casks/*'):
-        if definition.suffix in ('.json','.rb'):
-            result.add(definition.parents[4].name)
-    return result
-
-def upgrade_groups(configured, homebrew_casks):
-    legacy=[p.split(':',1)[1] for p in configured if p.startswith('brew-cask:') and p.split(':',1)[1] in homebrew_casks]
-    native=[p for p in configured if p.startswith(('brew:','brew-cask:')) and p not in {'brew-cask:'+name for name in legacy}]
-    return native,legacy
 
 def update_packages(profile, background=False, dry=False):
     state=Path.home()/'.local/state/lidan-dotfiles'
     if dry:
         print('Would upgrade declared brew/brew-cask packages for',profile,
-              '(Warp and Homebrew-owned casks through brew; other packages through mise). Refreshes metadata first. No App Store/runtime upgrades.')
+              '(Homebrew-managed packages only). Refreshes metadata first. No App Store/runtime upgrades.')
         return 0
     state.mkdir(parents=True,exist_ok=True,mode=0o700)
     # flock releases automatically after a crash; interactive and scheduled updates share the lock.
@@ -201,17 +169,10 @@ def update_packages(profile, background=False, dry=False):
                 except (OSError,subprocess.TimeoutExpired) as error: errors.append(str(error))
             execute(['/bin/bash',str(ROOT/'scripts/refresh-packages.sh')])
             if not errors:
-                brew=shutil.which('brew')
-                native,legacy=upgrade_groups(packages(ROOT,profile),homebrew_owned_casks())
-                if legacy and not brew:
-                    errors.append('Homebrew is required to upgrade its existing casks: '+', '.join(legacy))
-                    legacy=[]
-                # Each package has its own exit status: a privileged cask failure cannot hide the rest.
-                for package in native:
-                    execute(mise(profile,'bootstrap','packages','upgrade','--yes',package))
-                execute([sys.executable,str(ROOT/'scripts/warp.py'),'--update'])
-                if legacy:
-                    for package in legacy: execute([brew,'upgrade','--cask',package])
+                for package in sorted(Manager(ROOT,profile).desired()):
+                    if package.startswith(('brew:','brew-cask:')):
+                        execute([sys.executable,str(ROOT/'scripts/package_manager.py'),
+                                 '--root',str(ROOT),'--profile',profile,'upgrade',package])
         report={'time':stamp,'profile':profile,'ok':not errors,'failures':errors,'log':str(log_path)}
         tmp=state/'update.json.tmp';tmp.write_text(json.dumps(report,indent=2)+'\n');tmp.replace(state/'update.json')
         if errors:
@@ -327,23 +288,50 @@ def github_setup(dry=False):
         run(['git','-C',str(ROOT),'remote','set-url','origin',
              'git@github.com:lidanh/dotfiles.git'],dry=dry)
 
+@contextmanager
+def package_lock(dry=False):
+    if dry:
+        yield;return
+    state=Path.home()/'.local/state/lidan-dotfiles'
+    state.mkdir(parents=True,exist_ok=True,mode=0o700)
+    with (state/'update.lock').open('w') as lock:
+        try:fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
+        except BlockingIOError:raise ValueError('Another dots package operation is running; retry afterward') from None
+        yield
+
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('command',choices=['add','check','update','apply','setup','system','github'])
+    parser.add_argument('command',choices=['add','remove','sync','check','update','apply','setup','system','github'])
     parser.add_argument('package',nargs='?')
     parser.add_argument('--scope',choices=['shared',*PROFILES])
     parser.add_argument('--dry-run',action='store_true')
     parser.add_argument('--background',action='store_true')
     args=parser.parse_args()
     profile=load_profile()
-    if args.command in ('setup','add'):
-        refresh_packages(dry=args.dry_run)
-    if args.command=='add':
-        if not args.package:parser.error('add requires a package name')
-        add_package(profile,args.package,args.scope,args.dry_run)
+    if args.command=='sync':
+        before=run(['git','-C',str(ROOT),'rev-parse','HEAD'],capture=True).stdout.strip()
+        run(['git','-C',str(ROOT),'pull','--ff-only'],dry=args.dry_run)
+        after=run(['git','-C',str(ROOT),'rev-parse','HEAD'],capture=True).stdout.strip()
+        if before!=after:os.execv(sys.executable,[sys.executable,*sys.argv])
+    if args.command in ('add','remove','setup','sync'):
+        with package_lock(args.dry_run):
+            if args.command!='remove':refresh_packages(dry=args.dry_run)
+            if args.command=='add':
+                if not args.package:parser.error('add requires a package name')
+                add_package(profile,args.package,args.scope,args.dry_run)
+            elif args.command=='remove':
+                if not args.package:parser.error('remove requires a package name')
+                manager=Manager(ROOT,profile)
+                package=(canonical(args.package) if ':' in args.package else
+                         choose(matches(args.package,manager.declared()|manager.load()),'Select package to remove'))
+                manager.remove(package,dry=args.dry_run)
+            elif args.command=='sync':
+                Manager(ROOT,profile).reconcile(dry=args.dry_run)
+                apply(profile,dry=args.dry_run)
+            else:apply(profile,setup=True,dry=args.dry_run)
     elif args.command=='check':return check_machine(profile)
     elif args.command=='update':return update_packages(profile,args.background,args.dry_run)
-    elif args.command in ('apply','setup'):apply(profile,args.command=='setup',args.dry_run)
+    elif args.command=='apply':apply(profile,dry=args.dry_run)
     elif args.command=='system':system(profile,args.dry_run)
     elif args.command=='github':github_setup(args.dry_run)
     return 0

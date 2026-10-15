@@ -37,7 +37,7 @@ class InstallationTests(unittest.TestCase):
             command.write_text(f'#!{sys.executable}\n' + '''import json,os,sys
 with open(os.environ['TEST_LOG'], 'a') as f: f.write(json.dumps([os.path.basename(sys.argv[0]),*sys.argv[1:]])+'\\n')
 if sys.argv[1:] == ['cache','path']: print(os.path.join(os.environ['HOME'],'cache'))
-if 'packages' in sys.argv and os.environ.get('FAIL_PACKAGES'): sys.exit(17)
+if ('packages' in sys.argv or sys.argv[1:3] == ['install','--formula']) and os.environ.get('FAIL_PACKAGES'): sys.exit(17)
 ''')
             command.chmod(0o755)
 
@@ -57,7 +57,7 @@ if 'packages' in sys.argv and os.environ.get('FAIL_PACKAGES'): sys.exit(17)
                 self.assertEqual(result.returncode, 0, result.stderr)
                 self.assertEqual((self.repo/'.dots-profile').read_text().strip(), profile)
                 commands = self.commands()
-                packages = next(i for i,c in enumerate(commands) if 'packages' in c)
+                packages = next(i for i,c in enumerate(commands) if c[:3] == ['brew','install','--formula'])
                 python = next(i for i,c in enumerate(commands) if c[:3] == ['uv','python','install'])
                 setup = next(i for i,c in enumerate(commands) if 'machine:setup' in c)
                 self.assertLess(next(i for i,c in enumerate(commands) if c==['brew','update']),packages)
@@ -119,8 +119,10 @@ if 'packages' in sys.argv and os.environ.get('FAIL_PACKAGES'): sys.exit(17)
         result_file.parent.mkdir(parents=True)
         result_file.write_text(json.dumps({'ok':False,'failures':['a failed installer']}))
         with patch.object(dots.Path,'home',return_value=self.home), patch.object(dots,'preflight_links'), \
-             patch.object(dots,'system',return_value=False), patch.object(dots,'run') as run:
+             patch.object(dots,'system',return_value=False), patch.object(dots,'Manager') as manager, patch.object(dots,'run') as run:
             run.return_value=subprocess.CompletedProcess([],0)
+            manager.return_value.desired.return_value=set()
+            manager.return_value.load.return_value=set()
             self.assertEqual(dots.check_machine('Personal'),1)
 
 if __name__ == '__main__': unittest.main()

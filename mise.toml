@@ -34,7 +34,7 @@ adopt = true
 "brew:terragrunt" = "latest"
 "brew:ffmpeg" = "latest"
 "brew:yt-dlp" = "latest"
-# Warp is installed by Homebrew through Casks/warp.rb (see scripts/warp.py).
+"brew-cask:lidanh/dotfiles/warp" = "latest"
 "brew-cask:comet" = "latest"
 "brew-cask:google-chrome" = "latest"
 "brew-cask:cursor" = "latest"
@@ -235,3 +235,13 @@ run = "/opt/homebrew/bin/uv run --no-project --offline --no-python-downloads --p
 [tasks."check"]
 description = "Run repository tests"
 run = "python3 -m unittest discover -s tests -v"
+
+[tasks."pkg:remove"]
+raw = true
+description = "Uninstall, remove all declarations, commit and push"
+run = "/opt/homebrew/bin/uv run --no-project --offline --no-python-downloads --python 3.13 scripts/dots.py remove"
+
+[tasks."machine:sync"]
+raw = true
+description = "Pull, reconcile managed packages and apply settings"
+run = "/opt/homebrew/bin/uv run --no-project --offline --no-python-downloads --python 3.13 scripts/dots.py sync"

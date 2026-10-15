@@ -48,26 +48,6 @@ class DotfilesTests(unittest.TestCase):
             self.assertTrue(dots.symlink_parent(home / '.config/fish/config.fish', home))
             self.assertFalse(dots.symlink_parent(home / '.gitconfig', home))
 
-    def test_ownership_does_not_upgrade_unconfigured_casks(self):
-        configured = {'brew:jq':'latest', 'brew-cask:slack':'latest', 'brew-cask:cursor':'latest'}
-        native, legacy = dots.upgrade_groups(configured, {'slack', 'arc'})
-        self.assertEqual(legacy, ['slack'])
-        self.assertEqual(native, ['brew:jq', 'brew-cask:cursor'])
-
-    def test_only_actual_homebrew_metadata_marks_ownership(self):
-        with tempfile.TemporaryDirectory() as d:
-            room = pathlib.Path(d)
-            (room/'native/1.0').mkdir(parents=True)
-            metadata = room/'legacy/.metadata/1.0/20261011/Casks'
-            metadata.mkdir(parents=True)
-            (metadata/'legacy.json').write_text('{}')
-            self.assertEqual(dots.homebrew_owned_casks(room), {'legacy'})
-
-    def test_formula_and_cask_with_same_name_both_upgrade(self):
-        native, legacy = dots.upgrade_groups({'brew:foo':'latest','brew-cask:foo':'latest'}, {'foo'})
-        self.assertEqual(native, ['brew:foo'])
-        self.assertEqual(legacy, ['foo'])
-
     def test_read_only_report_has_no_apply_commands(self):
         for command in dots.status_commands():
             self.assertIn('status', command)

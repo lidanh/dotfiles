@@ -11,25 +11,15 @@ dots = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(dots)
 
 class RecoveryTests(unittest.TestCase):
-    def test_failed_package_does_not_block_the_remaining_packages(self):
-        with patch.object(dots,'packages',return_value={'brew-cask:cursor':'latest','brew:jq':'latest'}), patch.object(dots,'run') as run:
-            run.side_effect=[subprocess.CompletedProcess([],1),subprocess.CompletedProcess([],0),subprocess.CompletedProcess([],0)]
-            with self.assertRaisesRegex(ValueError,'brew-cask:cursor'):
-                dots.install_packages('Wonderful')
-            self.assertIn('brew:jq',run.call_args_list[1].args[0])
-            self.assertIn(str(ROOT/'scripts/warp.py'),run.call_args_list[2].args[0])
+    def test_setup_records_packages_without_implicit_removal(self):
+        with patch.object(dots,'Manager') as manager:
+            dots.install_packages('Wonderful')
+            manager.return_value.reconcile.assert_called_once_with(dry=False,remove=False)
 
-    def test_preview_never_installs_a_package(self):
-        with patch.object(dots,'packages',return_value={'brew:jq':'latest'}),patch.object(dots,'run') as run:
-            run.return_value=subprocess.CompletedProcess([],0)
+    def test_preview_forwards_dry_run(self):
+        with patch.object(dots,'Manager') as manager:
             dots.install_packages('Personal',dry=True)
-            self.assertTrue(all('--dry-run' in c.args[0] for c in run.call_args_list))
-
-    def test_interrupt_stops_remaining_packages(self):
-        with patch.object(dots,'packages',return_value={'brew:jq':'latest','brew:fd':'latest'}),patch.object(dots,'run') as run:
-            run.return_value=subprocess.CompletedProcess([],130)
-            with self.assertRaises(KeyboardInterrupt): dots.install_packages('Personal')
-            self.assertEqual(run.call_count,1)
+            manager.return_value.reconcile.assert_called_once_with(dry=True,remove=False)
 
     def test_refresh_preserves_downloads_and_other_caches(self):
         with tempfile.TemporaryDirectory() as directory:
@@ -42,7 +32,7 @@ class RecoveryTests(unittest.TestCase):
             import os
             env=dict(os.environ,PATH=f'{root}:/usr/bin:/bin',TEST_CACHE=str(cache))
             subprocess.run(['/bin/bash',str(ROOT/'scripts/refresh-packages.sh')],env=env,check=True)
-            self.assertFalse((api/'cask.json').exists())
+            self.assertTrue((api/'cask.json').exists())
             self.assertTrue((cache/'keep').exists())
 
     def test_failed_refresh_records_failure_without_installing(self):

@@ -32,7 +32,7 @@ Setup for a clean Apple Silicon Mac: apps, macOS settings, Fish and Starship.
 
    For a work Mac, run `./bootstrap.sh Wonderful` instead.
 
-   Follow password/installer prompts. If `~/Library/LaunchAgents` belongs to root, setup repairs ownership of that directory only. The script installs the tools and apps, applies settings and saves your profile. Packages install one at a time with a progress counter. Failures are listed after the remaining packages are attempted. If interrupted, rerun the same command; completed installs are kept. Some Homebrew packages need Ruby or a source build even though Ruby is not a development runtime in this setup.
+   Follow password/installer prompts. If `~/Library/LaunchAgents` belongs to root, setup repairs ownership of that directory only. The script installs the tools and apps, applies settings and saves your profile. Packages install one at a time. Failures are listed after the remaining packages are attempted. If interrupted, rerun the same command; completed installs are kept. Some Homebrew packages need Ruby or a source build even though Ruby is not a development runtime in this setup.
 
 5. **Log out and back in, then open Warp.** Use Fish as the shell.
 
@@ -49,7 +49,10 @@ Setup for a clean Apple Silicon Mac: apps, macOS settings, Fish and Starship.
 
 | Command | What it does |
 | --- | --- |
-| `dots add chrome` | Find, install and save a package; choose shared or this profile |
+| `dots add chrome` | Install, save, commit and push; choose shared or this profile |
+| `dots remove slack` | Uninstall and remove from every mise config, then commit and push |
+| `dots sync` | Pull, install missing apps, remove previously managed apps deleted from the list, apply settings |
+| `dots sync --dry-run` | Preview reconciliation against local files without changing anything |
 | `dots setup` | Install missing apps and rerun setup |
 | `dots apply` | Apply configuration changes |
 | `dots apply --dry-run` | Preview configuration changes |
@@ -75,7 +78,7 @@ dots github             # Connect this Mac to GitHub
 dots --help             # Show available commands
 ```
 
-Before installs and updates, `brew update` runs and mise’s cached Homebrew cask metadata is refreshed. Warp uses the Homebrew cask in `Casks/warp.rb`: the latest official download, with Apple developer signature verification and a checksum exception scoped to Warp. Other packages stay on mise.
+Before installs and updates, `brew update` runs. Warp uses the Homebrew cask in `Casks/warp.rb`: the latest official download, with Apple developer signature verification and a checksum exception scoped to Warp. Homebrew manages brew packages; `mas` manages App Store apps. Mise holds the declarations and runs tasks, settings and development runtimes.
 
 Your profile is remembered. Host packages also update daily at **11:00 local time**; project dependencies and language runtimes are excluded. App Store updates are handled separately by macOS.
 
@@ -86,6 +89,10 @@ Your profile is remembered. Host packages also update daily at **11:00 local tim
 - **Shell, Git and prompt:** `config/` (symlinked to your home directory)
 - **Cursor and Warp preferences:** `config/cursor/` and `config/warp/`; linked by `dots setup` / `dots apply`. Warp cloud sync remains enabled, as on the original Mac.
 
-Commit and push changes. On the other Mac, pull the repo and run `dots setup`.
+`dots add` and `dots remove` commit only the affected configuration files and push automatically. Those files must be clean, and your branch must match origin before starting. If push fails, the local commit is kept; fix the connection and run `git push`. For manual edits, commit and push yourself; run `dots sync` on each Mac.
+
+Sync tracks successful installs locally. Its first run does not remove unknown apps; subsequent runs remove only tracked packages that disappeared from the active declarations. Company/manual apps remain untouched. Removing a shared declaration affects both Macs after sync. Removal does not wipe preferences (`--zap` is never used). Sync checks package-manager receipts; it does not repair an app bundle deleted manually in Finder while its receipt remains. Git, Fish, uv and mas are required by dots. If an app is pinned in the Dock configuration, remove its path there too before applying.
+
+Existing mise-installed apps are adopted by Homebrew during setup/sync. A conflicting app version may need to be moved out of `/Applications` before retrying; dots does not overwrite it forcibly. Native installer receipts or vendor uninstallers may require manual cleanup; failed removals stay pending.
 
 App settings are a snapshot of the original Mac. Review UI changes with `git diff` before committing; cloud sync may also change Warp settings. Cursor extensions and app sign-ins are not included. Live GUI writes through symlinks have not been verified.
