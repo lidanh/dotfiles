@@ -6,6 +6,7 @@ auto_install = false
 task.run_auto_install = false
 
 [vars]
+builtin_display_more_space = true
 ac_display_sleep = 15
 ac_sleep = 0
 battery_display_sleep = 5

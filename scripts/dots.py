@@ -18,6 +18,7 @@ import urllib.request
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/'scripts'))
 from package_manager import Manager, canonical
+from display import configure as configure_display
 PROFILES = ('Personal', 'Wonderful')
 
 def load_profile(root=ROOT):
@@ -200,6 +201,8 @@ def system(profile, dry=False, check_only=False):
         if not check_only:run(command,dry=dry)
     name=tomllib.loads((ROOT/f'mise.{profile}.toml').read_text())['vars']['computer_name']
     power_config=tomllib.loads((ROOT/'mise.toml').read_text())['vars']
+    if power_config.get('builtin_display_more_space',False):
+        failed |= configure_display(dry=dry,check_only=check_only)
     for kind in ['ComputerName','LocalHostName','HostName']:
         actual=subprocess.run(['scutil','--get',kind],capture_output=True,text=True)
         ensure(f'{kind} → {name}',actual.returncode==0 and actual.stdout.strip()==name,

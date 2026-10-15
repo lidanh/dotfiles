@@ -84,7 +84,7 @@ Your profile is remembered. Host packages also update daily at **11:00 local tim
 
 ## Where to edit
 
-- **Shared apps and Mac settings:** `mise.toml`
+- **Shared apps and Mac settings:** `mise.toml`. `builtin_display_more_space` applies the More Space HiDPI preset to supported 13-inch Retina / 14-inch / 16-inch MacBook panels only. Run `dots apply` with the lid open and mirroring off; external displays are not configured.
 - **Profile additions and Dock order:** `mise.Personal.toml` / `mise.Wonderful.toml`. Dock apps must exist before applying; the list includes current macOS apps such as Apps and iPhone Mirroring.
 - **Shell, Git and prompt:** `config/` (symlinked to your home directory)
 - **Cursor and Warp preferences:** `config/cursor/` and `config/warp/`; linked by `dots setup` / `dots apply`. Warp cloud sync remains enabled, as on the original Mac.
