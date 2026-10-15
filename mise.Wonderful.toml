@@ -13,7 +13,6 @@ computer_name = "Lidan-Work-Macbook"
 "brew-cask:cloudflare-warp" = "latest"
 "brew-cask:slack" = "latest"
 "brew-cask:microsoft-teams" = "latest"
-"brew-cask:fellow" = "latest"
 "brew-cask:okta-verify" = "latest"
 
 [dotfiles]
@@ -39,5 +38,4 @@ apps = [
   "/Applications/Warp.app",
   "/Applications/WhatsApp.app",
   "/Applications/Spotify.app",
-  "/Applications/Fellow.app",
 ]
