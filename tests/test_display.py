@@ -68,3 +68,15 @@ class DisplayTests(unittest.TestCase):
     def test_unsuccessful_apply_is_not_reported_as_success(self):
         self.api.current.side_effect=[self.current,self.current]
         with self.assertRaisesRegex(ValueError,'did not take effect'):display.configure(api=self.api)
+
+    def test_enumeration_requests_full_modes_so_hidpi_is_not_filtered_out(self):
+        api=display.CoreGraphics.__new__(display.CoreGraphics)
+        api.cg=Mock();api.cf=Mock();api.mode_key=10;api.boolean_true=11
+        api.cf.CFDictionaryCreate.return_value=42
+        api.cg.CGDisplayCopyAllDisplayModes.side_effect=lambda d,options:100 if options==42 else 101
+        api.cf.CFArrayGetCount.side_effect=lambda array:2 if array==100 else 1
+        api.cf.CFArrayGetValueAtIndex.side_effect=lambda array,index:index
+        api.read_mode=lambda index:[self.current,self.target][index]
+        with api.modes(1) as modes:
+            self.assertEqual(display.select_mode(modes,self.current),self.target)
+        api.cf.CFRelease.assert_any_call(42)

@@ -11,6 +11,7 @@ export PATH="$HOME/.local/bin:/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
 case "${1:-help}" in
   help|--help|-h)
     echo 'dots add <package> | remove <package> | sync | check | update | apply | setup | github'
+    echo 'Use dots check --verbose for full diagnostics.'
     echo 'Use --dry-run with add/remove/sync/update/apply/setup. Profile is selected once by bootstrap.sh.'
     exit 0 ;;
   add) task=pkg:add ;;

@@ -41,6 +41,9 @@ class CoreGraphics:
         bind(self.cf,'CFArrayGetCount',[p],C.c_long)
         bind(self.cf,'CFArrayGetValueAtIndex',[p,C.c_long],p)
         bind(self.cf,'CFRelease',[p],None)
+        bind(self.cf,'CFDictionaryCreate',[p,C.POINTER(p),C.POINTER(p),C.c_long,p,p],p)
+        self.mode_key=p.in_dll(self.cg,'kCGDisplayShowDuplicateLowResolutionModes').value
+        self.boolean_true=p.in_dll(self.cf,'kCFBooleanTrue').value
         bind(self.cg,'CGBeginDisplayConfiguration',[C.POINTER(p)],i)
         bind(self.cg,'CGConfigureDisplayWithDisplayMode',[p,u,p,p],i)
         bind(self.cg,'CGCompleteDisplayConfiguration',[p,u],i)
@@ -71,7 +74,12 @@ class CoreGraphics:
 
     @contextmanager
     def modes(self,d):
-        array=self.cg.CGDisplayCopyAllDisplayModes(d,None)
+        # NULL options can omit HiDPI modes despite the API's 'All' name.
+        keys=(C.c_void_p*1)(self.mode_key);values=(C.c_void_p*1)(self.boolean_true)
+        options=self.cf.CFDictionaryCreate(None,keys,values,1,None,None)
+        if not options:raise ValueError('Cannot create full display-mode options')
+        try:array=self.cg.CGDisplayCopyAllDisplayModes(d,options)
+        finally:self.cf.CFRelease(options)
         if not array:raise ValueError('Cannot enumerate built-in display modes')
         try:yield [self.read_mode(self.cf.CFArrayGetValueAtIndex(array,i)) for i in range(self.cf.CFArrayGetCount(array))]
         finally:self.cf.CFRelease(array)
@@ -87,7 +95,7 @@ class CoreGraphics:
         error=self.cg.CGCompleteDisplayConfiguration(config,2)  # kCGConfigurePermanently
         if error:raise ValueError(f'Cannot save More Space configuration: {error}')
 
-def configure(*,dry=False,check_only=False,api=None):
+def configure(*,dry=False,check_only=False,api=None,verbose=False):
     api=api or CoreGraphics();difference=False;found=False
     for display in api.displays():
         if not api.builtin(display):continue
@@ -96,7 +104,12 @@ def configure(*,dry=False,check_only=False,api=None):
             print('DEFERRED: built-in More Space; open the lid and disable display mirroring, then run dots apply.')
             difference=True;continue
         with api.modes(display) as modes:
-            current=api.current(display);target=select_mode(modes,current)
+            current=api.current(display)
+            if verbose:
+                print('Built-in display current:',{k:v for k,v in current.items() if k!='ref'})
+                print('Built-in display available modes:')
+                for mode in modes:print({k:v for k,v in mode.items() if k!='ref'})
+            target=select_mode(modes,current)
             if size(current)==size(target) and retina(current):continue
             difference=True
             print(f'DIFF: built-in display → More Space {target["width"]}x{target["height"]} HiDPI')

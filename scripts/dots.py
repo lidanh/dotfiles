@@ -19,6 +19,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/'scripts'))
 from package_manager import Manager, canonical
 from display import configure as configure_display
+from check_report import check as report_check
 PROFILES = ('Personal', 'Wonderful')
 
 def load_profile(root=ROOT):
@@ -53,8 +54,8 @@ def choose(options, title):
         raise ValueError('No selection made; nothing changed')
     return options[int(answer)-1]
 
-def run(args, *, dry=False, capture=False, check=True, timeout=None):
-    print('+', ' '.join(map(str, args)), flush=True)
+def run(args, *, dry=False, capture=False, check=True, timeout=None, quiet=False):
+    if not quiet:print('+', ' '.join(map(str, args)), flush=True)
     if dry: return subprocess.CompletedProcess(args, 0, stdout='')
     return subprocess.run(list(map(str,args)), text=True, capture_output=capture,
                           check=check, timeout=timeout)
@@ -84,35 +85,11 @@ def status_commands():
              ['bootstrap','macos','defaults','status'],
              ['bootstrap','macos','launchd-agents','status'], ['bootstrap','user','status'] ]
 
-def check_machine(profile):
-    failed = False
-    print(f'Machine profile: {profile}')
-    try: preflight_links()
-    except ValueError as error: print('CONFLICT:', error); failed = True
-    for command in status_commands():
-        result = run(mise(profile, *command, '--missing'), check=False)
-        failed |= result.returncode != 0
-    manager=Manager(ROOT,profile)
-    states=manager.status()
-    for package in sorted(manager.desired()):
-        state=states.get(package,'unknown')
-        if state!='installed':
-            print('PACKAGE:',package,state);failed=True
-    pending=manager.load()-manager.desired()
-    if pending:print('PENDING REMOVAL (dots sync):',', '.join(sorted(pending)));failed=True
-    failed |= system(profile, check_only=True)
-    last = Path.home()/'.local/state/lidan-dotfiles/update.json'
-    if last.exists():
-        try:
-            report = json.loads(last.read_text())
-            print('Last update:', json.dumps(report, indent=2))
-            failed |= report.get('ok') is not True
-        except (ValueError, AttributeError):
-            print('Last update: unreadable status; run dots update to retry')
-            failed = True
-    else:
-        print('Last update: not run yet')
-    return int(failed)
+def check_machine(profile, verbose=False):
+    return report_check(profile,
+                        native=lambda command:run(mise(profile,*command),capture=True,check=False,quiet=True),
+                        preflight=preflight_links,system=lambda:system(profile,check_only=True,verbose=verbose),
+                        manager=Manager(ROOT,profile),verbose=verbose)
 
 def refresh_packages(dry=False):
     run(['/bin/bash',str(ROOT/'scripts/refresh-packages.sh')],dry=dry)
@@ -190,7 +167,7 @@ def read_defaults(domain):
     if p.returncode: return {}
     return plistlib.loads(p.stdout)
 
-def system(profile, dry=False, check_only=False):
+def system(profile, dry=False, check_only=False, verbose=False):
     """Only settings unsupported by native mise defaults live here."""
     failed=False
     def ensure(label, matches, command):
@@ -202,12 +179,12 @@ def system(profile, dry=False, check_only=False):
     name=tomllib.loads((ROOT/f'mise.{profile}.toml').read_text())['vars']['computer_name']
     power_config=tomllib.loads((ROOT/'mise.toml').read_text())['vars']
     if power_config.get('builtin_display_more_space',False):
-        failed |= configure_display(dry=dry,check_only=check_only)
+        failed |= configure_display(dry=dry,check_only=check_only,verbose=verbose)
     for kind in ['ComputerName','LocalHostName','HostName']:
         actual=subprocess.run(['scutil','--get',kind],capture_output=True,text=True)
         ensure(f'{kind} → {name}',actual.returncode==0 and actual.stdout.strip()==name,
                ['sudo','scutil','--set',kind,name])
-    power=subprocess.check_output(['pmset','-g','custom'],text=True)
+    power=subprocess.check_output(['pmset','-g','custom'],text=True,stderr=subprocess.PIPE)
     section=None;values={}
     for line in power.splitlines():
         if line.strip().endswith('Power:'):section='c' if 'AC' in line else 'b'
@@ -269,7 +246,7 @@ def apply(profile, setup=False, dry=False):
         domains=set(cfg.get('defaults',{}))|{'NSGlobalDomain','com.apple.symbolichotkeys','com.apple.HIToolbox'}
         for domain in domains:
             (backup/(domain+'.plist')).write_bytes(plistlib.dumps(read_defaults(domain)))
-        (backup/'power.txt').write_text(subprocess.check_output(['pmset','-g','custom'],text=True))
+        (backup/'power.txt').write_text(subprocess.check_output(['pmset','-g','custom'],text=True,stderr=subprocess.PIPE))
     if setup:
         install_packages(profile,dry=dry)
         parts='dotfiles,macos-defaults,user,macos-launchd-agents'
@@ -311,6 +288,7 @@ def main():
     parser.add_argument('--scope',choices=['shared',*PROFILES])
     parser.add_argument('--dry-run',action='store_true')
     parser.add_argument('--background',action='store_true')
+    parser.add_argument('--verbose',action='store_true',help='Show full diagnostics for check')
     args=parser.parse_args()
     profile=load_profile()
     if args.command=='sync':
@@ -334,7 +312,7 @@ def main():
                 Manager(ROOT,profile).reconcile(dry=args.dry_run)
                 apply(profile,dry=args.dry_run)
             else:apply(profile,setup=True,dry=args.dry_run)
-    elif args.command=='check':return check_machine(profile)
+    elif args.command=='check':return check_machine(profile,verbose=args.verbose)
     elif args.command=='update':return update_packages(profile,args.background,args.dry_run)
     elif args.command=='apply':apply(profile,dry=args.dry_run)
     elif args.command=='system':system(profile,args.dry_run)

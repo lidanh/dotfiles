@@ -56,7 +56,8 @@ Setup for a clean Apple Silicon Mac: apps, macOS settings, Fish and Starship.
 | `dots setup` | Install missing apps and rerun setup |
 | `dots apply` | Apply configuration changes |
 | `dots apply --dry-run` | Preview configuration changes |
-| `dots check` | Show missing setup, differences and update results |
+| `dots check` | Short health summary, differences and next steps |
+| `dots check --verbose` | Full diagnostic details |
 | `dots update` | Update the configured host packages now |
 
 Examples for adding packages:
