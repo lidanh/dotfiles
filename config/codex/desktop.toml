@@ -1,0 +1,11 @@
+# Shared ChatGPT/Codex desktop preferences; local agent settings stay on each Mac.
+[desktop]
+sansFontSize = 16
+codeFontSize = 14
+appearanceTheme = "dark"
+followUpQueueMode = "steer"
+conversationDetailMode = "STEPS_COMMANDS"
+dock-icon-preference = "app-default"
+toys-audio-visualizer-enabled = true
+hotkey-window-projectless-default-enabled = false
+avatar-overlay-pet-visible = false

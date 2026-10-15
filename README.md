@@ -99,3 +99,5 @@ Setup/sync delegates normal installation to mise, so existing mise apps such as 
 App settings are a snapshot of the original Mac. Review UI changes with `git diff` before committing; cloud sync may also change Warp settings. Cursor extensions and app sign-ins are not included. Live GUI writes through symlinks have not been verified.
 
 Commands show setup phases, package counters and live update output. `--verbose` shows full commands; `NO_COLOR=1` disables colors. Updates keep a log at `~/Library/Logs/lidan-dotfiles/update.log`.
+
+ChatGPT/Codex appearance and UI preferences live in `config/codex/desktop.toml`. Close the app, run `dots apply` in a separate terminal, then reopen it. These keys merge into `~/.codex/config.toml`; local projects, plugins and MCP settings stay untouched. Edit the repository file to share changes—changes made in the app are not automatically saved back to Git.

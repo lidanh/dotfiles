@@ -86,6 +86,11 @@ mode = "symlink"
 source = "config/cursor/keybindings.json"
 mode = "symlink"
 
+# Codex also writes local projects/plugins here. Merge preferences, never link the whole file.
+[dotfiles."~/.codex/config.toml/desktop-preferences"]
+source = "config/codex/desktop.toml"
+merge = true
+
 [bootstrap.macos.dock]
 orientation = "bottom"
 tilesize = 54
