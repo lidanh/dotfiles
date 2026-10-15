@@ -78,7 +78,7 @@ dots github             # Connect this Mac to GitHub
 dots --help             # Show available commands
 ```
 
-Before installs and updates, `brew update` runs. Warp uses the Homebrew cask in `Casks/warp.rb`: the latest official download, with Apple developer signature verification and a checksum exception scoped to Warp. Homebrew manages brew packages; `mas` manages App Store apps. Mise holds the declarations and runs tasks, settings and development runtimes.
+Before installs and updates, `brew update` runs and mise’s cask metadata is refreshed; downloaded installers are kept. Warp uses the Homebrew cask in `Casks/warp.rb`: the latest official download, with Apple developer signature verification and a checksum exception scoped to Warp. Mise installs normal host packages, checks their state and updates the ones it owns. Warp remains the explicit Homebrew exception. Existing Homebrew-owned apps are left installed and updated through Homebrew; no ownership migration is required.
 
 Your profile is remembered. Host packages also update daily at **11:00 local time**; project dependencies and language runtimes are excluded. App Store updates are handled separately by macOS.
 
@@ -91,8 +91,8 @@ Your profile is remembered. Host packages also update daily at **11:00 local tim
 
 `dots add` and `dots remove` commit only the affected configuration files and push automatically. Those files must be clean, and your branch must match origin before starting. If push fails, the local commit is kept; fix the connection and run `git push`. For manual edits, commit and push yourself; run `dots sync` on each Mac.
 
-Sync tracks successful installs locally. Its first run does not remove unknown apps; subsequent runs remove only tracked packages that disappeared from the active declarations. Company/manual apps remain untouched. Removing a shared declaration affects both Macs after sync. Removal does not wipe preferences (`--zap` is never used). Sync checks package-manager receipts; it does not repair an app bundle deleted manually in Finder while its receipt remains. Git, Fish, uv and mas are required by dots. If an app is pinned in the Dock configuration, remove its path there too before applying.
+Sync tracks successful installs locally. Its first run does not remove unknown apps; subsequent runs remove only tracked packages that disappeared from the active declarations. Company/manual apps remain untouched. Removing a shared declaration affects both Macs after sync. Removal does not wipe preferences (`--zap` is never used). Mise checks its own installed artifacts and recognizes existing Homebrew receipts. A Homebrew-owned app deleted manually in Finder may need `brew reinstall --cask <token>`. Git, Fish, uv and mas are required by dots. If an app is pinned in the Dock configuration, remove its path there too before applying.
 
-Existing mise-installed apps are adopted by Homebrew during setup/sync. A conflicting app version may need to be moved out of `/Applications` before retrying; dots does not overwrite it forcibly. Native installer receipts or vendor uninstallers may require manual cleanup; failed removals stay pending.
+Setup/sync delegates normal installation to mise, so existing mise apps such as Creative Cloud are not converted to Homebrew. If an earlier install was interrupted and no valid record remains, mise may retry it. Targeted removal still uses Homebrew/mas because mise does not support individual removal for all Mac package types. For native mise casks, dots preserves their receipts and verifies recorded artifacts after the vendor uninstall; incomplete removals keep their declarations and remain pending. No broad prune is used.
 
 App settings are a snapshot of the original Mac. Review UI changes with `git diff` before committing; cloud sync may also change Warp settings. Cursor extensions and app sign-ins are not included. Live GUI writes through symlinks have not been verified.

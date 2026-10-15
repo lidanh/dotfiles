@@ -1,12 +1,14 @@
 """Host package declarations, scoped reconciliation and Git publication.
 
-Homebrew/mas own installation and uninstallation. This module never runs a
-whole-machine prune and never removes application preferences with --zap.
+Mise owns normal installation and status. Existing Homebrew-owned casks keep
+their owner; Warp remains a scoped exception. Homebrew/mas provide targeted
+uninstallation until mise supports it. Never run a whole-machine prune or zap.
 """
 import json
 import os
 from pathlib import Path
 import re
+import shutil
 import subprocess
 import tempfile
 import tomllib
@@ -124,7 +126,7 @@ class Manager:
         room=Path('/opt/homebrew/Caskroom')/token.split('/')[-1]
         return [tomllib.loads(p.read_text()) for p in room.glob('*/.mise-cask.toml')]
 
-    def present(self,package):
+    def homebrew_present(self,package):
         manager,token=split_package(package)
         if manager=='mas':
             lines=self.command(['mas','list'],capture=True).stdout.splitlines()
@@ -137,24 +139,47 @@ class Manager:
         names=self.command(['brew','list',flag,'--full-name'],capture=True).stdout.splitlines()
         return any(n==token or n.split('/')[-1]==token.split('/')[-1] for n in names)
 
+    def mise_command(self,*args):
+        binary=shutil.which('mise') or str(Path.home()/'.local/bin/mise')
+        return [binary,'-C',str(self.root),'-E',self.profile,'bootstrap','packages',*args]
+
+    def status(self):
+        # Let mise validate its receipts/artifacts and recognize Homebrew owners.
+        data=json.loads(self.command(self.mise_command('status','--json'),capture=True).stdout)
+        result={}
+        for manager,group in data.items():
+            for package in group['packages']:
+                key=canonical(manager+':'+package['package'])
+                result[key]=package['state'] if group['available'] else 'unavailable'
+        return result
+
+    def present(self,package):
+        manager,token=split_package(package)
+        if self.homebrew_present(package):return True
+        # This union is for removal checks only. Installation/status are left
+        # to mise, which checks native artifacts, including self-updating apps.
+        return manager=='brew-cask' and bool(self.native_receipts(token))
+
     def install(self,package,dry=False,upgrade=False):
         manager,token=split_package(package)
-        if package==WARP:
-            self.command(['brew','tap','lidanh/dotfiles','https://github.com/lidanh/dotfiles.git'],dry=dry)
-        if manager=='mas':
-            if not upgrade:self.command(['mas','install',token],dry=dry)
+        homebrew_owned=manager=='brew-cask' and self.homebrew_present(package)
+        if homebrew_owned and not upgrade:
+            print('Already installed (Homebrew owner retained):',package);return
+        if package==WARP or homebrew_owned:
+            if package==WARP:
+                self.command(['brew','tap','lidanh/dotfiles','https://github.com/lidanh/dotfiles.git'],dry=dry)
+            if upgrade and not homebrew_owned:return
+            args=['brew','upgrade' if upgrade else 'install','--cask']
+            args+=['--greedy'] if upgrade else ['--adopt']
+            self.command([*args,token],dry=dry)
+            if not dry and not self.homebrew_present(package):
+                raise ValueError(f'{package}: installation did not create a Homebrew record')
             return
-        exists=self.present(package)
-        if exists and not upgrade:return
-        if upgrade and not exists:
-            if manager=='brew-cask' and self.native_receipts(token):
-                raise ValueError(package+': still owned by mise; run dots sync to migrate before background updates')
-            return
-        flag='--cask' if manager=='brew-cask' else '--formula'
-        command=['brew','upgrade' if upgrade else 'install',flag]
-        if manager=='brew-cask':command+=['--greedy'] if upgrade else ['--adopt']
-        self.command([*command,token],dry=dry)
-        if not dry and not self.present(package):raise ValueError(f'{package}: installation did not create a Homebrew record')
+        # Explicit package arguments work even before add writes the declaration.
+        # Apply is idempotent and understands native mise records; do not force
+        # adoption/reinstallation just because Homebrew has no receipt.
+        args=self.mise_command('upgrade' if upgrade else 'apply','--yes','--raw',package)
+        self.command(args,dry=dry)
 
     def uninstall(self,package,dry=False):
         manager,token=split_package(package)
@@ -172,7 +197,7 @@ class Manager:
             args=['brew','uninstall','--cask' if manager=='brew-cask' else '--formula']
             # Native mise receipts aren't Homebrew receipts. --force allows the
             # vendor cask's uninstall steps to run without inventing metadata.
-            if native and not exists:args.append('--force')
+            if native and not self.homebrew_present(package):args.append('--force')
             self.command([*args,token],dry=dry)
         if not dry:
             if self.present(package):raise ValueError(package+' still has an install record; declaration kept')

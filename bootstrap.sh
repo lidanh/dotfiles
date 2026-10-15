@@ -17,7 +17,7 @@ export PATH="$HOME/.local/bin:/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
 if "$dry"; then
   command -v mise >/dev/null || { echo 'Preview requires mise 2026.10.8 or newer; no prerequisites were installed.' >&2; exit 1; }
   # Trust must be established explicitly by the operator, not silently in a preview.
-  echo "Would install Homebrew if missing and install the profile’s packages using Homebrew/mas. Use dots sync --dry-run after bootstrap for a package reconciliation preview."
+  echo "Would install Homebrew if missing and install the profile’s packages using mise (Warp through Homebrew). Use dots sync --dry-run after bootstrap for a package reconciliation preview."
   exec mise -C "$root" -E "$profile" bootstrap --only dotfiles,macos-defaults,user,macos-launchd-agents --dry-run
 fi
 # Never write through the legacy repo's whole-.config symlink.
@@ -43,7 +43,7 @@ mise trust "$root/mise.toml"
 mise trust "$root/mise.$profile.toml"
 mise trust "$root/config/mise/config.toml"
 printf '%s\n' "$profile" > "$root/.dots-profile"
-# Homebrew owns host packages; mise owns tasks, settings and language runtimes.
+# mise owns package installation; Homebrew is retained for Warp and targeted removal.
 if ! command -v brew >/dev/null; then
   temp=$(mktemp -d)
   trap 'rm -rf "$temp"' EXIT
@@ -55,6 +55,6 @@ fi
 /bin/bash "$root/scripts/refresh-packages.sh"
 # mas must exist before bootstrap processes App Store entries; uv runs the adapter.
 echo "Installing bootstrap prerequisites (uv and mas)..."
-brew install --formula uv mas
+mise -E "$profile" bootstrap packages apply --yes --raw brew:uv brew:mas
 uv python install 3.13
 exec "$root/bin/dots" setup

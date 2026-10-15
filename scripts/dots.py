@@ -92,9 +92,11 @@ def check_machine(profile):
         result = run(mise(profile, *command, '--missing'), check=False)
         failed |= result.returncode != 0
     manager=Manager(ROOT,profile)
+    states=manager.status()
     for package in sorted(manager.desired()):
-        if not manager.present(package):
-            print('MISSING OR NEEDS HOMEBREW ADOPTION:',package);failed=True
+        state=states.get(package,'unknown')
+        if state!='installed':
+            print('PACKAGE:',package,state);failed=True
     pending=manager.load()-manager.desired()
     if pending:print('PENDING REMOVAL (dots sync):',', '.join(sorted(pending)));failed=True
     failed |= system(profile, check_only=True)
@@ -145,7 +147,7 @@ def update_packages(profile, background=False, dry=False):
     state=Path.home()/'.local/state/lidan-dotfiles'
     if dry:
         print('Would upgrade declared brew/brew-cask packages for',profile,
-              '(Homebrew-managed packages only). Refreshes metadata first. No App Store/runtime upgrades.')
+              '(mise packages and existing Homebrew-owned casks). Refreshes metadata first. No App Store/runtime upgrades.')
         return 0
     state.mkdir(parents=True,exist_ok=True,mode=0o700)
     # flock releases automatically after a crash; interactive and scheduled updates share the lock.

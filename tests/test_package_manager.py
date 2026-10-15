@@ -90,9 +90,9 @@ class PackageManagerTests(unittest.TestCase):
 
     def test_native_removal_keeps_artifact_evidence_across_retries(self):
         artifact=self.root/'Old.app';artifact.mkdir()
-        with patch.object(self.manager,'present',return_value=False),patch.object(self.manager,'command'),patch.object(self.manager,'native_receipts',return_value=[{'apps':[str(artifact)]}]):
+        with patch.object(self.manager,'homebrew_present',return_value=False),patch.object(self.manager,'present',return_value=False),patch.object(self.manager,'command'),patch.object(self.manager,'native_receipts',return_value=[{'apps':[str(artifact)]}]):
             with self.assertRaisesRegex(ValueError,'remains'):self.manager.uninstall('brew-cask:slack')
-        with patch.object(self.manager,'present',return_value=False),patch.object(self.manager,'command'),patch.object(self.manager,'native_receipts',return_value=[]):
+        with patch.object(self.manager,'homebrew_present',return_value=False),patch.object(self.manager,'present',return_value=False),patch.object(self.manager,'command'),patch.object(self.manager,'native_receipts',return_value=[]):
             with self.assertRaisesRegex(ValueError,'remains'):self.manager.uninstall('brew-cask:slack')
             artifact.rmdir();self.manager.uninstall('brew-cask:slack')
         self.assertEqual(list((self.state/'pending-removals').iterdir()),[])
@@ -104,5 +104,56 @@ class PackageManagerTests(unittest.TestCase):
             uninstall.assert_not_called()
         self.assertEqual(self.manager.load(),{'brew:fd'})
 
-if __name__=='__main__':unittest.main()
+    def test_native_creative_cloud_install_delegates_to_mise_without_brew_adoption(self):
+        with patch.object(self.manager,'command') as command,patch.object(self.manager,'homebrew_present',return_value=False,create=True),patch.object(self.manager,'present',return_value=False):
+            self.manager.install('brew-cask:adobe-creative-cloud')
+        args=command.call_args.args[0]
+        self.assertIn('mise',Path(args[0]).name)
+        self.assertEqual(args[-6:],['bootstrap','packages','apply','--yes','--raw','brew-cask:adobe-creative-cloud'])
+        self.assertFalse(any('--adopt' in c.args[0] for c in command.call_args_list))
 
+    def test_homebrew_owned_app_is_kept_without_reinstalling(self):
+        with patch.object(self.manager,'homebrew_present',return_value=True,create=True),patch.object(self.manager,'command') as command:
+            self.manager.install('brew-cask:adobe-creative-cloud')
+        command.assert_not_called()
+
+    def test_native_updates_go_through_mise(self):
+        with patch.object(self.manager,'homebrew_present',return_value=False,create=True),patch.object(self.manager,'present',return_value=True),patch.object(self.manager,'command') as command:
+            self.manager.install('brew-cask:slack',upgrade=True)
+        self.assertIn('mise',Path(command.call_args.args[0][0]).name)
+        self.assertIn('upgrade',command.call_args.args[0])
+
+    def test_existing_homebrew_apps_update_with_original_owner(self):
+        with patch.object(self.manager,'homebrew_present',return_value=True,create=True),patch.object(self.manager,'command') as command:
+            self.manager.install('brew-cask:slack',upgrade=True)
+        self.assertEqual(command.call_args.args[0],['brew','upgrade','--cask','--greedy','slack'])
+
+    def test_warp_remains_the_scoped_homebrew_exception(self):
+        with patch.object(self.manager,'homebrew_present',side_effect=[False,True],create=True),patch.object(self.manager,'command') as command:
+            self.manager.install(pm.WARP)
+        self.assertIn(['brew','install','--cask','--adopt','lidanh/dotfiles/warp'],[c.args[0] for c in command.call_args_list])
+
+    def test_native_status_accepts_installed_self_updating_apps(self):
+        output={'brew-cask':{'available':True,'packages':[
+            {'package':'adobe-creative-cloud','state':'installed','auto_updates':True},
+            {'package':'slack','state':'needs_repair'}]}}
+        with patch.object(self.manager,'command',return_value=subprocess.CompletedProcess([],0,stdout=json.dumps(output))) as command:
+            self.assertEqual(self.manager.status(),{'brew-cask:adobe-creative-cloud':'installed','brew-cask:slack':'needs_repair'})
+        self.assertEqual(command.call_args.args[0][-2:],['status','--json'])
+
+    def test_unavailable_manager_is_not_reported_installed(self):
+        output={'mas':{'available':False,'packages':[{'package':'123','state':'skipped'}]}}
+        with patch.object(self.manager,'command',return_value=subprocess.CompletedProcess([],0,stdout=json.dumps(output))):
+            self.assertEqual(self.manager.status(),{'mas:123':'unavailable'})
+
+    def test_dry_native_install_does_not_run_subprocess(self):
+        with patch.object(self.manager,'homebrew_present',return_value=False),patch.object(pm.subprocess,'run') as run:
+            self.manager.install('brew-cask:adobe-creative-cloud',dry=True)
+        run.assert_not_called()
+
+    def test_native_cask_removal_retains_scoped_vendor_fallback(self):
+        with patch.object(self.manager,'native_receipts',return_value=[{'apps':[]}]),patch.object(self.manager,'homebrew_present',return_value=False),patch.object(self.manager,'present',side_effect=[True,False]),patch.object(self.manager,'command') as command:
+            self.manager.uninstall('brew-cask:slack')
+        self.assertEqual(command.call_args.args[0],['brew','uninstall','--cask','--force','slack'])
+
+if __name__=='__main__':unittest.main()

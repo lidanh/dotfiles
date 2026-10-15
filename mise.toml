@@ -34,7 +34,8 @@ adopt = true
 "brew:terragrunt" = "latest"
 "brew:ffmpeg" = "latest"
 "brew:yt-dlp" = "latest"
-"brew-cask:lidanh/dotfiles/warp" = "latest"
+# dots routes Warp installation to Casks/warp.rb; status uses public cask metadata.
+"brew-cask:warp" = "latest"
 "brew-cask:comet" = "latest"
 "brew-cask:google-chrome" = "latest"
 "brew-cask:cursor" = "latest"

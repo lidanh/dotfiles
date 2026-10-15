@@ -11,3 +11,9 @@ class WarpTests(unittest.TestCase):
         self.assertIn('2BBY89MBSN',source)
         self.assertIn('preflight_steps do',source)
         self.assertIn('--strict',source)
+
+    def test_native_status_uses_public_warp_metadata_without_custom_tap_ruby(self):
+        import tomllib
+        packages=tomllib.loads((ROOT/'mise.toml').read_text())['bootstrap']['packages']
+        self.assertIn('brew-cask:warp',packages)
+        self.assertNotIn('brew-cask:lidanh/dotfiles/warp',packages)

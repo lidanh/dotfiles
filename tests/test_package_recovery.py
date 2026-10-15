@@ -32,7 +32,7 @@ class RecoveryTests(unittest.TestCase):
             import os
             env=dict(os.environ,PATH=f'{root}:/usr/bin:/bin',TEST_CACHE=str(cache))
             subprocess.run(['/bin/bash',str(ROOT/'scripts/refresh-packages.sh')],env=env,check=True)
-            self.assertTrue((api/'cask.json').exists())
+            self.assertFalse((api/'cask.json').exists())
             self.assertTrue((cache/'keep').exists())
 
     def test_failed_refresh_records_failure_without_installing(self):

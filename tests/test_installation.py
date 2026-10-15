@@ -57,7 +57,7 @@ if ('packages' in sys.argv or sys.argv[1:3] == ['install','--formula']) and os.e
                 self.assertEqual(result.returncode, 0, result.stderr)
                 self.assertEqual((self.repo/'.dots-profile').read_text().strip(), profile)
                 commands = self.commands()
-                packages = next(i for i,c in enumerate(commands) if c[:3] == ['brew','install','--formula'])
+                packages = next(i for i,c in enumerate(commands) if 'packages' in c and 'apply' in c)
                 python = next(i for i,c in enumerate(commands) if c[:3] == ['uv','python','install'])
                 setup = next(i for i,c in enumerate(commands) if 'machine:setup' in c)
                 self.assertLess(next(i for i,c in enumerate(commands) if c==['brew','update']),packages)
