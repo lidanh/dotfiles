@@ -43,7 +43,7 @@ Setup for a clean Apple Silicon Mac: apps, macOS settings, Fish and Starship.
    dots check
    ```
 
-   Follow the browser login and SSH-key prompts. Sign in to your apps; install Photoshop/Lightroom through Creative Cloud.
+   Follow the browser login and SSH-key prompts. Enter the key passphrase once to save it in macOS Keychain; future Git operations reuse it. Sign in to your apps; install Photoshop/Lightroom through Creative Cloud.
 
 ## Daily use
 

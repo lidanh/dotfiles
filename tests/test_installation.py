@@ -102,16 +102,16 @@ if ('packages' in sys.argv or sys.argv[1:3] == ['install','--formula']) and os.e
         self.assertFalse((self.base/'should-not-exist').exists())
 
     def test_github_connects_the_https_clone_to_ssh(self):
-        with patch.object(dots, 'run') as run:
+        with patch.object(dots, 'run') as run, patch.object(dots,'github_keychain'):
             run.return_value=subprocess.CompletedProcess([],0,stdout='https://github.com/lidanh/dotfiles.git\n')
-            dots.github_setup()
+            dots.github_setup("Wonderful")
         commands=[call.args[0] for call in run.call_args_list]
         self.assertTrue(any('set-url' in c and 'git@github.com:lidanh/dotfiles.git' in c for c in commands))
 
     def test_github_does_not_repoint_a_fork(self):
-        with patch.object(dots, 'run') as run:
+        with patch.object(dots, 'run') as run, patch.object(dots,'github_keychain'):
             run.return_value=subprocess.CompletedProcess([],0,stdout='https://github.com/another-user/dotfiles.git\n')
-            dots.github_setup()
+            dots.github_setup("Wonderful")
         self.assertFalse(any('set-url' in call.args[0] for call in run.call_args_list))
 
     def test_check_fails_when_last_background_update_failed(self):

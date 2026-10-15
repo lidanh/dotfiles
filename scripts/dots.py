@@ -276,10 +276,34 @@ def apply(profile, setup=False, dry=False):
             run(mise(profile,'install','node@24','go@1.26'),dry=dry)
     print('Open a new Fish session after setup. Log out/in for preferences to take effect.')
 
-def github_setup(dry=False):
+def github_keychain(profile, dry=False):
+    with ui.stage('Configure GitHub SSH and macOS Keychain'):
+        targets=[str(Path.home()/'.ssh/conf.d/dots-github.conf'),str(Path.home()/'.ssh/config/dots-github')]
+        command=mise(profile,'dotfiles','apply','--yes',*targets)
+        if dry:command.append('--dry-run')
+        run(command,dry=dry)
+        if dry:
+            print('Would select the local GitHub SSH key and save its passphrase in macOS Keychain.')
+            return
+        # Ask OpenSSH which identities apply, preserving custom names and host config.
+        effective=run(['/usr/bin/ssh','-G','git@github.com'],capture=True).stdout
+        keys=[]
+        for line in effective.splitlines():
+            if not line.startswith('identityfile '):continue
+            value=line.split(' ',1)[1].replace('%d',str(Path.home())).replace('%u',Path.home().name)
+            key=Path(value).expanduser()
+            if key.is_file() and str(key) not in keys:keys.append(str(key))
+        if not keys:
+            raise ValueError('No local GitHub SSH key found. Generate/upload a key with gh auth login, or set its IdentityFile under Host github.com in ~/.ssh/config, then rerun dots github.')
+        key=choose(keys,'Which GitHub SSH key should macOS remember?')
+        print('Enter the key passphrase once if prompted; macOS Keychain will remember it.',flush=True)
+        run(['/usr/bin/ssh-add','--apple-use-keychain',key])
+
+def github_setup(profile, dry=False):
     run(['gh','auth','login','--hostname','github.com','--git-protocol','ssh','--web'],dry=dry)
     print('gh can generate and upload a new machine SSH key during login. Keep private keys local.')
     run(['gh','auth','status','--hostname','github.com'],dry=dry)
+    github_keychain(profile,dry=dry)
     # gh's SSH preference does not change the HTTPS origin used for the initial clone.
     origin = run(['git','-C',str(ROOT),'remote','get-url','origin'],capture=True)
     if origin.stdout.strip() in ('https://github.com/lidanh/dotfiles',
@@ -335,7 +359,7 @@ def main():
     elif args.command=='update':return update_packages(profile,args.background,args.dry_run)
     elif args.command=='apply':apply(profile,dry=args.dry_run)
     elif args.command=='system':system(profile,args.dry_run)
-    elif args.command=='github':github_setup(args.dry_run)
+    elif args.command=='github':github_setup(profile,args.dry_run)
     if args.dry_run:ui.line('✓ Preview finished; no changes applied.','ok')
     elif args.command in ('apply','setup','sync','system'):
         ui.line(args.command.capitalize()+' finished. Run dots check to verify settings (including any deferred settings).')
