@@ -146,20 +146,21 @@ AlwaysShowTabBar = true
 [bootstrap.macos.defaults."com.apple.commerce"]
 AutoUpdate = true
 
+# macOS stores these gesture switches as integer 0/1. Keep the native type.
 [bootstrap.macos.defaults."com.apple.AppleMultitouchTrackpad"]
-Dragging = false
+Dragging = 0
 TrackpadRightClick = true
-TrackpadPinch = true
-TrackpadRotate = true
-TrackpadTwoFingerDoubleTapGesture = true
+TrackpadPinch = 1
+TrackpadRotate = 1
+TrackpadTwoFingerDoubleTapGesture = 1
 TrackpadTwoFingerFromRightEdgeSwipeGesture = 3
 
 [bootstrap.macos.defaults."com.apple.driver.AppleBluetoothMultitouch.trackpad"]
-Dragging = false
+Dragging = 0
 TrackpadRightClick = true
-TrackpadPinch = true
-TrackpadRotate = true
-TrackpadTwoFingerDoubleTapGesture = true
+TrackpadPinch = 1
+TrackpadRotate = 1
+TrackpadTwoFingerDoubleTapGesture = 1
 TrackpadTwoFingerFromRightEdgeSwipeGesture = 3
 
 [[bootstrap.macos.defaults_entries]]
@@ -207,6 +208,7 @@ description = "Search, declare and install a package"
 run = "/opt/homebrew/bin/uv run --no-project --offline --no-python-downloads --python 3.13 scripts/dots.py add"
 
 [tasks."machine:check"]
+raw = true
 description = "Read-only machine drift report"
 run = "/opt/homebrew/bin/uv run --no-project --offline --no-python-downloads --python 3.13 scripts/dots.py check"
 
@@ -221,6 +223,7 @@ description = "Install all declared packages and configure the machine"
 run = "/opt/homebrew/bin/uv run --no-project --offline --no-python-downloads --python 3.13 scripts/dots.py setup"
 
 [tasks."machine:update"]
+raw = true
 description = "Upgrade declared host packages"
 run = "/opt/homebrew/bin/uv run --no-project --offline --no-python-downloads --python 3.13 scripts/dots.py update"
 

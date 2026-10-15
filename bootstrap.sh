@@ -13,6 +13,16 @@ fi
 if [ -f "$root/.dots-profile" ] && [ "$(cat "$root/.dots-profile")" != "$profile" ]; then
   echo 'Profile already selected. Review installed apps before changing .dots-profile.' >&2; exit 1
 fi
+# Keep first-run output readable even before Python is available.
+step() {
+  if [ -t 1 ] && [ -z "${NO_COLOR+x}" ] && [ "${TERM:-}" != dumb ]; then
+    printf '\n\033[36m→ %s\033[0m\n' "$1"
+  else
+    printf '\n→ %s\n' "$1"
+  fi
+}
+trap 'printf "\n✗ Bootstrap stopped. Fix the error above and rerun the same command to continue.\n" >&2' ERR
+printf '\ndots · Set up this Mac · %s\n' "$profile"
 export PATH="$HOME/.local/bin:/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
 if "$dry"; then
   command -v mise >/dev/null || { echo 'Preview requires mise 2026.10.8 or newer; no prerequisites were installed.' >&2; exit 1; }
@@ -24,6 +34,7 @@ fi
 if [ -L "$HOME/.config" ]; then
   echo '~/.config is a symlink. Migrate it to an ordinary directory first; nothing changed.' >&2; exit 1
 fi
+step '[1/5] Prepare mise'
 if ! command -v mise >/dev/null; then
   version=2026.10.8
   expected=8228699f316dc17931beb86f7a1aac70e4685535430441492ff4e857c72535ad
@@ -38,12 +49,14 @@ if ! command -v mise >/dev/null; then
   rm -rf "$temp"
   trap - EXIT
 fi
+step '[2/5] Save the machine profile and trust configuration'
 cd "$root"
 mise trust "$root/mise.toml"
 mise trust "$root/mise.$profile.toml"
 mise trust "$root/config/mise/config.toml"
 printf '%s\n' "$profile" > "$root/.dots-profile"
 # mise owns package installation; Homebrew is retained for Warp and targeted removal.
+step '[3/5] Prepare Homebrew'
 if ! command -v brew >/dev/null; then
   temp=$(mktemp -d)
   trap 'rm -rf "$temp"' EXIT
@@ -52,9 +65,11 @@ if ! command -v brew >/dev/null; then
   rm -rf "$temp"
   trap - EXIT
 fi
+step '[4/5] Refresh metadata and prepare installer tools'
 /bin/bash "$root/scripts/refresh-packages.sh"
 # mas must exist before bootstrap processes App Store entries; uv runs the adapter.
 echo "Installing bootstrap prerequisites (uv and mas)..."
 mise -E "$profile" bootstrap packages apply --yes --raw brew:uv brew:mas
 uv python install 3.13
+step '[5/5] Install apps and apply your configuration'
 exec "$root/bin/dots" setup

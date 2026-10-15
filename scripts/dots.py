@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Small adapters around mise bootstrap; no third-party Python dependencies."""
 import argparse
-from contextlib import contextmanager
+from contextlib import contextmanager, nullcontext
 import datetime
 import fcntl
 import json
@@ -20,6 +20,8 @@ sys.path.insert(0,str(ROOT/'scripts'))
 from package_manager import Manager, canonical
 from display import configure as configure_display
 from check_report import check as report_check
+from update_progress import follow_log
+import terminal_ui as ui
 PROFILES = ('Personal', 'Wonderful')
 
 def load_profile(root=ROOT):
@@ -55,7 +57,7 @@ def choose(options, title):
     return options[int(answer)-1]
 
 def run(args, *, dry=False, capture=False, check=True, timeout=None, quiet=False):
-    if not quiet:print('+', ' '.join(map(str, args)), flush=True)
+    if not quiet:ui.command(args,dry=dry,capture=capture)
     if dry: return subprocess.CompletedProcess(args, 0, stdout='')
     return subprocess.run(list(map(str,args)), text=True, capture_output=capture,
                           check=check, timeout=timeout)
@@ -92,7 +94,8 @@ def check_machine(profile, verbose=False):
                         manager=Manager(ROOT,profile),verbose=verbose)
 
 def refresh_packages(dry=False):
-    run(['/bin/bash',str(ROOT/'scripts/refresh-packages.sh')],dry=dry)
+    with ui.stage('Refresh package metadata'):
+        run(['/bin/bash',str(ROOT/'scripts/refresh-packages.sh')],dry=dry)
 
 def install_packages(profile, dry=False):
     Manager(ROOT,profile).reconcile(dry=dry,remove=False)
@@ -138,28 +141,36 @@ def update_packages(profile, background=False, dry=False):
         if log_path.exists() and log_path.stat().st_size > 2_000_000:
             log_path.replace(log_dir/'update.previous.log')
         errors=[]
+        if not background:print(f'Updating {profile}. Live output below; log: {log_path}',flush=True)
         with log_path.open('a') as log:
             log.write(f'\n=== {stamp} {profile} ===\n');log.flush()
-            def execute(command):
+            def execute(command, label):
+                if not background:ui.line('\n→ '+label)
                 log.write('+ '+' '.join(command)+'\n');log.flush()
                 try:
-                    result=subprocess.run(command, stdin=subprocess.DEVNULL if background else None,
-                                          stdout=log,stderr=log,timeout=3600)
+                    with nullcontext() if background else follow_log(log,label):
+                        result=subprocess.run(command, stdin=subprocess.DEVNULL if background else None,
+                                              stdout=log,stderr=log,timeout=3600)
                     if result.returncode: errors.append(' '.join(command))
-                except (OSError,subprocess.TimeoutExpired) as error: errors.append(str(error))
-            execute(['/bin/bash',str(ROOT/'scripts/refresh-packages.sh')])
+                    if not background:ui.line('✗ Failed (continuing where possible).' if result.returncode else '✓ Done.','error' if result.returncode else 'ok')
+                except (OSError,subprocess.TimeoutExpired) as error:
+                    errors.append(str(error))
+                    log.write(str(error)+'\n');log.flush()
+                    if not background:ui.line(f'✗ Failed: {error}','error')
+            execute(['/bin/bash',str(ROOT/'scripts/refresh-packages.sh')],'Refreshing package metadata...')
             if not errors:
-                for package in sorted(Manager(ROOT,profile).desired()):
-                    if package.startswith(('brew:','brew-cask:')):
-                        execute([sys.executable,str(ROOT/'scripts/package_manager.py'),
-                                 '--root',str(ROOT),'--profile',profile,'upgrade',package])
+                packages=sorted(p for p in Manager(ROOT,profile).desired() if p.startswith(('brew:','brew-cask:')))
+                for index,package in enumerate(packages,1):
+                    execute([sys.executable,'-u',str(ROOT/'scripts/package_manager.py'),
+                             '--root',str(ROOT),'--profile',profile,'upgrade',package],
+                            f'[{index}/{len(packages)}] Checking/updating {package}')
         report={'time':stamp,'profile':profile,'ok':not errors,'failures':errors,'log':str(log_path)}
         tmp=state/'update.json.tmp';tmp.write_text(json.dumps(report,indent=2)+'\n');tmp.replace(state/'update.json')
         if errors:
             print(f'Update needs attention: {log_path}',file=sys.stderr)
             if background:
                 subprocess.run(['osascript','-e','display notification "Some packages need attention. Run dots check." with title "Dotfiles update"'],check=False)
-        else: print('Update finished:',log_path)
+        else: ui.line(f'✓ Update finished. Log: {log_path}','ok')
         return int(bool(errors))
 
 def read_defaults(domain):
@@ -235,28 +246,34 @@ def prepare_launch_agents(dry=False):
         raise ValueError(f'{directory} is still not writable; inspect its permissions and ACL with ls -ldeO@')
 
 def apply(profile, setup=False, dry=False):
-    preflight_links()
-    prepare_launch_agents(dry=dry)
-    # Store pre-change preferences locally, never in the repository.
-    if not dry:
-        stamp=datetime.datetime.now().strftime('%Y%m%d-%H%M%S')
-        backup=Path.home()/'.local/state/lidan-dotfiles/backups'/stamp
-        backup.mkdir(parents=True,mode=0o700)
-        cfg=tomllib.loads((ROOT/'mise.toml').read_text())['bootstrap']['macos']
-        domains=set(cfg.get('defaults',{}))|{'NSGlobalDomain','com.apple.symbolichotkeys','com.apple.HIToolbox'}
-        for domain in domains:
-            (backup/(domain+'.plist')).write_bytes(plistlib.dumps(read_defaults(domain)))
-        (backup/'power.txt').write_text(subprocess.check_output(['pmset','-g','custom'],text=True,stderr=subprocess.PIPE))
+    with ui.stage('Check configuration and permissions'):
+        preflight_links()
+        prepare_launch_agents(dry=dry)
+    with ui.stage('Back up current preferences' if not dry else 'Preview preferences (no backup written)'):
+        # Store pre-change preferences locally, never in the repository.
+        if not dry:
+            stamp=datetime.datetime.now().strftime('%Y%m%d-%H%M%S')
+            backup=Path.home()/'.local/state/lidan-dotfiles/backups'/stamp
+            backup.mkdir(parents=True,mode=0o700)
+            cfg=tomllib.loads((ROOT/'mise.toml').read_text())['bootstrap']['macos']
+            domains=set(cfg.get('defaults',{}))|{'NSGlobalDomain','com.apple.symbolichotkeys','com.apple.HIToolbox'}
+            for domain in domains:
+                (backup/(domain+'.plist')).write_bytes(plistlib.dumps(read_defaults(domain)))
+            (backup/'power.txt').write_text(subprocess.check_output(['pmset','-g','custom'],text=True,stderr=subprocess.PIPE))
     if setup:
-        install_packages(profile,dry=dry)
+        with ui.stage('Install declared applications and tools'):
+            install_packages(profile,dry=dry)
         parts='dotfiles,macos-defaults,user,macos-launchd-agents'
     else:parts='dotfiles,macos-defaults,macos-launchd-agents'
     command=mise(profile,'bootstrap','--only',parts)
     if dry:command.append('--dry-run')
-    run(command)
-    system(profile,dry=dry)
+    with ui.stage('Apply dotfiles and macOS preferences'):
+        run(command)
+    with ui.stage('Configure display, computer name and power',verify=True):
+        system(profile,dry=dry)
     if setup:
-        run(mise(profile,'install','node@24','go@1.26'),dry=dry)
+        with ui.stage('Prepare Node.js and Go'):
+            run(mise(profile,'install','node@24','go@1.26'),dry=dry)
     print('Open a new Fish session after setup. Log out/in for preferences to take effect.')
 
 def github_setup(dry=False):
@@ -288,9 +305,11 @@ def main():
     parser.add_argument('--scope',choices=['shared',*PROFILES])
     parser.add_argument('--dry-run',action='store_true')
     parser.add_argument('--background',action='store_true')
-    parser.add_argument('--verbose',action='store_true',help='Show full diagnostics for check')
+    parser.add_argument('--verbose',action='store_true',help='Show full diagnostics and commands')
     args=parser.parse_args()
     profile=load_profile()
+    if args.verbose:os.environ['DOTS_VERBOSE']='1'
+    if args.command!='check' and not args.background:ui.heading(args.command,profile,args.dry_run)
     if args.command=='sync':
         before=run(['git','-C',str(ROOT),'rev-parse','HEAD'],capture=True).stdout.strip()
         run(['git','-C',str(ROOT),'pull','--ff-only'],dry=args.dry_run)
@@ -317,10 +336,15 @@ def main():
     elif args.command=='apply':apply(profile,dry=args.dry_run)
     elif args.command=='system':system(profile,args.dry_run)
     elif args.command=='github':github_setup(args.dry_run)
+    if args.dry_run:ui.line('✓ Preview finished; no changes applied.','ok')
+    elif args.command in ('apply','setup','sync','system'):
+        ui.line(args.command.capitalize()+' finished. Run dots check to verify settings (including any deferred settings).')
+    else:ui.line('✓ '+args.command.capitalize()+' finished.','ok')
     return 0
 
 if __name__=='__main__':
     try:sys.exit(main())
     except (ValueError,OSError,subprocess.SubprocessError,EOFError) as error:
-        print(f'dots: {error}',file=sys.stderr);sys.exit(1)
-    except KeyboardInterrupt:sys.exit(130)
+        ui.line(f'✗ {error}','error',stream=sys.stderr);sys.exit(1)
+    except KeyboardInterrupt:
+        ui.line('Stopped. Completed changes are retained; rerun to continue.','warn',stream=sys.stderr);sys.exit(130)

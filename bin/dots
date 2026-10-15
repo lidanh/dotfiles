@@ -10,9 +10,30 @@ root=$(cd -P "$(dirname "$source_path")/.." && pwd)
 export PATH="$HOME/.local/bin:/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
 case "${1:-help}" in
   help|--help|-h)
-    echo 'dots add <package> | remove <package> | sync | check | update | apply | setup | github'
-    echo 'Use dots check --verbose for full diagnostics.'
-    echo 'Use --dry-run with add/remove/sync/update/apply/setup. Profile is selected once by bootstrap.sh.'
+    cat <<'HELP'
+dots — manage this Mac
+
+  setup                Install and configure a machine
+  apply                Apply configuration changes
+  sync                 Pull, install, remove retired packages and apply
+  check                Show what needs attention
+  update               Update packages with live output
+
+  add <package>        Install, save to the selected scope, commit and push
+  remove <package>     Uninstall, remove declarations, commit and push
+  github               Connect GitHub and this machine's SSH key
+
+Examples
+  dots add jq
+  dots add brew-cask:firefox --scope shared
+  dots remove firefox
+  dots sync --dry-run
+  dots check --verbose
+
+--dry-run previews add/remove/sync/update/apply/setup.
+--verbose shows command details (and full diagnostics for check).
+The machine profile is remembered from bootstrap.sh.
+HELP
     exit 0 ;;
   add) task=pkg:add ;;
   remove) task=pkg:remove ;;

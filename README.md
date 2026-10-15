@@ -97,3 +97,5 @@ Sync tracks successful installs locally. Its first run does not remove unknown a
 Setup/sync delegates normal installation to mise, so existing mise apps such as Creative Cloud are not converted to Homebrew. If an earlier install was interrupted and no valid record remains, mise may retry it. Targeted removal still uses Homebrew/mas because mise does not support individual removal for all Mac package types. For native mise casks, dots preserves their receipts and verifies recorded artifacts after the vendor uninstall; incomplete removals keep their declarations and remain pending. No broad prune is used.
 
 App settings are a snapshot of the original Mac. Review UI changes with `git diff` before committing; cloud sync may also change Warp settings. Cursor extensions and app sign-ins are not included. Live GUI writes through symlinks have not been verified.
+
+Commands show setup phases, package counters and live update output. `--verbose` shows full commands; `NO_COLOR=1` disables colors. Updates keep a log at `~/Library/Logs/lidan-dotfiles/update.log`.

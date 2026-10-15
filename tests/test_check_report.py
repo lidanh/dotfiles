@@ -4,11 +4,13 @@ import json
 from contextlib import redirect_stdout
 from pathlib import Path
 import subprocess
+import sys
 import tempfile
 import unittest
 from unittest.mock import Mock
 
 ROOT=Path(__file__).resolve().parents[1]
+sys.path.insert(0,str(ROOT/'scripts'))
 spec=importlib.util.spec_from_file_location('check_report',ROOT/'scripts/check_report.py')
 report=importlib.util.module_from_spec(spec);spec.loader.exec_module(report)
 
@@ -46,7 +48,7 @@ class CheckReportTests(unittest.TestCase):
         entries.append(dict(domain='com.apple.dock',key='persistent-apps',value=['/Applications/X.app']*17,current='array (23 items)',state='differs'))
         self.path.write_text(json.dumps(dict(time='2026-10-15T11:02:09+03:00',ok=False,failures=['/bin/mise bootstrap packages upgrade --yes brew-cask:dropbox'],log='/tmp/update.log')))
         code,text=self.run_check()
-        self.assertEqual(code,1);self.assertIn('Trackpad: 8',text);self.assertIn('Dock:',text);self.assertIn('23',text);self.assertIn('17',text)
+        self.assertEqual(code,1);self.assertNotIn('Trackpad: 8',text);self.assertIn('Dock:',text);self.assertIn('23',text);self.assertIn('17',text)
         self.assertIn('dropbox',text);self.assertIn('dots apply',text);self.assertIn('dots update',text)
         self.assertNotIn('/bin/mise',text);self.assertNotIn('TrackpadPinch',text)
         self.assertLess(len(text.splitlines()),20)
@@ -107,3 +109,15 @@ class CheckReportTests(unittest.TestCase):
         code,text=self.run_check(verbose=True)
         self.assertEqual(code,1)
         self.assertIn('specific native failure',text);self.assertIn('native stdout',text)
+
+    def test_equivalent_trackpad_storage_is_healthy(self):
+        self.data[1]['macos_defaults']['entries']=[dict(domain='com.apple.AppleMultitouchTrackpad',key='Dragging',value=False,current='0 (integer; expected boolean)',state='differs')]
+        code,text=self.run_check()
+        self.assertEqual(code,0)
+        self.assertIn('Mac preferences (1)',text)
+
+    def test_different_trackpad_value_is_still_reported(self):
+        self.data[1]['macos_defaults']['entries']=[dict(domain='com.apple.AppleMultitouchTrackpad',key='Dragging',value=False,current='1 (integer; expected boolean)',state='differs')]
+        code,text=self.run_check()
+        self.assertEqual(code,1)
+        self.assertIn('Dragging',text)

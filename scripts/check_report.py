@@ -5,6 +5,7 @@ import json
 from pathlib import Path
 import re
 import subprocess
+import terminal_ui as ui
 
 COMMANDS=[('Dotfiles',['dotfiles','status']),
           ('Mac preferences',['bootstrap','macos','defaults','status']),
@@ -23,7 +24,7 @@ def records(group,key):
     return rows
 
 def check(profile,*,native,preflight,system,manager,report_path=None,verbose=False):
-    print(f'dots check · {profile}',flush=True)
+    ui.line(f'dots check · {profile}')
     good=[];issues=[];notes=[];actions=[];details=[]
     def issue(text,action=None):
         issues.append(short(text))
@@ -64,15 +65,15 @@ def check(profile,*,native,preflight,system,manager,report_path=None,verbose=Fal
                 typed=[];other=[]
                 for row in bad:
                     domain=row['domain'];value=row['value'];current=row['current']
-                    if domain in ('com.apple.AppleMultitouchTrackpad','com.apple.driver.AppleBluetoothMultitouch.trackpad') and isinstance(value,bool) and current==f'{int(value)} (integer; expected boolean)':typed.append(row)
+                    if domain in ('com.apple.AppleMultitouchTrackpad','com.apple.driver.AppleBluetoothMultitouch.trackpad') and row['key'] in ('Dragging','TrackpadPinch','TrackpadRotate','TrackpadTwoFingerDoubleTapGesture') and isinstance(value,bool) and current==f'{int(value)} (integer; expected boolean)':typed.append(row)
                     else:other.append(row)
-                if typed:issue(f'Trackpad: {len(typed)} settings stored as 0/1 instead of false/true (values agree).','dots check --verbose')
+                if typed:details.append(('Trackpad storage',f'{len(typed)} boolean values match their 0/1 representation.'))
                 for row in other[:5]:
                     if row['domain']=='com.apple.dock' and row['key']=='persistent-apps' and isinstance(row['value'],list):
                         issue(f'Dock: app list/order differs; current {row["current"]}, expected {len(row["value"])} items.','dots apply')
                     else:issue(f'{row["domain"]} / {row["key"]}: {row["state"]}; current {short(row["current"],45)}, expected {short(json.dumps(row["value"]),45)}','dots apply')
                 if len(other)>5:issue(f'{len(other)-5} more Mac preference differences','dots check --verbose')
-                if not bad:good.append(f'Mac preferences ({len(rows)})')
+                if not other:good.append(f'Mac preferences ({len(rows)})')
             elif label=='Update schedule':
                 rows=records(data['launchd'],'agents');bad=[r for r in rows if r['state']!='loaded']
                 for row in bad:issue(f'Update service {row["name"]}: {row["state"]}','dots apply')
@@ -122,9 +123,9 @@ def check(profile,*,native,preflight,system,manager,report_path=None,verbose=Fal
                 if update.get('log'):notes.append('Update log: '+short(str(update['log']).replace(str(Path.home()),'~')))
         except ERRORS as error:unknown('last update',error)
     else:notes.append('Automatic updates: no run recorded yet.')
-    print('Needs attention.' if issues else 'All checked settings match.')
-    if good:print('OK: '+' · '.join(good))
-    for item in issues:print('! '+item)
+    ui.line('Needs attention.' if issues else 'All checked settings match.','warn' if issues else 'ok')
+    if good:ui.line('OK: '+' · '.join(good),'ok')
+    for item in issues:ui.line('! '+item,'warn')
     for note in notes:print(note)
     next_actions=[a for a in actions if a!='dots check --verbose']
     if next_actions:print('Next: '+'; '.join(next_actions))

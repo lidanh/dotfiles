@@ -4,6 +4,7 @@ Mise owns normal installation and status. Existing Homebrew-owned casks keep
 their owner; Warp remains a scoped exception. Homebrew/mas provide targeted
 uninstallation until mise supports it. Never run a whole-machine prune or zap.
 """
+import terminal_ui as ui
 import json
 import os
 from pathlib import Path
@@ -81,7 +82,7 @@ class Manager:
         self.ledger=self.state/'managed-packages.json'
 
     def command(self,args,*,dry=False,capture=False,check=True):
-        print('+',' '.join(map(str,args)),flush=True)
+        ui.command(args,dry=dry,capture=capture)
         if dry:return subprocess.CompletedProcess(args,0,stdout='')
         return subprocess.run(list(map(str,args)),check=check,text=True,capture_output=capture)
 
@@ -295,16 +296,18 @@ class Manager:
         if not remove:removed=[]
         forbidden={p for p in removed if protected(p)}
         if forbidden:raise ValueError('Required dots dependencies cannot be removed: '+', '.join(sorted(forbidden)))
-        print('Ensure installed:',', '.join(desired));print('Remove:',', '.join(removed) or '(none)')
+        ui.line(f'Packages: {len(desired)} to check/install · {len(removed)} to remove')
         for action,items in [('install',desired),('uninstall',removed)]:
             # Never start removals after a failed installation phase.
             if action=='uninstall' and failures:break
-            for package in items:
+            for index,package in enumerate(items,1):
+                ui.line(f'\n→ [{index}/{len(items)}] {action.capitalize()}: {package}')
                 try:
                     getattr(self,action)(package,dry=dry)
                     if not dry:
                         managed.add(package) if action=='install' else managed.discard(package)
                         self.save(managed)
+                    ui.line('✓ Previewed' if dry else '✓ Ready','ok')
                 except (ValueError,OSError,subprocess.CalledProcessError) as error:
                     if isinstance(error,subprocess.CalledProcessError) and error.returncode in (130,-2):raise KeyboardInterrupt
                     failures.append(package);print('FAILED:',package,str(error),flush=True)

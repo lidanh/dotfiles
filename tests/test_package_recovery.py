@@ -47,4 +47,36 @@ class RecoveryTests(unittest.TestCase):
                 self.assertFalse(report['ok'])
                 self.assertIn('refresh-packages.sh',report['failures'][0])
 
+
+    def test_foreground_update_has_live_output_and_package_counter(self):
+        import io
+        from contextlib import redirect_stdout
+        with tempfile.TemporaryDirectory() as directory:
+            output=io.StringIO()
+            def execute(command,**kwargs):
+                kwargs['stdout'].write('installer progress\n');kwargs['stdout'].flush()
+                return subprocess.CompletedProcess(command,0)
+            with patch.object(dots.Path,'home',return_value=Path(directory)),patch.object(dots,'Manager') as manager,patch.object(dots.subprocess,'run',side_effect=execute),redirect_stdout(output):
+                manager.return_value.desired.return_value={'brew:jq','mas:123'}
+                self.assertEqual(dots.update_packages('Personal'),0)
+            self.assertIn('[1/1] Checking/updating brew:jq',output.getvalue())
+            self.assertIn('installer progress',output.getvalue())
+            self.assertIn('Update finished',output.getvalue())
+
+    def test_background_update_keeps_child_output_in_log(self):
+        import io
+        from contextlib import redirect_stdout
+        with tempfile.TemporaryDirectory() as directory:
+            output=io.StringIO()
+            def execute(command,**kwargs):
+                self.assertIs(kwargs['stdin'],subprocess.DEVNULL)
+                kwargs['stdout'].write('background detail\n');kwargs['stdout'].flush()
+                return subprocess.CompletedProcess(command,0)
+            with patch.object(dots.Path,'home',return_value=Path(directory)),patch.object(dots,'Manager') as manager,patch.object(dots.subprocess,'run',side_effect=execute),redirect_stdout(output):
+                manager.return_value.desired.return_value={'brew:jq'}
+                self.assertEqual(dots.update_packages('Personal',background=True),0)
+            self.assertNotIn('background detail',output.getvalue())
+            self.assertNotIn('[1/1]',output.getvalue())
+            self.assertIn('background detail',(Path(directory)/'Library/Logs/lidan-dotfiles/update.log').read_text())
+
 if __name__ == '__main__': unittest.main()
