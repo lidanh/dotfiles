@@ -17,6 +17,7 @@ battery_dim = 1
 adopt = true
 
 [bootstrap.packages]
+"brew-cask:grok-bot" = "latest"
 "brew:git" = "latest"
 "brew:gh" = "latest"
 "brew:fish" = "latest"
