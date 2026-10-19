@@ -108,6 +108,26 @@ if ('packages' in sys.argv or sys.argv[1:3] == ['install','--formula']) and os.e
         commands=[call.args[0] for call in run.call_args_list]
         self.assertTrue(any('set-url' in c and 'git@github.com:lidanh/dotfiles.git' in c for c in commands))
 
+    def test_wful_runs_only_during_wonderful_setup_and_honors_preview(self):
+        for profile, setup in [('Wonderful', True), ('Personal', True), ('Wonderful', False)]:
+            with self.subTest(profile=profile, setup=setup), \
+                 patch.object(dots, 'preflight_links'), patch.object(dots, 'prepare_launch_agents'), \
+                 patch.object(dots, 'install_packages'), patch.object(dots, 'system'), \
+                 patch.object(dots, 'run') as run:
+                dots.apply(profile, setup=setup, dry=True)
+                calls = [call for call in run.call_args_list if 'wonderful:setup' in call.args[0]]
+                self.assertEqual(len(calls), int(profile == 'Wonderful' and setup))
+                if calls:
+                    self.assertTrue(calls[0].kwargs['dry'])
+
+    def test_wful_download_failure_stops_installer(self):
+        curl = self.bin / 'curl'
+        curl.write_text('#!/bin/sh\nexit 22\n')
+        curl.chmod(0o755)
+        result = subprocess.run(['/bin/bash', str(self.repo/'scripts/install-wful.sh')],
+                                env=self.env, capture_output=True, text=True)
+        self.assertEqual(result.returncode, 22)
+
     def test_github_does_not_repoint_a_fork(self):
         with patch.object(dots, 'run') as run, patch.object(dots,'github_keychain'):
             run.return_value=subprocess.CompletedProcess([],0,stdout='https://github.com/another-user/dotfiles.git\n')

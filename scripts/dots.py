@@ -274,6 +274,9 @@ def apply(profile, setup=False, dry=False):
     if setup:
         with ui.stage('Prepare Node.js and Go'):
             run(mise(profile,'install','node@24','go@1.26'),dry=dry)
+        if profile == 'Wonderful':
+            with ui.stage('Install Wonderful CLI (wful)'):
+                run(mise(profile,'run','wonderful:setup'),dry=dry)
     print('Open a new Fish session after setup. Log out/in for preferences to take effect.')
 
 def github_keychain(profile, dry=False):

@@ -2,7 +2,28 @@
 [vars]
 computer_name = "Lidan-Work-Macbook"
 
+[tasks."wonderful:setup"]
+description = "Install the Wonderful CLI"
+run = "bash scripts/install-wful.sh"
+
 [bootstrap.packages]
+"brew:kubectx" = "latest"
+"brew:goenv" = "latest"
+"brew:nvm" = "latest"
+"brew:node" = "latest"
+"brew:delve" = "latest"
+"brew:python@3.15" = "latest"
+"brew:cloudflared" = "latest"
+"brew:pnpm" = "latest"
+"brew:devcontainer" = "latest"
+"brew:libpq" = "latest"
+"brew:pkgconf" = "latest"
+"brew:pcre2" = "latest"
+"brew:opus" = "latest"
+"brew:opusfile" = "latest"
+"brew:lame" = "latest"
+"brew:protobuf" = "latest"
+"brew:rustup" = "latest"
 "brew:git-lfs" = "latest"
 "brew:helm" = "latest"
 "brew:kubernetes-cli" = "latest"
